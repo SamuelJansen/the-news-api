@@ -1,0 +1,1 @@
+AUDIO_DATA_STATIC_URI = '/audios'
