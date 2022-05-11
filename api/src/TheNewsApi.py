@@ -14,4 +14,4 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 @app.route(f'{app.api.baseUrl}')
 def home():
-    return render_template(TheNewsConfig.TODAYS_NEWS_FILE_NAME, staticUrl=ResourceManager.getApiStaticUrl(app))
+    return render_template(TheNewsConfig.TODAY_NEWS_FILE_NAME, staticUrl=ResourceManager.getApiStaticUrl(app))

@@ -22,7 +22,7 @@ class TheNewsService:
     @ServiceMethod()
     def updateTodaysNews(self):
         log.status(self.updateTodaysNews, f'Updating today news')
-        emailBody = self.getEmailBodyList(TheNewsConfig.TODAYS_NEWS_EMAIL_AMOUNT)
+        emailBody = self.getEmailBodyList(TheNewsConfig.TODAY_NEWS_EMAIL_AMOUNT)
         subject = emailBody.get(EMAIL_SUBJECT_KEY, c.BLANK)
         emailBodySentenceList = self.getEmailBodySentenceList(
             subject,
@@ -49,7 +49,7 @@ class TheNewsService:
         html = StringHelper.join(collectedBody, character='<body')
         html = html.replace('</body>', '<script src="{{staticUrl}}/utils.js" type="text/javascript"></script></body>')
 
-        self.client.theNews.writeContent(TheNewsConfig.TODAYS_NEWS_FILE_NAME, subject, html, FileOperation.OVERRIDE_TEXT)
+        self.client.theNews.writeContent(TheNewsConfig.TODAY_NEWS_FILE_NAME, subject, html, FileOperation.OVERRIDE_TEXT)
         self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
         log.status(self.updateTodaysNews, f'Todays news updated')
 
