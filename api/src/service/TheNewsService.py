@@ -105,15 +105,6 @@ class TheNewsService:
                 ):
                     isMarketing = True
                 elif emailBodySentence.split()[-1].isupper():
-                    # elif (
-                    #     emailBodySentence[-1].isupper() and
-                    #     not (
-                    #         emailBodySentence.startswith('CLIQUE PARA COMPARTILHAR') or
-                    #         emailBodySentence.endswith('FL') or
-                    #         emailBodySentence.endswith('QUIZ THE NEWS') or
-                    #         emailBodySentence.endswith('EDIÇÃO ESPECIAL DE SÁBADO')
-                    #     )
-                    # ):
                     isMarketing = False
 
                 if not isMarketing:
@@ -132,7 +123,6 @@ class TheNewsService:
                         if StringHelper.isBlank(sentence):
                             sentence = lastSentence
                         if upperCaseWords.startswith('PATROCINADO POR'):
-                            notFilteredEmailBodySentenceList.pop()
                             isMarketing = True
                         if not isMarketing:
                             notFilteredEmailBodySentenceList.append(sentence.strip())
