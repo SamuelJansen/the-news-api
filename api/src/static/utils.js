@@ -365,7 +365,7 @@ const handleAuthenticationHeader = (response) => {
 }
 
 const getAudioData = () => {
-    return fetchWithTimeout(`${THE_NEWS_CDN_BASE_URL}/the-news/today`,
+    return fetchWithTimeout(`${THE_NEWS_API_BASE_URL}/the-news/today`,
         {
             method: 'GET',
             headers: DEFAULT_HEADERS
