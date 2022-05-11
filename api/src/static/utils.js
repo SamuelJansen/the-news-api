@@ -21,11 +21,11 @@ let isMobile = undefined
 
 class ClickHandler {
     constructor() {
-        this.defaultTimeout = 300
+        this.defaultTimeout = 500
         this.clickEnabled = true
     }
 
-    briaflyDisableClick = () => {
+    breaflyDisableClick = () => {
         this.clickEnabled = false
         setTimeout(() => {
             this.clickEnabled = true
@@ -289,6 +289,8 @@ class NonConcurrentAudioManager {
 
     _updateCurrentAudio = () => {
         this.currentAudioIsRequested = true
+        delete this.currentAudio
+        this.currentAudio = null
         if (0 < this.buffer.length) {
             this.currentAudio = this.buffer.shift()
             console.log(`adding new current audio ${this.currentAudio}`)
@@ -372,7 +374,7 @@ const getAudioData = () => {
 
 const handlePlayClick = () => {
     if (clickHandler.isAllowed()) {
-        clickHandler.briaflyDisableClick()
+        clickHandler.breaflyDisableClick()
         audioManager.tooglePlayAll()
     }
 }
