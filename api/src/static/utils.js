@@ -37,7 +37,7 @@ class ClickHandler {
     }
 }
 
-class NonConcurrentAudioManager {
+class AudioQueueManager {
 
     constructor() {
         this.currentAudioIsPlaying = false
@@ -289,9 +289,11 @@ class NonConcurrentAudioManager {
 
     _updateCurrentAudio = () => {
         this.currentAudioIsRequested = true
-        this.currentAudio.remove()
-        delete this.currentAudio
-        this.currentAudio = null
+        if (this.currentAudio) {
+            this.currentAudio.remove()
+            delete this.currentAudio
+            this.currentAudio = null
+        }
         if (0 < this.buffer.length) {
             this.currentAudio = this.buffer.shift()
             console.log(`adding new current audio ${this.currentAudio}`)
@@ -316,7 +318,7 @@ class NonConcurrentAudioManager {
 }
 
 clickHandler = new ClickHandler()
-audioManager = new NonConcurrentAudioManager()
+audioManager = new AudioQueueManager()
 
 const fetchWithTimeout = (url, options={}) => {
     const { timeout = DEFAULT_REQUEST_TIMEOUT } = options
