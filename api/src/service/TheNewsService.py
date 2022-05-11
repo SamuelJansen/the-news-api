@@ -20,6 +20,11 @@ TEXT_HTML_KEY = 'textHtml'
 class TheNewsService:
 
     @ServiceMethod()
+    def getTodayNewsHtmlFileName(self):
+        return f'{TheNewsConfig.TODAY_NEWS_FILE_PREFIX_NAME}{c.DASH}{DateTimeHelper.dateNow()}{c.DOT}{TheNewsConfig.TODAY_NEWS_FILE_EXTENSION}'
+
+
+    @ServiceMethod()
     def updateTodaysNews(self):
         log.status(self.updateTodaysNews, f'Updating today news')
         emailBody = self.getEmailBodyList(TheNewsConfig.TODAY_NEWS_EMAIL_AMOUNT)
@@ -49,7 +54,7 @@ class TheNewsService:
         html = StringHelper.join(collectedBody, character='<body')
         html = html.replace('</body>', '<script src="{{staticUrl}}/utils.js" type="text/javascript"></script></body>')
 
-        self.client.theNews.writeContent(TheNewsConfig.TODAY_NEWS_FILE_NAME, subject, html, FileOperation.OVERRIDE_TEXT)
+        self.client.theNews.writeContent(self.getTodayNewsHtmlFileName(), subject, html, FileOperation.OVERRIDE_TEXT)
         self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
         log.status(self.updateTodaysNews, f'Todays news updated')
 
@@ -119,11 +124,13 @@ class TheNewsService:
                                 upperCaseWords = c.BLANK
                             else:
                                 break
+                        if upperCaseWords.startswith('PATROCINADO POR'):
+                            isMarketing = True
                         sentence = emailBodySentence.replace(upperCaseWords, c.BLANK)
                         if StringHelper.isBlank(sentence):
                             sentence = lastSentence
-                        if upperCaseWords.startswith('PATROCINADO POR'):
-                            isMarketing = True
+                            if isMarketing:
+                                notFilteredEmailBodySentenceList.pop()
                         if not isMarketing:
                             notFilteredEmailBodySentenceList.append(sentence.strip())
                             notFilteredEmailBodySentenceList.append(upperCaseWords.strip())
