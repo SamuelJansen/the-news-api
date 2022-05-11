@@ -44,7 +44,7 @@ voice-manager-api:
     default-timeout-in-seconds: 10
 
 queue-manager-api:
-    base-url: ${QUEUE_MANAGER_API_HOST}${api.server.base-url}
+    base-url: ${QUEUE_MANAGER_API_HOST}/queue-manager-api
     api-key: ${QUEUE_MANAGER_API_API_KEY}
     voice-manager-api:
         create-today-news-voice:
