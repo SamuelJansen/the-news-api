@@ -110,10 +110,23 @@ class TheNewsService:
                 ):
                     isMarketing = True
                 elif emailBodySentence.split()[-1].isupper():
+                    if isMarketing:
+                        notFilteredEmailBodySentenceList.append(lastSentence)
                     isMarketing = False
 
-                if not isMarketing:
-                    if (not isMarketing and not emailBodySentence.split()[-1].isupper()):
+                if isMarketing:
+                    lastSentence = emailBodySentence
+                else:
+                    if (
+                        (
+                            4 < len(emailBodySentence.split()[-1].strip()) and
+                            not emailBodySentence.split()[-1].strip()[-1].isupper() and
+                            not emailBodySentence.split()[-1].strip()[-2].isupper() and
+                            not emailBodySentence.split()[-1].strip()[-3].isupper() and
+                            not emailBodySentence.split()[-1].strip()[-4].isupper() and
+                            not emailBodySentence.split()[-1].strip()[-5].isupper()
+                        ) if emailBodySentence.split()[-1].strip() else not isMarketing
+                    ):
                         notFilteredEmailBodySentenceList.append(emailBodySentence)
                     else:
                         upperCaseWords = c.BLANK
@@ -124,25 +137,37 @@ class TheNewsService:
                                 upperCaseWords = c.BLANK
                             else:
                                 break
+                        sentence = emailBodySentence.replace(upperCaseWords, c.BLANK)
                         if upperCaseWords.startswith('PATROCINADO POR'):
                             isMarketing = True
-                        sentence = emailBodySentence.replace(upperCaseWords, c.BLANK)
-                        if StringHelper.isBlank(sentence):
-                            sentence = lastSentence
-                            if isMarketing:
-                                notFilteredEmailBodySentenceList.pop()
-                        if not isMarketing:
-                            notFilteredEmailBodySentenceList.append(sentence.strip())
-                            notFilteredEmailBodySentenceList.append(upperCaseWords.strip())
+                            if StringHelper.isBlank(sentence):
+                                rawMarketingSentence = notFilteredEmailBodySentenceList.pop()
+                                splitedRawMarketingSentence = rawMarketingSentence.split(f'{6*c.SPACE}')
+                                if 1 < len(splitedRawMarketingSentence):
+                                    for notMarketingSentence in splitedRawMarketingSentence[:-1]:
+                                        if StringHelper.isNotBlank(notMarketingSentence):
+                                            notFilteredEmailBodySentenceList.append(notMarketingSentence.strip())
+                            else:
+                                splitedRawMarketingSentence = sentence.split(f'{6*c.SPACE}')
+                                if 1 < len(splitedRawMarketingSentence):
+                                    for notMarketingSentence in splitedRawMarketingSentence[:-1]:
+                                        if StringHelper.isNotBlank(notMarketingSentence):
+                                            notFilteredEmailBodySentenceList.append(notMarketingSentence.strip())
 
-                lastSentence = emailBodySentence
+                        else:
+                            if 4 < len(upperCaseWords) and not StringHelper.isBlank(sentence):
+                                notFilteredEmailBodySentenceList.append(sentence.strip())
+                                notFilteredEmailBodySentenceList.append(upperCaseWords.strip())
+                            else:
+                                notFilteredEmailBodySentenceList.append(emailBodySentence)
 
             filteredEmailBodySentenceList = [
                 emailBodySentence if not '[http' in emailBodySentence else ' '.join([
                     ' '.join([
                         p if not p.startswith('s://') else f'{c.NEW_LINE}[Link]{c.NEW_LINE}'
                         for p in part.split(']')
-                    ]) for part in emailBodySentence.split('[http')
+                    ])
+                    for part in emailBodySentence.split('[http')
                 ])
                 for emailBodySentence in notFilteredEmailBodySentenceList
             ]
@@ -154,6 +179,7 @@ class TheNewsService:
                 if (
                     StringHelper.isNotBlank(emailBodySentence.strip()) and
                     not c.DOT == emailBodySentence.strip() and
+                    not c.COMA == emailBodySentence.strip() and
                     not '[Link]' == emailBodySentence.strip()
                 )
             ]
@@ -193,12 +219,17 @@ class TheNewsService:
             emailBodySentenceList = [
                 sentence
                 for sentence in emailBodySentenceList
-                if not sentence.lower().startswith('(imagem') and not sentence.lower().startswith('(gif') and not sentence.lower().startswith('(foto')
+                if (
+                    not sentence.lower().startswith('(imagem') and
+                    not sentence.lower().startswith('(gif') and
+                    not sentence.lower().startswith('(foto') and
+                    not sentence.lower().startswith('(print')
+                )
             ]
 
             compiledEmailBodyList = []
             for sentence in emailBodySentenceList:
-                if (StringHelper.isNotBlank(sentence)):
+                if StringHelper.isNotBlank(sentence):
                     if sentence.isupper():
                         compiledEmailBodyList = [*compiledEmailBodyList[:-1], sentence, compiledEmailBodyList[-1]]
                     elif 3 > len(sentence):

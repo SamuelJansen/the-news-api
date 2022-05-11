@@ -8,10 +8,8 @@ api:
 
 email-manager-api:
     base-url: ${EMAIL_MANAGER_API_HOST}:6065/email-manager-api
-
 voice-manager-api:
     base-url: ${VOICE_MANAGER_API_HOST}:5050/voice-manager-api
-
 queue-manager-api:
     base-url: ${QUEUE_MANAGER_API_HOST}:6931/queue-manager-api
 
