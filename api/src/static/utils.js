@@ -289,6 +289,7 @@ class NonConcurrentAudioManager {
 
     _updateCurrentAudio = () => {
         this.currentAudioIsRequested = true
+        this.currentAudio.remove()
         delete this.currentAudio
         this.currentAudio = null
         if (0 < this.buffer.length) {
