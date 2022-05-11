@@ -1,6 +1,12 @@
 const htmlBody = document.querySelector('body')
 
-const VOICE_API_BASE_URL = `${document.URL}`
+const THE_NEWS_BASE_URL = `${document.URL}`
+const THE_NEWS_CDN_BASE_URL = `${THE_NEWS_BASE_URL}`.replace('studies', 'cdn')
+const THE_NEWS_API_BASE_URL = `${THE_NEWS_BASE_URL}`.replace('studies', 'rapid-api')//.replace('the-news', 'the-news-api')
+
+const WORDLE_CDN_URL = `${WORDLE_BASE_URL}`.replace('studies', 'cdn')
+const WORDLE_API_BASE_URL = `${WORDLE_BASE_URL}`.replace('studies', 'rapid-api').replace('wordle', 'wordle-api')
+
 const DEFAULT_REQUEST_TIMEOUT = 15000
 const SMALL_TIMEOUT = DEFAULT_REQUEST_TIMEOUT / 5
 const DEFAULT_AUDIO_TIMEOUT = 350
@@ -362,7 +368,7 @@ const handleAuthenticationHeader = (response) => {
 }
 
 const getAudioData = () => {
-    return fetchWithTimeout(`${VOICE_API_BASE_URL}/the-news/today`,
+    return fetchWithTimeout(`${THE_NEWS_CDN_BASE_URL}/the-news/today`,
         {
             method: 'GET',
             headers: DEFAULT_HEADERS
