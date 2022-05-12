@@ -21,7 +21,7 @@ const DEFAULT_HEADERS = new Headers({
     'Access-Control-Expose-Headers': '*',
     'Referrer-Policy': '*'
 })
-const DEBUG_MODE = true
+const DEBUG_MODE = false
 
 let isMobile = undefined
 
@@ -148,9 +148,11 @@ class AudioQueueManager {
         if (this.isPlaying()) {
             this.pause()
             element.textContent = 'play_circle'
+            htmlPlayButton.classList.remove('playing')
         } else {
             this.play()
             element.textContent = 'pause_circle'
+            htmlPlayButton.classList.add('playing')
         }
     }
 
@@ -159,9 +161,11 @@ class AudioQueueManager {
         if (this.isPlaying()) {
             this.pause()
             element.textContent = 'play_circle'
+            htmlPlayButton.classList.remove('playing')
         } else {
             this.playAll()
             element.textContent = 'pause_circle'
+            htmlPlayButton.classList.add('playing')
         }
     }
 

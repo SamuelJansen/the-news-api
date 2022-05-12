@@ -135,7 +135,7 @@ class TheNewsService:
     def getTodaysNewsAudios(self):
         log.status(self.updateTodaysNews, f'Getting today news audio data')
         return self.mapper.audioData.fromModelListToResponseDtoList(
-            self.repository.audioData.findAllByDate(self.getOrCreateTodayNews().date)
+            self.repository.audioData.findAllByDateOrderById(self.getOrCreateTodayNews().date)
         )
 
 

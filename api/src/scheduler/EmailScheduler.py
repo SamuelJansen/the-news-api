@@ -15,9 +15,5 @@ class EmailScheduler :
         minute = UpdateMoment.THE_NEWS.minute,
         toleranceTime = 10
     )
-    # @SchedulerMethod(
-    #     SchedulerType.INTERVAL,
-    #     seconds = 10
-    # )
     def updateTodaysNews(self):
         self.service.theNews.updateTodaysNews()
