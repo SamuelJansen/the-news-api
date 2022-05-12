@@ -25,16 +25,20 @@ class TheNewsService:
 
     @ServiceMethod(requestClass=[[AudioDataDto.AudioDataRequestDto]])
     def finishTodayNewsCreation(self, audioDataRequestDtoList):
+        log.status(self.finishTodayNewsCreation, f'Finishing today news update')
         audioDataResponseDtoList = self.service.voice.createAll(audioDataRequestDtoList)
         if 0 == len(audioDataResponseDtoList):
             self.createOrUpdateTodayNewsModel(NewsStatus.ERROR)
+            log.failure(self.finishTodayNewsCreation, f'Error while creating today news')
         else:
             self.createOrUpdateTodayNewsModel(NewsStatus.FINISHED)
+            log.status(self.finishTodayNewsCreation, f'Today news created')
         return audioDataResponseDtoList
 
 
     @ServiceMethod(requestClass=[EnumItem])
     def createOrUpdateTodayNewsModel(self, status):
+        log.status(self.createOrUpdateTodayNewsModel, f'Creating today news model')
         key = self.buildNewsKey(DateTimeHelper.dateNow())
         newsModel = self.getOrCreateNewsByKey(key)
         newsModel.status = status
@@ -55,6 +59,7 @@ class TheNewsService:
 
     @ServiceMethod()
     def getOrCreateTodayNews(self):
+        log.status(self.getOrCreateTodayNews, f'Guetting today news model')
         newsModel = self.repository.news.findMostRecentByStatus(NewsConstant.END_STATUS)
         if ObjectHelper.isNone(newsModel):
             newsModel = self.getOrCreateNewsByKey(self.buildNewsKey(DateTimeHelper.dateNow()))
@@ -87,8 +92,8 @@ class TheNewsService:
 
     @ServiceMethod()
     def updateTodaysNews(self):
+        log.status(self.updateTodaysNews, f'Updating today news')
         try:
-            log.status(self.updateTodaysNews, f'Updating today news')
             newsKey = self.createOrUpdateTodayNewsModel(NewsStatus.CREATED).key
 
             emailBody = self.getEmailBodyList(TheNewsConfig.TODAY_NEWS_EMAIL_AMOUNT)
@@ -125,7 +130,7 @@ class TheNewsService:
             self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
             self.createOrUpdateTodayNewsModel(NewsStatus.PROCESSING_AUDIO)
 
-            log.status(self.updateTodaysNews, f'Todays news updated')
+            log.status(self.updateTodaysNews, f'Creatting today news voice overs')
         except Exception as exception:
             self.createOrUpdateTodayNewsModel(NewsStatus.ERROR)
             log.error(self.updateTodaysNews, 'Error while updating today news', exception=exception)
