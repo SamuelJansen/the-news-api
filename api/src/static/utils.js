@@ -64,6 +64,7 @@ class AudioQueueManager {
         this.maxBuffer = 10
         this.bufferUpdateInterval = 500
         this.defaultInterval = 600
+        self.volume = 0.95
         this._dataListPlayStarted = false
         this._currentAudioCallsAreGoodToGo = true
         this.currentAudioIsRequested = false
@@ -280,7 +281,7 @@ class AudioQueueManager {
                 simpleDebugIt(`new buffer data: ${data}, this.dataIndex: ${this.dataIndex}`, this._debugMode)
                 let audio = new Audio(data.staticUrl)
                 audio.load()
-                audio.volume = 0.3
+                audio.volume = self.volume
                 this.buffer.push(audio)
             } else {
                 simpleDebugIt(`data already in buffer: ${data}, this.dataIndex: ${this.dataIndex}`, this._debugMode)
