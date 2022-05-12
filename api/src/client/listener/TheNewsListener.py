@@ -3,17 +3,17 @@ from python_framework import HttpStatus
 from queue_manager_api import MessageListener, MessageListenerMethod
 
 from ApiKeyContext import ApiKeyContext
-from config import VoiceQueueConfig
+from config import TheNewsQueueConfig
 import AudioDataDto
 
 
 @MessageListener(
-    timeout = VoiceQueueConfig.PERSIST_TODAY_NEWS_VOICE_LISTENER_TIMEOUT
+    timeout = TheNewsQueueConfig.PERSIST_TODAY_NEWS_VOICE_LISTENER_TIMEOUT
     , muteLogs = False
     , logRequest = True
     , logResponse = True
 )
-class VoiceListener:
+class TheNewsListener:
 
     @MessageListenerMethod(url = '/listener/audio',
         requestClass = [[AudioDataDto.AudioDataRequestDto]],
@@ -23,4 +23,4 @@ class VoiceListener:
         , logResponse = True
     )
     def acceptAudioSpeakList(self, dtoList):
-        return self.service.voice.createAll(dtoList), HttpStatus.ACCEPTED
+        return self.service.theNews.finishTodayNewsCreation(dtoList), HttpStatus.ACCEPTED

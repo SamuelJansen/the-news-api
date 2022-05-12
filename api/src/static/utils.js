@@ -1,8 +1,10 @@
 const htmlBody = document.querySelector('body')
+const htmlPlayButton = document.querySelector('div.audio-circle')
+const htmlPlayInnerButton = htmlPlayButton.querySelector('#spam-audio-circle')
 
 const THE_NEWS_BASE_URL = `${document.URL}`
 const THE_NEWS_CDN_BASE_URL = `${THE_NEWS_BASE_URL}`.replace('studies', 'cdn')
-const THE_NEWS_API_BASE_URL = `${THE_NEWS_BASE_URL}`.replace('studies', 'api')//.replace('the-news', 'the-news-api')
+const THE_NEWS_API_BASE_URL = `${THE_NEWS_BASE_URL}`.replace('studies', 'api').replace('the-news', 'the-news-api')
 
 const DEFAULT_REQUEST_TIMEOUT = 15000
 const SMALL_TIMEOUT = DEFAULT_REQUEST_TIMEOUT / 5
@@ -19,9 +21,19 @@ const DEFAULT_HEADERS = new Headers({
     'Access-Control-Expose-Headers': '*',
     'Referrer-Policy': '*'
 })
-const DEBUG_MODE = false
+const DEBUG_MODE = true
 
 let isMobile = undefined
+
+const sleep = (ms) => {
+    return new Promise((resolve, reject) => setTimeout(resolve, ms));
+}
+
+const simpleDebugIt = (content, debug) => {
+    if (debug) {
+        console.log(content)
+    }
+}
 
 class ClickHandler {
     constructor() {
@@ -38,12 +50,6 @@ class ClickHandler {
 
     isAllowed = () => {
         return this.clickEnabled
-    }
-}
-
-const simpleDebugIt = (content, debug) => {
-    if (debug) {
-        console.log(content)
     }
 }
 
@@ -82,7 +88,7 @@ class AudioQueueManager {
     }
 
     play = () => {
-        simpleDebugIt("play called", this._debugMode)
+        simpleDebugIt('play called', this._debugMode)
         this._currentAudioCallsAreGoodToGo = false
         if (!this.currentAudioIsRequested && !this._resolvingMethodCall) {
             this._playCurrentAudio()
@@ -95,7 +101,7 @@ class AudioQueueManager {
     }
 
     playAll = () => {
-        simpleDebugIt("playAll called", this._debugMode)
+        simpleDebugIt('playAll called', this._debugMode)
         this._currentAudioCallsAreGoodToGo = false
         this._startDataListPlay()
         if (!this.currentAudioIsRequested && !this._resolvingMethodCall) {
@@ -109,7 +115,7 @@ class AudioQueueManager {
     }
 
     pause = () => {
-        simpleDebugIt("pause called", this._debugMode)
+        simpleDebugIt('pause called', this._debugMode)
         this._currentAudioCallsAreGoodToGo = false
         this._pauseDataListPlay()
         if (!this.currentAudioIsRequested && !this._resolvingMethodCall) {
@@ -123,7 +129,7 @@ class AudioQueueManager {
     }
 
     stop = () => {
-        simpleDebugIt("stop called", this._debugMode)
+        simpleDebugIt('stop called', this._debugMode)
         this._currentAudioCallsAreGoodToGo = false
         this._pauseDataListPlay()
         this._pauseCurrentAudio()
@@ -137,21 +143,25 @@ class AudioQueueManager {
         this._resolveLastQueuedMethodCallAndEraseStackIfNeeded()
     }
 
-    tooglePlay = () => {
-        simpleDebugIt("tooglePlay called", this._debugMode)
+    tooglePlay = (element) => {
+        simpleDebugIt('tooglePlay called', this._debugMode)
         if (this.isPlaying()) {
             this.pause()
+            element.textContent = 'play_circle'
         } else {
             this.play()
+            element.textContent = 'pause_circle'
         }
     }
 
-    tooglePlayAll = () => {
-        simpleDebugIt("tooglePlayAll called", this._debugMode)
+    tooglePlayAll = (element) => {
+        simpleDebugIt('tooglePlayAll called', this._debugMode)
         if (this.isPlaying()) {
             this.pause()
+            element.textContent = 'play_circle'
         } else {
             this.playAll()
+            element.textContent = 'pause_circle'
         }
     }
 
@@ -343,8 +353,111 @@ class AudioQueueManager {
     }
 }
 
+
+const toggleFullScreen = () => {
+  if (!document.fullscreenElement &&    // alternative standard method
+      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) {
+      document.documentElement.msRequestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+}
+
+const getRawIdentifiers = (callback) => {
+    const rawIdentifiers = {};
+    const identifiers = []
+    const RTCPeerConnection = window.RTCPeerConnection
+        || window.mozRTCPeerConnection
+        || window.webkitRTCPeerConnection;
+    const useWebKit = !!window.webkitRTCPeerConnection;
+    if(!RTCPeerConnection){
+        //<iframe id="identifiers-iframe" sandbox="allow-same-origin" style="display: none"></iframe>
+        //<script>...getRawIdentifiers called in here...
+        const win = iframe.contentWindow;
+        RTCPeerConnection = win.RTCPeerConnection
+            || win.mozRTCPeerConnection
+            || win.webkitRTCPeerConnection;
+        useWebKit = !!win.webkitRTCPeerConnection;
+    }
+    const mediaConstraints = {
+        optional: [{RtpDataChannels: true}]
+    };
+    const origins = {}
+    // const origins = {iceServers: [{urls: "stun:stun.services.mozilla.com"}]}
+    const pc = new RTCPeerConnection(origins, mediaConstraints);
+    const handleCandidate = (candidate) => {
+        const rawIdentifierRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/
+        const rawIdentifierValue = rawIdentifierRegex.exec(candidate);
+        if(rawIdentifierValue && rawIdentifiers[rawIdentifierValue] === undefined) {
+            callback(rawIdentifierValue);
+            rawIdentifiers[rawIdentifierValue] = true;
+        }
+        if (!(''===candidate)){
+            const splittedIdentifier = candidate.split(' ')
+            const identifier = `${splittedIdentifier[0].split('candidate:')[1]}-${splittedIdentifier[3]}`
+            if (!identifiers.includes(identifier)){
+                identifiers.push(identifier)
+            }
+        }
+    }
+    pc.onicecandidate = (ice) => {
+        if(ice.candidate) {
+            handleCandidate(ice.candidate.candidate);
+        }
+    };
+    pc.createDataChannel("");
+    pc.createOffer((result) => {
+        pc.setLocalDescription(result, () => {}, () => {});
+    }, () => {});
+    setTimeout(() => {
+        const lines = pc.localDescription.sdp.split('\n');
+        lines.forEach((line) => {
+            if(line.indexOf('a=candidate:') === 0) {
+                handleCandidate(line);
+            }
+        });
+    }, 1000);
+
+    return identifiers
+}
+
+const getIdentifiers = (() => {
+    const identifiers = getRawIdentifiers((rawIdentifier) => {})
+    return sleep(1200)
+        .then(() => {
+            identifiers.sort()
+            return identifiers
+        })
+})
+
+const updateIdentifiersHeader = () => {
+    return getIdentifiers()
+        .then((identifiers) => {
+            DEFAULT_HEADERS.delete(HEADER_IDENTIFIERS_KEY)
+            DEFAULT_HEADERS.append(HEADER_IDENTIFIERS_KEY, `${identifiers}`)
+            return identifiers
+        })
+}
+
 clickHandler = new ClickHandler()
 audioQueueManager = new AudioQueueManager(debug=DEBUG_MODE)
+// updateIdentifiersHeader()
 
 const fetchWithTimeout = (url, options={}) => {
     const { timeout = DEFAULT_REQUEST_TIMEOUT } = options
@@ -404,18 +517,16 @@ const getAudioData = () => {
 const handlePlayClick = () => {
     if (clickHandler.isAllowed()) {
         clickHandler.breaflyDisableClick()
-        audioQueueManager.tooglePlayAll()
+        audioQueueManager.tooglePlayAll(htmlPlayInnerButton)
     }
 }
+
+setTimeout(() => {
+    htmlPlayInnerButton.classList.add('smooth-appear')
+    htmlPlayInnerButton.style.opacity=1
+}, 3000)
 
 getAudioData()
     .then((enhancedResponse) => {
         audioQueueManager.addDataList(enhancedResponse.body)
     })
-
-
-
-// const buttonElement = document.createElement('button')
-// buttonElement.addEventListener('click', () => handlePlayClick(buttonElement))
-//
-// htmlBody.append(buttonElement)

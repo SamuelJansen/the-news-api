@@ -1,6 +1,6 @@
 from python_helper import Constant as c
 from python_helper import log, StringHelper, ObjectHelper, DateTimeHelper
-from python_framework import Service, ServiceMethod
+from python_framework import Service, ServiceMethod, EnumItem
 
 
 from config import TheNewsConfig
@@ -9,6 +9,10 @@ from domain.ContentType import ContentType
 from enumeration.EmailContact import EmailContact
 from enumeration.EmailBox import EmailBox
 from enumeration.Voice import Voice
+from enumeration.NewsStatus import NewsStatus
+from constant import NewsConstant
+import AudioDataDto
+import News
 
 
 EMAIL_SUBJECT_KEY = 'subject'
@@ -19,51 +23,119 @@ TEXT_HTML_KEY = 'textHtml'
 @Service()
 class TheNewsService:
 
+    @ServiceMethod(requestClass=[[AudioDataDto.AudioDataRequestDto]])
+    def finishTodayNewsCreation(self, audioDataRequestDtoList):
+        audioDataResponseDtoList = self.service.voice.createAll(audioDataRequestDtoList)
+        if 0 == len(audioDataResponseDtoList):
+            self.createOrUpdateTodayNewsModel(NewsStatus.ERROR)
+        else:
+            self.createOrUpdateTodayNewsModel(NewsStatus.FINISHED)
+        return audioDataResponseDtoList
+
+
+    @ServiceMethod(requestClass=[EnumItem])
+    def createOrUpdateTodayNewsModel(self, status):
+        key = self.buildNewsKey(DateTimeHelper.dateNow())
+        newsModel = self.getOrCreateNewsByKey(key)
+        newsModel.status = status
+        return self.repository.news.save(newsModel)
+
+
+    @ServiceMethod(requestClass=[EnumItem])
+    def getOrCreateNewsByKey(self, key):
+        if self.newsExistsByKey(key):
+            return self.getNewsByKey(key)
+        else:
+            return News.News(
+                key = key,
+                date = DateTimeHelper.forcedlyGetDate(key.replace(f'{NewsConstant.FILE_PREFIX_NAME}{c.DASH}', c.BLANK)),
+                status = NewsConstant.DEFAULT_STATUS
+            )
+
+
     @ServiceMethod()
+    def getOrCreateTodayNews(self):
+        newsModel = self.repository.news.findMostRecentByStatus(NewsConstant.END_STATUS)
+        if ObjectHelper.isNone(newsModel):
+            newsModel = self.getOrCreateNewsByKey(self.buildNewsKey(DateTimeHelper.dateNow()))
+        return newsModel
+
+
+    @ServiceMethod(requestClass=[str])
+    def newsExistsByKey(self, key):
+        return self.repository.news.existsByKey(key)
+
+
+    @ServiceMethod(requestClass=[str])
+    def getNewsByKey(self, key):
+        return self.repository.news.findByKey(key)
+
+
+    @ServiceMethod()
+    def buildNewsKey(self, key):
+        return f'{NewsConstant.FILE_PREFIX_NAME}{c.DASH}{key}'
+
+
+    @ServiceMethod()
+    def buildTodayNewsHtmlFileName(self, newsKey):
+        return f'{newsKey}{c.DOT}{NewsConstant.FILE_EXTENSION}'
+
+
     def getTodayNewsHtmlFileName(self):
-        return f'{TheNewsConfig.TODAY_NEWS_FILE_PREFIX_NAME}{c.DASH}{DateTimeHelper.dateNow()}{c.DOT}{TheNewsConfig.TODAY_NEWS_FILE_EXTENSION}'
+        return self.buildTodayNewsHtmlFileName(self.getOrCreateTodayNews().key)
 
 
     @ServiceMethod()
     def updateTodaysNews(self):
-        log.status(self.updateTodaysNews, f'Updating today news')
-        emailBody = self.getEmailBodyList(TheNewsConfig.TODAY_NEWS_EMAIL_AMOUNT)
-        subject = emailBody.get(EMAIL_SUBJECT_KEY, c.BLANK)
-        emailBodySentenceList = self.getEmailBodySentenceList(
-            subject,
-            emailBody.get(TEXT_PLAIN_LIST_KEY, []),
-            emailBody.get(TEXT_HTML_KEY, c.BLANK)
-        )[-1]
+        try:
+            log.status(self.updateTodaysNews, f'Updating today news')
+            newsKey = self.createOrUpdateTodayNewsModel(NewsStatus.CREATED).key
 
-        rawHtml = emailBody.get(TEXT_HTML_KEY, c.BLANK)
-        collectedBody = []
-        for index, bodyPart in enumerate(rawHtml.split('<body')):
-            if index>0:
-                splitHtml = bodyPart.split('>')
-                parsedBodyPart = StringHelper.join(
-                    [
-                        splitHtml[0],
-                        '<button onClick="handlePlayClick()">voice over</button',
-                        *splitHtml[1:]
-                    ],
-                    character='>'
-                )
-            else:
-                parsedBodyPart = bodyPart
-            collectedBody.append(parsedBodyPart)
-        html = StringHelper.join(collectedBody, character='<body')
-        html = html.replace('</body>', '<script src="{{staticUrl}}/utils.js" type="text/javascript"></script></body>')
+            emailBody = self.getEmailBodyList(TheNewsConfig.TODAY_NEWS_EMAIL_AMOUNT)
+            self.createOrUpdateTodayNewsModel(NewsStatus.PROCESSING_TEXT)
 
-        self.client.theNews.writeContent(self.getTodayNewsHtmlFileName(), subject, html, FileOperation.OVERRIDE_TEXT)
-        self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
-        log.status(self.updateTodaysNews, f'Todays news updated')
+            subject = emailBody.get(EMAIL_SUBJECT_KEY, c.BLANK)
+            emailBodySentenceList = self.getEmailBodySentenceList(
+                subject,
+                emailBody.get(TEXT_PLAIN_LIST_KEY, []),
+                emailBody.get(TEXT_HTML_KEY, c.BLANK)
+            )[-1]
+
+            rawHtml = emailBody.get(TEXT_HTML_KEY, c.BLANK)
+            rawHtml = rawHtml.replace('</head>', '''<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="{{staticUrl}}/util-style.css"/></head>''')
+            collectedBody = []
+            for index, bodyPart in enumerate(rawHtml.split('<body')):
+                if index > 0:
+                    splitHtml = bodyPart.split('>')
+                    parsedBodyPart = StringHelper.join(
+                        [
+                            splitHtml[0],
+                            '<div onClick="handlePlayClick()" class="audio-circle"><span id="spam-audio-circle" class="material-icons">play_circle</span></div', ###- <button onClick="handlePlayClick()">voice over</button><div class="circle">
+                            *splitHtml[1:]
+                        ],
+                        character='>'
+                    )
+                else:
+                    parsedBodyPart = bodyPart
+                collectedBody.append(parsedBodyPart)
+            html = StringHelper.join(collectedBody, character='<body')
+            html = html.replace('</body>', '<script src="{{staticUrl}}/utils.js" type="text/javascript"></script></body>')
+
+            self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsKey), subject, html, FileOperation.OVERRIDE_TEXT)
+            self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
+            self.createOrUpdateTodayNewsModel(NewsStatus.PROCESSING_AUDIO)
+
+            log.status(self.updateTodaysNews, f'Todays news updated')
+        except Exception as exception:
+            self.createOrUpdateTodayNewsModel(NewsStatus.ERROR)
+            log.error(self.updateTodaysNews, 'Error while updating today news', exception=exception)
 
 
     @ServiceMethod()
     def getTodaysNewsAudios(self):
         log.status(self.updateTodaysNews, f'Getting today news audio data')
         return self.mapper.audioData.fromModelListToResponseDtoList(
-            self.repository.audioData.findAllByDate(DateTimeHelper.dateNow())
+            self.repository.audioData.findAllByDate(self.getOrCreateTodayNews().date)
         )
 
 

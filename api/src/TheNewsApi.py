@@ -1,5 +1,7 @@
 from flask import render_template
-from python_framework import ResourceManager
+from python_helper import Constant as c
+from python_helper import log
+from python_framework import ResourceManager, FlaskUtil, LogConstant
 from queue_manager_api import QueueManager
 
 import ModelAssociation
@@ -8,16 +10,22 @@ import ModelAssociation
 app = ResourceManager.initialize(__name__, ModelAssociation.MODEL, managerList=[
     QueueManager()
 ])
+
+
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 
-@app.route(f'{app.api.baseUrl}')
-def home():
+# @app.route(f'{app.api.baseUrl}')
+@app.route(f'/the-news')
+def todayNews():
+    log.info(todayNews, f'{LogConstant.CONTROLLER_SPACE}{FlaskUtil.safellyGetVerb()}{c.SPACE_DASH_SPACE}{FlaskUtil.safellyGetUrl()}')
     try:
         return render_template(
             app.api.resource.service.theNews.getTodayNewsHtmlFileName(),
-            staticUrl=ResourceManager.getApiStaticUrl(app)
+            staticUrl=ResourceManager.getApiStaticUrl(app).replace('studies', 'cdn')
         )
     except Exception as exception:
-        print(exception)
-    return {'message', 'Today news not found'}, 404
+        MESSAGE_KEY = 'message'
+        responseDto = {MESSAGE_KEY, 'Today news not found'}
+        log.error(todayNews, responseDto.get(MESSAGE_KEY), exception=exception)
+    return responseDto, 404

@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    scroll-behavior: smooth;
+    transition: 0.5s ease-in;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+body > div.audio-circle {
+    position: fixed;
+    bottom:0;
+    right:0;
+    height: 100px;
+    width: 100px;
+    margin-bottom: 2em;
+    margin-right: 3em;
+    border-radius: 50%;
+    background-color: #333;
+    display: grid;
+    place-content: center;
+    animation: grow 1s infinite;
+    pointer-events: stroke;
+    cursor: pointer;
+}
+
+body > div.audio-circle > span {
+    opacity: 0;
+    color: #FFF;
+    font-size: 50px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+@keyframes grow {
+    0% {
+        box-shadow: 0px 0px 1em #BBB;
+    }
+    25% {
+        box-shadow: 0px 0px 2.5em #BBB;
+    }
+    50% {
+        box-shadow: 0px 0px 3em #BBB;
+    }
+    75% {
+        box-shadow: 0px 0px 2.5em #BBB;
+    }
+    100% {
+        box-shadow: 0px 0px 1em #BBB;
+    }
+}
+
+*.smooth-appear {
+    animation: smooth-appear 1s linear;
+}
+
+@keyframes smooth-appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* @media only screen and (max-height: 800px) {
+
+} */
+
+@media only screen and (max-width: 800px) {
+    body > div.audio-circle {
+        margin-right: 1em;
+    }
+}
