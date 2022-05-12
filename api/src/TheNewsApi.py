@@ -34,7 +34,7 @@ def todayNews():
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(
-        os.path.join(app.root_path, f'static{EnvironmentHelper.OS_SEPARATOR}images'),
+        EnvironmentHelper.OS.path.join(app.root_path, f'static{EnvironmentHelper.OS_SEPARATOR}images'),
         'favicon.ico',
         mimetype='image/vnd.microsoft.icon'
     )

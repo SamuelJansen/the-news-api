@@ -102,7 +102,7 @@ class TheNewsService:
             )[-1]
 
             rawHtml = emailBody.get(TEXT_HTML_KEY, c.BLANK)
-            rawHtml = rawHtml.replace('</head>', '''<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="{{staticUrl}}/util-style.css"/></head>''')
+            rawHtml = rawHtml.replace('</head>', '''<link rel="icon" type="image/x-icon" href="https://cdn.data-explore.com/favicon.ico"><link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="{{staticUrl}}/util-style.css"/></head>''')
             collectedBody = []
             for index, bodyPart in enumerate(rawHtml.split('<body')):
                 if index > 0:
