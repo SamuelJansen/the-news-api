@@ -1,6 +1,6 @@
 from flask import render_template
 from python_helper import Constant as c
-from python_helper import log
+from python_helper import log, EnvironmentHelper
 from python_framework import ResourceManager, FlaskUtil, LogConstant
 from queue_manager_api import QueueManager
 
@@ -29,3 +29,12 @@ def todayNews():
         responseDto = {MESSAGE_KEY, 'Today news not found'}
         log.error(todayNews, responseDto.get(MESSAGE_KEY), exception=exception)
     return responseDto, 404
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, f'static{EnvironmentHelper.OS_SEPARATOR}images'),
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon'
+    )
