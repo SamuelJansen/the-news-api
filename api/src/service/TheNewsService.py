@@ -25,23 +25,26 @@ TEXT_HTML_KEY = 'textHtml'
 class TheNewsService:
 
     @ServiceMethod(requestClass=[[AudioDataDto.AudioDataRequestDto]])
-    def finishTodayNewsCreation(self, audioDataRequestDtoList):
-        log.status(self.finishTodayNewsCreation, f'Finishing today news update')
+    def finishTodayNewsUpdate(self, audioDataRequestDtoList):
+        log.status(self.finishTodayNewsUpdate, f'Finishing today news update')
         newsModel = self.createOrUpdateNewsModel(DateTimeHelper.dateNow(), NewsStatus.PROCESSING)
-        audioDataResponseDtoList = self.service.audioData.createAll(audioDataRequestDtoList, newsModel.date)
-        if 0 == len(audioDataResponseDtoList):
-            existingAudioDatas = self.service.audioData.countByDate(newsModel.date)
-            if 0 == existingAudioDatas:
-                self.updateNewsModel(newsModel, NewsStatus.ERROR)
-                log.failure(self.finishTodayNewsCreation, f'Error while creating today news. No audio datas were created', exception=None)
-            elif existingAudioDatas < len(audioDataRequestDtoList):
-                self.updateNewsModel(newsModel, NewsStatus.ERROR)
-                log.failure(self.finishTodayNewsCreation, f'No audio datas were created this time. There are only {existingAudioDatas} existing audio datas. Should be {len(audioDataRequestDtoList)}', exception=None)
-            else:
-                self.updateNewsModel(newsModel, NewsStatus.FINISHED)
-        else:
+        audioDataResponseDtoList = []
+        try:
+            audioDataResponseDtoList = self.service.audioData.createOrUpdateAll(audioDataRequestDtoList, newsModel.date)
+            if 0 == len(audioDataResponseDtoList):
+                existingAudioDatas = self.service.audioData.countByDate(newsModel.date)
+                if 0 == existingAudioDatas:
+                    self.updateNewsModel(newsModel, NewsStatus.ERROR)
+                    raise Exception(f'Error while creating today news. No audio datas were created')
+                elif existingAudioDatas < len(audioDataRequestDtoList):
+                    self.updateNewsModel(newsModel, NewsStatus.ERROR)
+                    raise Exception(f'Not enought audio datas were created this time. There are only {existingAudioDatas} existing audio datas. Should be {len(audioDataRequestDtoList)}')
             self.updateNewsModel(newsModel, NewsStatus.FINISHED)
-            log.status(self.finishTodayNewsCreation, f'Today news created')
+            log.status(self.finishTodayNewsUpdate, f'Today news created')
+        except Exception as exception:
+            log.failure(self.finishTodayNewsUpdate, 'Not possible to finish today news update', exception=exception, muteStackTrace=True)
+            self.updateNewsModel(newsModel, NewsStatus.ERROR)
+            raise exception
         return audioDataResponseDtoList
 
 
@@ -107,8 +110,8 @@ class TheNewsService:
 
 
     @ServiceMethod()
-    def updateTodaysNews(self):
-        log.status(self.updateTodaysNews, f'Updating today news')
+    def startTodaysNewsUpdate(self):
+        log.status(self.startTodaysNewsUpdate, f'Updating today news')
         try:
             newsModel = self.createOrUpdateNewsModel(DateTimeHelper.dateNow(), NewsStatus.CREATED)
 
@@ -146,15 +149,15 @@ class TheNewsService:
             self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
             self.updateNewsModel(newsModel, NewsStatus.PROCESSING_AUDIO)
 
-            log.status(self.updateTodaysNews, f'Creatting today news voice overs')
+            log.status(self.startTodaysNewsUpdate, f'Creatting today news voice overs')
         except Exception as exception:
             self.updateNewsModel(newsModel, NewsStatus.ERROR)
-            log.error(self.updateTodaysNews, 'Error while updating today news', exception=exception)
+            log.error(self.startTodaysNewsUpdate, 'Error while updating today news', exception=exception)
 
 
     @ServiceMethod()
     def getTodaysNewsAudios(self):
-        log.status(self.updateTodaysNews, f'Getting today news audio data')
+        log.status(self.startTodaysNewsUpdate, f'Getting today news audio data')
         return self.service.audioData.findAllByDate(self.getOrCreateTodayNewsModel().date)
 
 

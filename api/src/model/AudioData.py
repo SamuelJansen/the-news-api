@@ -11,6 +11,7 @@ class AudioData(MODEL):
     createdAt = sap.Column(sap.DateTime(), nullable=False)
     key = sap.Column(sap.String(sap.STRING_SIZE), nullable=False)
     date = sap.Column(sap.Date(), nullable=False)
+    order = sap.Column(sap.Integer(), nullable=False)
     text = sap.Column(sap.String(sap.GIANT_STRING_SIZE), nullable=False)
     voice = sap.Column(sap.String(sap.LITTLE_STRING_SIZE), nullable=False)
     extension = sap.Column(sap.String(sap.LITTLE_STRING_SIZE), nullable=False)
@@ -22,6 +23,7 @@ class AudioData(MODEL):
         createdAt = None,
         key = None,
         date = None,
+        order = None,
         text = None,
         voice = None,
         extension = None,
@@ -32,6 +34,7 @@ class AudioData(MODEL):
         self.createdAt = DateTimeHelper.dateTimeNow() if ObjectHelper.isNone(createdAt) else DateTimeHelper.forcedlyGetDateTime(createdAt)
         self.key = key
         self.date = DateTimeHelper.dateNow() if ObjectHelper.isNone(date) else DateTimeHelper.forcedlyGetDate(date)
+        self.order = order
         self.text = text
         self.voice = voice
         self.extension = extension

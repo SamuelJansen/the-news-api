@@ -23,4 +23,4 @@ class TheNewsListener:
         , logResponse = True
     )
     def acceptAudioSpeakList(self, dtoList):
-        return self.service.theNews.finishTodayNewsCreation(dtoList), HttpStatus.ACCEPTED
+        return self.service.theNews.finishTodayNewsUpdate(dtoList), HttpStatus.ACCEPTED

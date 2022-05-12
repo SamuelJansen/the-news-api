@@ -108,9 +108,9 @@ class AudioDataRepository:
         self.repository.session.commit()
         return count
 
-    def findAllByDate(self, date):
+    def findAllByDateOrderedByOrder(self, date):
         modelList = self.repository.session.query(self.model).filter(
             self.model.date == date
-        ).all() ###- .order_by(self.model.id.asc()).all()
+        ).order_by(self.model.order.asc()).all()
         self.repository.session.commit()
         return modelList

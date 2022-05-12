@@ -35,6 +35,24 @@ const simpleDebugIt = (content, debug) => {
     }
 }
 
+const setPlayButtonToPauseIconState = () => {
+    htmlPlayInnerButton.textContent = 'play_circle'
+    htmlPlayButton.classList.remove('playing')
+}
+
+const setPlayButtonToPlayIconState = () => {
+    htmlPlayInnerButton.textContent = 'pause_circle'
+    htmlPlayButton.classList.add('playing')
+}
+
+const tooglePlayButtonIconState = (isPlayingNow) => {
+    if (isPlayingNow) {
+        setPlayButtonToPauseIconState()
+    } else {
+        setPlayButtonToPlayIconState()
+    }
+}
+
 class ClickHandler {
     constructor() {
         this.defaultTimeout = 500
@@ -89,8 +107,9 @@ class AudioQueueManager {
     }
 
     play = () => {
-        simpleDebugIt('play called', this._debugMode)
         this._currentAudioCallsAreGoodToGo = false
+        simpleDebugIt('play called', this._debugMode)
+        setPlayButtonToPlayIconState()
         if (!this.currentAudioIsRequested && !this._resolvingMethodCall) {
             this._playCurrentAudio()
         } else {
@@ -102,8 +121,9 @@ class AudioQueueManager {
     }
 
     playAll = () => {
-        simpleDebugIt('playAll called', this._debugMode)
         this._currentAudioCallsAreGoodToGo = false
+        simpleDebugIt('playAll called', this._debugMode)
+        setPlayButtonToPlayIconState()
         this._startDataListPlay()
         if (!this.currentAudioIsRequested && !this._resolvingMethodCall) {
             this._playCurrentAudio()
@@ -116,8 +136,9 @@ class AudioQueueManager {
     }
 
     pause = () => {
-        simpleDebugIt('pause called', this._debugMode)
         this._currentAudioCallsAreGoodToGo = false
+        simpleDebugIt('pause called', this._debugMode)
+        setPlayButtonToPauseIconState()
         this._pauseDataListPlay()
         if (!this.currentAudioIsRequested && !this._resolvingMethodCall) {
             this._pauseCurrentAudio()
@@ -130,8 +151,13 @@ class AudioQueueManager {
     }
 
     stop = () => {
-        simpleDebugIt('stop called', this._debugMode)
         this._currentAudioCallsAreGoodToGo = false
+        simpleDebugIt('stop called', this._debugMode)
+
+        this._pauseDataListPlay()
+        this._removeCurrentAudio()
+
+        setPlayButtonToPauseIconState()
         this._pauseDataListPlay()
         this._pauseCurrentAudio()
         this.buffer = []
@@ -144,29 +170,21 @@ class AudioQueueManager {
         this._resolveLastQueuedMethodCallAndEraseStackIfNeeded()
     }
 
-    tooglePlay = (element) => {
+    tooglePlay = () => {
         simpleDebugIt('tooglePlay called', this._debugMode)
         if (this.isPlaying()) {
             this.pause()
-            element.textContent = 'play_circle'
-            htmlPlayButton.classList.remove('playing')
         } else {
             this.play()
-            element.textContent = 'pause_circle'
-            htmlPlayButton.classList.add('playing')
         }
     }
 
-    tooglePlayAll = (element) => {
+    tooglePlayAll = () => {
         simpleDebugIt('tooglePlayAll called', this._debugMode)
         if (this.isPlaying()) {
             this.pause()
-            element.textContent = 'play_circle'
-            htmlPlayButton.classList.remove('playing')
         } else {
             this.playAll()
-            element.textContent = 'pause_circle'
-            htmlPlayButton.classList.add('playing')
         }
     }
 
@@ -327,19 +345,22 @@ class AudioQueueManager {
         this.currentAudioIsRequested = false
     }
 
-    _updateCurrentAudio = () => {
-        this.currentAudioIsRequested = true
+    _removeCurrentAudio = () => {
         if (this.currentAudio) {
             this.currentAudio.remove()
-            delete this.currentAudio
-            this.currentAudio = null
         }
+        delete this.currentAudio
+        this.currentAudio = null
+    }
+
+    _updateCurrentAudio = () => {
+        this.currentAudioIsRequested = true
         if (0 < this.buffer.length) {
+            this._removeCurrentAudio()
             this.currentAudio = this.buffer.shift()
             simpleDebugIt(`adding new current audio ${this.currentAudio}`, this._debugMode)
         } else {
-            this.currentAudio = null
-            this._pauseDataListPlay()
+            this.stop()
             simpleDebugIt(`there ar no audios left in the buffer`, this._debugMode)
         }
         this.currentAudioIsPlaying = false
@@ -522,7 +543,7 @@ const getAudioData = () => {
 const handlePlayClick = () => {
     if (clickHandler.isAllowed()) {
         clickHandler.breaflyDisableClick()
-        audioQueueManager.tooglePlayAll(htmlPlayInnerButton)
+        audioQueueManager.tooglePlayAll()
     }
 }
 

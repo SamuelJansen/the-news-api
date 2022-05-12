@@ -8,7 +8,7 @@ class TheNewsController:
         # apiKeyRequired=[ApiKeyContext.ADMIN, ApiKeyContext.USER]
     )
     def put(self):
-        return self.service.theNews.updateTodaysNews(), HttpStatus.OK
+        return self.service.theNews.startTodaysNewsUpdate(), HttpStatus.OK
 
     @ControllerMethod(url='/today'
         # apiKeyRequired=[ApiKeyContext.ADMIN, ApiKeyContext.USER]

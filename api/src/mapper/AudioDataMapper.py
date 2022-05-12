@@ -1,3 +1,5 @@
+import datetime
+
 from python_helper import Constant as c
 from python_framework import Mapper, MapperMethod
 
@@ -31,7 +33,25 @@ class AudioDataMapper:
     def overrideModelListStaticUrl(self, modelList):
         for model in modelList:
             self.overrideModelStaticUrl(model)
+        return modelList
 
     @MapperMethod(requestClass=[AudioData.AudioData])
     def overrideModelStaticUrl(self, model):
         model.staticUrl = f'{VoiceClientConfig.BASE_URL}{VoiceManagerApiConstant.AUDIO_DATA_STATIC_URI}{c.SLASH}{model.key}'
+        return model
+
+    @MapperMethod(requestClass=[AudioData.AudioData, int])
+    def overrideOrder(self, model, order):
+        model.order = order
+        return model
+
+    @MapperMethod(requestClass=[AudioData.AudioData, datetime.date])
+    def overrideDate(self, model, date):
+        model.date = date
+        return model
+
+    @MapperMethod(requestClass=[AudioData.AudioData, datetime.date, int])
+    def overrideModelUpdate(self, model, date, order):
+        self.overrideDate(model, date)
+        self.overrideOrder(model, order)
+        return model
