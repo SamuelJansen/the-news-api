@@ -102,7 +102,7 @@ class TheNewsService:
             )[-1]
 
             rawHtml = emailBody.get(TEXT_HTML_KEY, c.BLANK)
-            rawHtml = rawHtml.replace('</head>', '''<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="{{staticUrl}}/util-style.css"/></head>''')
+            rawHtml = rawHtml.replace('</head>', '''<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="{{staticUrl}}/util-style.css"/></head>''')
             collectedBody = []
             for index, bodyPart in enumerate(rawHtml.split('<body')):
                 if index > 0:
@@ -110,7 +110,7 @@ class TheNewsService:
                     parsedBodyPart = StringHelper.join(
                         [
                             splitHtml[0],
-                            '<div onClick="handlePlayClick()" class="audio-circle"><span id="spam-audio-circle" class="material-icons">play_circle</span></div', ###- <button onClick="handlePlayClick()">voice over</button><div class="circle">
+                            '<div role="play buttom" onClick="handlePlayClick()" class="audio-circle"><span id="spam-audio-circle" class="material-icons">play_circle</span></div', ###- <button onClick="handlePlayClick()">voice over</button><div class="circle">
                             *splitHtml[1:]
                         ],
                         character='>'
