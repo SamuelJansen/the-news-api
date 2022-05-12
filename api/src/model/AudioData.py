@@ -9,7 +9,7 @@ class AudioData(MODEL):
 
     id = sap.Column(sap.Integer(), sap.Sequence(f'{__tablename__}{sap.ID}{sap.SEQ}'), primary_key=True)
     createdAt = sap.Column(sap.DateTime(), nullable=False)
-    key = sap.Column(sap.String(sap.STRING_SIZE), unique=True, nullable=False)
+    key = sap.Column(sap.String(sap.STRING_SIZE), nullable=False)
     date = sap.Column(sap.Date(), nullable=False)
     text = sap.Column(sap.String(sap.GIANT_STRING_SIZE), nullable=False)
     voice = sap.Column(sap.String(sap.LITTLE_STRING_SIZE), nullable=False)

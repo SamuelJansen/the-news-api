@@ -6,6 +6,7 @@ globalsInstance = getGlobalsInstance()
 @Enum()
 class NewsStatusEnumeration:
     CREATED = EnumItem()
+    PROCESSING = EnumItem()
     PROCESSING_TEXT = EnumItem()
     PROCESSING_AUDIO = EnumItem()
     FINISHED = EnumItem()

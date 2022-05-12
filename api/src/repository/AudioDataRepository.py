@@ -91,9 +91,26 @@ class AudioDataRepository:
         self.repository.session.commit()
         return modelList
 
-    def findAllByDateOrderById(self, date):
+    def findAllByKeyInAndDate(self, keyList, date):
+        modelList = self.repository.session.query(self.model).filter(
+            sap.and_(
+                self.model.date == date,
+                self.model.key.in_(keyList)
+            )
+        ).all()
+        self.repository.session.commit()
+        return modelList
+
+    def countByDate(self, date):
+        count = self.repository.session.query(self.model).filter(
+            self.model.date == date
+        ).count()
+        self.repository.session.commit()
+        return count
+
+    def findAllByDate(self, date):
         modelList = self.repository.session.query(self.model).filter(
             self.model.date == date
-        ).order_by(self.model.id.asc()).all()
+        ).all() ###- .order_by(self.model.id.asc()).all()
         self.repository.session.commit()
         return modelList

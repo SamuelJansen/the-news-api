@@ -1,7 +1,8 @@
+import datetime
+
 from python_helper import Constant as c
 from python_helper import log, StringHelper, ObjectHelper, DateTimeHelper
 from python_framework import Service, ServiceMethod, EnumItem
-
 
 from config import TheNewsConfig
 from domain.FileOperation import FileOperation
@@ -26,23 +27,38 @@ class TheNewsService:
     @ServiceMethod(requestClass=[[AudioDataDto.AudioDataRequestDto]])
     def finishTodayNewsCreation(self, audioDataRequestDtoList):
         log.status(self.finishTodayNewsCreation, f'Finishing today news update')
-        audioDataResponseDtoList = self.service.voice.createAll(audioDataRequestDtoList)
+        newsModel = self.createOrUpdateNewsModel(DateTimeHelper.dateNow(), NewsStatus.PROCESSING)
+        audioDataResponseDtoList = self.service.audioData.createAll(audioDataRequestDtoList, newsModel.date)
         if 0 == len(audioDataResponseDtoList):
-            self.createOrUpdateTodayNewsModel(NewsStatus.ERROR)
-            log.failure(self.finishTodayNewsCreation, f'Error while creating today news')
+            existingAudioDatas = self.service.audioData.countByDate(newsModel.date)
+            if 0 == existingAudioDatas:
+                self.updateNewsModel(newsModel, NewsStatus.ERROR)
+                log.failure(self.finishTodayNewsCreation, f'Error while creating today news. No audio datas were created', exception=None)
+            elif existingAudioDatas < len(audioDataRequestDtoList):
+                self.updateNewsModel(newsModel, NewsStatus.ERROR)
+                log.failure(self.finishTodayNewsCreation, f'No audio datas were created this time. There are only {existingAudioDatas} existing audio datas. Should be {len(audioDataRequestDtoList)}', exception=None)
+            else:
+                self.updateNewsModel(newsModel, NewsStatus.FINISHED)
         else:
-            self.createOrUpdateTodayNewsModel(NewsStatus.FINISHED)
+            self.updateNewsModel(newsModel, NewsStatus.FINISHED)
             log.status(self.finishTodayNewsCreation, f'Today news created')
         return audioDataResponseDtoList
 
 
-    @ServiceMethod(requestClass=[EnumItem])
-    def createOrUpdateTodayNewsModel(self, status):
-        log.status(self.createOrUpdateTodayNewsModel, f'Creating today news model')
-        key = self.buildNewsKey(DateTimeHelper.dateNow())
+    @ServiceMethod(requestClass=[datetime.date, EnumItem])
+    def createOrUpdateNewsModel(self, date, status):
+        log.status(self.createOrUpdateNewsModel, f'Creating news model with date: {date} and status: {status}')
+        key = self.buildNewsKey(date)
         newsModel = self.getOrCreateNewsByKey(key)
         newsModel.status = status
         return self.repository.news.save(newsModel)
+
+
+    @ServiceMethod(requestClass=[News.News, EnumItem])
+    def updateNewsModel(self, model, status):
+        log.status(self.updateNewsModel, f'Updating news model with status: {status}')
+        model.status = status
+        return self.repository.news.save(model)
 
 
     @ServiceMethod(requestClass=[EnumItem])
@@ -58,8 +74,8 @@ class TheNewsService:
 
 
     @ServiceMethod()
-    def getOrCreateTodayNews(self):
-        log.status(self.getOrCreateTodayNews, f'Guetting today news model')
+    def getOrCreateTodayNewsModel(self):
+        log.status(self.getOrCreateTodayNewsModel, f'Guetting today news model')
         newsModel = self.repository.news.findMostRecentByStatus(NewsConstant.END_STATUS)
         if ObjectHelper.isNone(newsModel):
             newsModel = self.getOrCreateNewsByKey(self.buildNewsKey(DateTimeHelper.dateNow()))
@@ -87,17 +103,17 @@ class TheNewsService:
 
 
     def getTodayNewsHtmlFileName(self):
-        return self.buildTodayNewsHtmlFileName(self.getOrCreateTodayNews().key)
+        return self.buildTodayNewsHtmlFileName(self.getOrCreateTodayNewsModel().key)
 
 
     @ServiceMethod()
     def updateTodaysNews(self):
         log.status(self.updateTodaysNews, f'Updating today news')
         try:
-            newsKey = self.createOrUpdateTodayNewsModel(NewsStatus.CREATED).key
+            newsModel = self.createOrUpdateNewsModel(DateTimeHelper.dateNow(), NewsStatus.CREATED)
 
             emailBody = self.getEmailBodyList(TheNewsConfig.TODAY_NEWS_EMAIL_AMOUNT)
-            self.createOrUpdateTodayNewsModel(NewsStatus.PROCESSING_TEXT)
+            self.updateNewsModel(newsModel, NewsStatus.PROCESSING_TEXT)
 
             subject = emailBody.get(EMAIL_SUBJECT_KEY, c.BLANK)
             emailBodySentenceList = self.getEmailBodySentenceList(
@@ -126,22 +142,20 @@ class TheNewsService:
             html = StringHelper.join(collectedBody, character='<body')
             html = html.replace('</body>', '<script src="{{staticUrl}}/utils.js" type="text/javascript"></script></body>')
 
-            self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsKey), subject, html, FileOperation.OVERRIDE_TEXT)
+            self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsModel.key), subject, html, FileOperation.OVERRIDE_TEXT)
             self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
-            self.createOrUpdateTodayNewsModel(NewsStatus.PROCESSING_AUDIO)
+            self.updateNewsModel(newsModel, NewsStatus.PROCESSING_AUDIO)
 
             log.status(self.updateTodaysNews, f'Creatting today news voice overs')
         except Exception as exception:
-            self.createOrUpdateTodayNewsModel(NewsStatus.ERROR)
+            self.updateNewsModel(newsModel, NewsStatus.ERROR)
             log.error(self.updateTodaysNews, 'Error while updating today news', exception=exception)
 
 
     @ServiceMethod()
     def getTodaysNewsAudios(self):
         log.status(self.updateTodaysNews, f'Getting today news audio data')
-        return self.mapper.audioData.fromModelListToResponseDtoList(
-            self.repository.audioData.findAllByDateOrderById(self.getOrCreateTodayNews().date)
-        )
+        return self.service.audioData.findAllByDate(self.getOrCreateTodayNewsModel().date)
 
 
     @ServiceMethod(requestClass=[int])

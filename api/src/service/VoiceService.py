@@ -40,23 +40,3 @@ class VoiceService :
         except Exception as exception:
              log.warning(self.speakAll, 'Not possible to speak', exception=exception, muteStackTrace=True)
         return serviceReturn
-
-
-    @ServiceMethod(requestClass=[[AudioDataDto.AudioDataRequestDto]])
-    def createAll(self, dtoList):
-        existingModelList = self.repository.audioData.findAllByKeyIn([dto.key for dto in dtoList if dto])
-        return self.mapper.audioData.fromModelListToResponseDtoList(
-            self.persistAll(
-                self.mapper.audioData.fromRequestDtoListToModelList([
-                    dto
-                    for dto in dtoList
-                    if dto and dto.key not in [
-                        model.key for model in existingModelList
-                    ]
-                ])
-            )
-        )
-
-    @ServiceMethod(requestClass=[[AudioData.AudioData]])
-    def persistAll(self, modelList):
-        return self.repository.audioData.saveAll(modelList)
