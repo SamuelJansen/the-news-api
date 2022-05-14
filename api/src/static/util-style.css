@@ -92,6 +92,6 @@ body > div.audio-circle {
 
 @media only screen and (max-width: 800px) {
     body > div.audio-circle {
-        margin-right: 1em;
+        margin: 1em;
     }
 }

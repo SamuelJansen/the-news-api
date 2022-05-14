@@ -13,7 +13,11 @@ class AudioDataService :
 
     @ServiceMethod(requestClass=[[AudioDataDto.AudioDataRequestDto], datetime.date])
     def createOrUpdateAll(self, dtoList, date):
-        existingModelList = self.repository.audioData.findAllByKeyInAndDate([dto.key for dto in dtoList if dto], date)
+        log.prettyPython(self.createOrUpdateAll, 'Receiving audio datas', [dto.key for dto in dtoList], logLevel=log.STATUS)
+        requestKeyList = [dto.key for dto in dtoList if dto and dto.key]
+        assert 0 < len(requestKeyList), f'Request dto must have defined keys. Keys: {requestKeyList}'
+
+        existingModelList = self.repository.audioData.findAllByDateAndKeyIn(date, requestKeyList)
         newModels = self.mapper.audioData.fromRequestDtoListToModelList([
             dto
             for dto in dtoList
@@ -27,13 +31,23 @@ class AudioDataService :
             for model in [*existingModelList, *newModels]
             if dto.key == model.key
         ]
-        assert len(dtoList) == len(modelList), f'Missing audio datas werent created. dtoList: {dtoList} modelList: {modelList}'
+        assert len(dtoList) == len(modelList), f'Missing audio datas werent created. Causes dtoList: {dtoList}, modelList: {modelList}'
+
+        self.deleteAll(self.repository.audioData.findAllByDateAndKeyNotIn(date, requestKeyList))
+
         return self.mapper.audioData.fromModelListToResponseDtoList(self.persistAll(modelList))
 
 
     @ServiceMethod(requestClass=[[AudioData.AudioData]])
     def persistAll(self, modelList):
+        log.prettyPython(self.persistAll, 'Persisting audios', [model.key for model in modelList], logLevel=log.STATUS)
         return self.repository.audioData.saveAll(modelList)
+
+
+    @ServiceMethod(requestClass=[[AudioData.AudioData]])
+    def deleteAll(self, modelList):
+        log.prettyPython(self.deleteAll, 'Deleting audios', [model.key for model in modelList], logLevel=log.STATUS)
+        return self.repository.audioData.deleteAll(modelList)
 
 
     @ServiceMethod()

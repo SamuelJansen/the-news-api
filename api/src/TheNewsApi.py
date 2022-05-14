@@ -15,7 +15,6 @@ app = ResourceManager.initialize(__name__, ModelAssociation.MODEL, managerList=[
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 
-# @app.route(f'{app.api.baseUrl}')
 @app.route(f'/the-news')
 def todayNews():
     log.info(todayNews, f'{LogConstant.CONTROLLER_SPACE}{FlaskUtil.safellyGetVerb()}{c.SPACE_DASH_SPACE}{FlaskUtil.safellyGetUrl()}')

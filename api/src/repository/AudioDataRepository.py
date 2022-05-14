@@ -91,11 +91,21 @@ class AudioDataRepository:
         self.repository.session.commit()
         return modelList
 
-    def findAllByKeyInAndDate(self, keyList, date):
+    def findAllByDateAndKeyIn(self, date, keyList):
         modelList = self.repository.session.query(self.model).filter(
             sap.and_(
                 self.model.date == date,
                 self.model.key.in_(keyList)
+            )
+        ).all()
+        self.repository.session.commit()
+        return modelList
+
+    def findAllByDateAndKeyNotIn(self, date, keyList):
+        modelList = self.repository.session.query(self.model).filter(
+            sap.and_(
+                self.model.date == date,
+                self.model.key.not_in(keyList)
             )
         ).all()
         self.repository.session.commit()
@@ -108,9 +118,35 @@ class AudioDataRepository:
         self.repository.session.commit()
         return count
 
+    def findAllByDate(self, date):
+        modelList = self.repository.session.query(self.model).filter(
+            self.model.date == date
+        ).all()
+        self.repository.session.commit()
+        return modelList
+
     def findAllByDateOrderedByOrder(self, date):
         modelList = self.repository.session.query(self.model).filter(
             self.model.date == date
         ).order_by(self.model.order.asc()).all()
         self.repository.session.commit()
         return modelList
+
+    def deleteAll(self, modelList):
+        return self.deleteAllByKeyInAndCommit([model.key for model in modelList])
+
+    def deleteAllByIdIn(self, idList):
+        return self.repository.session.query(self.model).filter(self.model.id.in_(idList)).delete(synchronize_session=False)
+
+    def deleteAllByKeyIn(self, keyList):
+        return self.repository.session.query(self.model).filter(self.model.key.in_(keyList)).delete(synchronize_session=False)
+
+    def deleteAllByIdInAndCommit(self, idList):
+        deleteReturnList = self.deleteAllByIdIn(idList)
+        self.repository.session.commit()
+        return deleteReturnList
+
+    def deleteAllByKeyInAndCommit(self, keyList):
+        deleteReturnList = self.deleteAllByKeyIn(keyList)
+        self.repository.session.commit()
+        return deleteReturnList
