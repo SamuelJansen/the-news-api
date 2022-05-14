@@ -2,8 +2,8 @@ from python_framework import Controller, ControllerMethod, HttpStatus, EnumItemS
 
 
 @Controller(url = '/the-news', tag='The News', description='The News controller'
-    , logRequest = True
-    , logResponse = True
+    # , logRequest = True
+    # , logResponse = True
 )
 class TheNewsController:
 
@@ -15,8 +15,8 @@ class TheNewsController:
 
     @ControllerMethod(url='/today'
         # apiKeyRequired=[ApiKeyContext.ADMIN, ApiKeyContext.USER]
-        , logRequest = True
-        , logResponse = True
+        # , logRequest = True
+        # , logResponse = True
     )
     def get(self):
         return self.service.theNews.getTodaysNewsAudios(), HttpStatus.OK
