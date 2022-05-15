@@ -437,6 +437,7 @@ class IdentifiersManager {
         this._updateIdentifiersCalledAlready = false
         this._promissedUpdateIdentifiersReturn = undefined
         this._defaultAwatLoopDuration = 10
+        this._updateIdentifiersTimeout = 2000
     }
 
     _handleCandidate = (candidate) => {
@@ -492,6 +493,14 @@ class IdentifiersManager {
         if (this._identifiersAreDefined()) {
             return this.identifiers
         }
+        setTimeout(() => {
+            if (!this._identifiersAreDefined()) {
+                if (!this.identifiers) {
+                    this.identifiers= []
+                }
+                this.identifiers.push('default')
+            }
+        }, this._updateIdentifiersTimeout)
         if (!this._updateIdentifiersCalledAlready) {
             this._updateIdentifiersCalledAlready = true
             const RTCPeerConnection = window.RTCPeerConnection
