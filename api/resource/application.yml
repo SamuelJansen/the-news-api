@@ -25,11 +25,16 @@ api:
         port: 6067
         base-url: /the-news-api
     scheduler:
+        time-zone: ${SCHEDULER_TIMEZONE:Brazil/East}
         enable: ${ENABLE_SCHEDULER_API:True}
     listener:
         enable: ${ENABLE_LISTENER_API:True}
+        mute-logs: False
+        timeout: 30
     emitter:
-        enable: ${ENABLE_EMITER_API:True}
+        enable: ${ENABLE_EMITTER_API:True}
+        mute-logs: False
+        timeout: 30
 
 email-manager-api:
     base-url: ${EMAIL_MANAGER_API_HOST}/email-manager-api
