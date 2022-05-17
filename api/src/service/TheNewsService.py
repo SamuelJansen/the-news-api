@@ -1,11 +1,10 @@
 import datetime
 
 from python_helper import Constant as c
-from python_helper import log, StringHelper, ObjectHelper, DateTimeHelper
+from python_helper import log, StringHelper, ObjectHelper, DateTimeHelper, FileOperation
 from python_framework import Service, ServiceMethod, EnumItem
 
 from config import TheNewsConfig
-from domain.FileOperation import FileOperation
 from domain.ContentType import ContentType
 from enumeration.EmailContact import EmailContact
 from enumeration.EmailBox import EmailBox

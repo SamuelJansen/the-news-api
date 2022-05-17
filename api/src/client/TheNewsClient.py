@@ -1,7 +1,7 @@
 import os
 
-from python_helper import log
-from python_framework import Client, ClientMethod, WebBrowser
+from python_helper import log, FileHelper
+from python_framework import Client, ClientMethod
 
 from config import TheNewsConfig
 
@@ -18,10 +18,9 @@ class FileManager:
             os.mkdir(uri)
         filepath = os.path.join(uri, filename)
         try:
-            open(filepath, operation).write(content)
+            FileHelper.writeContent(filepath, content, operation=operation)
         except Exception as exception:
             log.failure(self.writeContent, f'Not possible to write content. Content: {content}, operation: {operation}, exception: {exception}')
-        # WebBrowser.openUrl(filepath)
         return filepath
 
 @Client()
