@@ -118,11 +118,7 @@ class TheNewsService:
             self.updateNewsModel(newsModel, NewsStatus.PROCESSING_TEXT)
 
             subject = emailBody.get(EMAIL_SUBJECT_KEY, c.BLANK)
-            emailBodySentenceList = self.getEmailBodySentenceList(
-                subject,
-                emailBody.get(TEXT_PLAIN_LIST_KEY, []),
-                emailBody.get(TEXT_HTML_KEY, c.BLANK)
-            )[-1]
+            emailBodySentenceList = self.getEmailBodySentenceList(subject, emailBody.get(TEXT_PLAIN_LIST_KEY, []))[-1]
 
             rawHtml = emailBody.get(TEXT_HTML_KEY, c.BLANK)
             rawHtml = rawHtml.replace('</head>', '''<link rel="icon" type="image/x-icon" href="https://cdn.data-explore.com/favicon.ico"><link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="{{staticUrl}}/util-style.css"/></head>''')
@@ -144,8 +140,8 @@ class TheNewsService:
             html = StringHelper.join(collectedBody, character='<body')
             html = html.replace('</body>', '<script src="{{staticUrl}}/utils.js" type="text/javascript"></script></body>')
 
-            self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsModel.key), subject, html, FileOperation.OVERRIDE_TEXT)
-            self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
+            # self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsModel.key), subject, html, FileOperation.OVERRIDE_TEXT)
+            # self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
             self.updateNewsModel(newsModel, NewsStatus.PROCESSING_AUDIO)
 
             log.status(self.startTodaysNewsUpdate, f'Creatting today news voice overs')
@@ -178,20 +174,31 @@ class TheNewsService:
         return emailBody
 
 
-    @ServiceMethod(requestClass=[int, [str], str])
-    def getEmailBodySentenceList(self, subject, plainTextEmailList, htmlTextContent):
+    @ServiceMethod(requestClass=[int, [str]])
+    def getEmailBodySentenceList(self, subject, plainTextEmailList):
+        log.prettyPython(self.getEmailBodySentenceList, 'Parsing email body sentences', plainTextEmailList, logLevel=log.STATUS)
         totalEmailBodySentenceList = []
         for plainTextEmail in plainTextEmailList:
             isMarketing = False
+            lastSentence = c.BLANK
             notFilteredEmailBodySentenceList = []
             for emailBodySentence in [
                 emailBodySentenceUnity
                 for emailBodySentenceUnity in [
-                    possibleEmailBodySentence.replace(f'\r', c.BLANK)
+                    possibleEmailBodySentence.replace(f'\r', c.BLANK).strip()
                     for possibleEmailBodySentence in plainTextEmail.split(f'{c.NEW_LINE}')
                 ]
                 if StringHelper.isNotBlank(emailBodySentenceUnity)
             ]:
+                sentenceEnd = emailBodySentence.split()[-1].strip()
+                sentenceEndFilterd = StringHelper.join(
+                    [
+                        charactere
+                        for charactere in sentenceEnd
+                        if charactere not in c.PUNCTUATION
+                    ],
+                    character=c.BLANK
+                )
                 if (
                     emailBodySentence.startswith('CLIQUE PARA COMPARTILHAR') or
                     emailBodySentence.endswith('FL') or
@@ -202,23 +209,22 @@ class TheNewsService:
                     emailBodySentence.endswith('GIVEAWAY DO DÊNIUS')
                 ):
                     isMarketing = True
-                elif emailBodySentence.split()[-1].isupper():
+                elif 4 < len(sentenceEndFilterd) and sentenceEnd[-1].isupper():
                     if isMarketing:
                         notFilteredEmailBodySentenceList.append(lastSentence)
                     isMarketing = False
-
                 if isMarketing:
                     lastSentence = emailBodySentence
                 else:
                     if (
                         (
-                            4 < len(emailBodySentence.split()[-1].strip()) and
-                            not emailBodySentence.split()[-1].strip()[-1].isupper() and
-                            not emailBodySentence.split()[-1].strip()[-2].isupper() and
-                            not emailBodySentence.split()[-1].strip()[-3].isupper() and
-                            not emailBodySentence.split()[-1].strip()[-4].isupper() and
-                            not emailBodySentence.split()[-1].strip()[-5].isupper()
-                        ) if emailBodySentence.split()[-1].strip() else not isMarketing
+                            4 < len(sentenceEnd) and
+                            not sentenceEndFilterd[-1].isupper() and
+                            not sentenceEndFilterd[-2].isupper() and
+                            not sentenceEndFilterd[-3].isupper() and
+                            not sentenceEndFilterd[-4].isupper() and
+                            not sentenceEndFilterd[-5].isupper()
+                        ) if sentenceEnd[-1].isupper() else not isMarketing
                     ):
                         notFilteredEmailBodySentenceList.append(emailBodySentence)
                     else:
@@ -230,18 +236,35 @@ class TheNewsService:
                                 upperCaseWords = c.BLANK
                             else:
                                 break
-                        sentence = emailBodySentence.replace(upperCaseWords, c.BLANK)
-                        if upperCaseWords.startswith('PATROCINADO POR'):
+                        sentence = emailBodySentence.replace(upperCaseWords, c.BLANK).strip()
+                        if (
+                            upperCaseWords.startswith('PATROCINADO POR') or
+                            upperCaseWords.startswith('CLIQUE PARA COMPARTILHAR') or
+                            upperCaseWords.startswith('FL') or
+                            upperCaseWords.startswith('QUIZ THE NEWS') or
+                            upperCaseWords.startswith('QUIZ') or
+                            upperCaseWords.startswith('EDIÇÃO ESPECIAL DE SÁBADO') or
+                            upperCaseWords.startswith('PROGRAMA DE INDICAÇÃO') or
+                            upperCaseWords.startswith('GIVEAWAY DO DÊNIUS')
+                        ):
                             isMarketing = True
                             if StringHelper.isBlank(sentence):
                                 rawMarketingSentence = notFilteredEmailBodySentenceList.pop()
-                                splitedRawMarketingSentence = rawMarketingSentence.split(f'{6*c.SPACE}')
+                                splitedRawMarketingSentence = [
+                                    s.strip()
+                                    for s in rawMarketingSentence.split(f'{5*c.SPACE}')
+                                    if StringHelper.isNotBlank(s.strip())
+                                ]
                                 if 1 < len(splitedRawMarketingSentence):
                                     for notMarketingSentence in splitedRawMarketingSentence[:-1]:
                                         if StringHelper.isNotBlank(notMarketingSentence):
-                                            notFilteredEmailBodySentenceList.append(notMarketingSentence.strip())
+                                            notFilteredEmailBodySentenceList.append(notMarketingSentence)
                             else:
-                                splitedRawMarketingSentence = sentence.split(f'{6*c.SPACE}')
+                                splitedRawMarketingSentence = [
+                                    s.strip()
+                                    for s in sentence.split(f'{5*c.SPACE}')
+                                    if StringHelper.isNotBlank(s.strip())
+                                ]
                                 if 1 < len(splitedRawMarketingSentence):
                                     for notMarketingSentence in splitedRawMarketingSentence[:-1]:
                                         if StringHelper.isNotBlank(notMarketingSentence):
@@ -257,7 +280,7 @@ class TheNewsService:
             filteredEmailBodySentenceList = [
                 emailBodySentence if not '[http' in emailBodySentence else ' '.join([
                     ' '.join([
-                        p if not p.startswith('s://') else f'{c.NEW_LINE}[Link]{c.NEW_LINE}'
+                        p if not p.startswith('s://') else c.BLANK
                         for p in part.split(']')
                     ])
                     for part in emailBodySentence.split('[http')
@@ -298,6 +321,12 @@ class TheNewsService:
                     emailBodySentenceList.append(sentence[1:].strip())
                 else:
                     emailBodySentenceList.append(sentence.strip())
+
+            for punctuation in c.PUNCTUATION:
+                emailBodySentenceList = [
+                    sentence.replace(f'{3*c.SPACE}{punctuation}', punctuation).replace(f'{2*c.SPACE}{punctuation}', punctuation).replace(f'{c.SPACE}{punctuation}', punctuation)
+                    for sentence in emailBodySentenceList
+                ]
 
             emailBodySentenceList = [
                 sentence\
