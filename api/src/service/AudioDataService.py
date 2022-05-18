@@ -31,7 +31,7 @@ class AudioDataService :
             for model in [*existingModelList, *newModels]
             if dto.key == model.key
         ]
-        assert len(dtoList) == len(modelList), f'Missing audio datas werent created. Causes dtoList: {dtoList}, modelList: {modelList}'
+        assert len(dtoList) == len(modelList), f'Missing audio datas werent created. Causes dtoList: {[dto.key for dto in dtoList]}, modelList: {[model.key for model in modelList]}. Request length: {len(dtoList)}, model length: {len(modelList)}'
 
         self.deleteAll(self.repository.audioData.findAllByDateAndKeyNotIn(date, requestKeyList))
 
