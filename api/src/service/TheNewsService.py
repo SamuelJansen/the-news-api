@@ -140,8 +140,8 @@ class TheNewsService:
             html = StringHelper.join(collectedBody, character='<body')
             html = html.replace('</body>', '<script src="{{staticUrl}}/utils.js" type="text/javascript"></script></body>')
 
-            # self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsModel.key), subject, html, FileOperation.OVERRIDE_TEXT)
-            # self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
+            self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsModel.key), subject, html, FileOperation.OVERRIDE_TEXT)
+            self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
             self.updateNewsModel(newsModel, NewsStatus.PROCESSING_AUDIO)
 
             log.status(self.startTodaysNewsUpdate, f'Creatting today news voice overs')
