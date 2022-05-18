@@ -27,6 +27,7 @@ class AudioDataResponseDto:
     def __init__(self,
         key = None,
         date = None,
+        order = None,
         text = None,
         voice = None,
         extension = None,
@@ -35,6 +36,7 @@ class AudioDataResponseDto:
     ):
         self.key = key
         self.date = date
+        self.order = order
         self.text = text
         self.voice = voice
         self.extension = extension

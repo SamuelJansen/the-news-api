@@ -356,8 +356,11 @@ class TheNewsService:
                         compiledEmailBodyList = [*compiledEmailBodyList[:-1], sentence, compiledEmailBodyList[-1]]
                     elif 3 > len(sentence):
                         compiledEmailBodyList[-1] = f'{compiledEmailBodyList[-1]}{c.SPACE}{sentence}'
-                    elif sentence not in compiledEmailBodyList:
+                    elif 256 > len(sentence) not in compiledEmailBodyList:
                         compiledEmailBodyList.append(sentence)
+                    else:
+                        for s in sentence.split(c.DOT):
+                            compiledEmailBodyList.append(f'{s}{c.DOT}')
 
             totalEmailBodySentenceList.append(compiledEmailBodyList)
 
