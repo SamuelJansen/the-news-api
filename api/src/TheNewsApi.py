@@ -25,7 +25,7 @@ def todayNews():
         )
     except Exception as exception:
         MESSAGE_KEY = 'message'
-        responseDto = {MESSAGE_KEY, 'Today news not found'}
+        responseDto = {MESSAGE_KEY: 'Today news not found'}
         log.error(todayNews, responseDto.get(MESSAGE_KEY), exception=exception)
     return responseDto, 404
 
