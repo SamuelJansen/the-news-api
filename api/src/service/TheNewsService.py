@@ -360,7 +360,9 @@ class TheNewsService:
                         compiledEmailBodyList.append(sentence)
                     else:
                         for s in sentence.split(c.DOT):
-                            compiledEmailBodyList.append(f'{s}{c.DOT}')
+                            strippedSencence = s.strip()
+                            if StringHelper.isNotBlank(strippedSencence):
+                                compiledEmailBodyList.append(f'{strippedSencence}{c.DOT}')
 
             totalEmailBodySentenceList.append(compiledEmailBodyList)
 
