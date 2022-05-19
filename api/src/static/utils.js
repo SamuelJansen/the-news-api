@@ -24,7 +24,7 @@ const DEFAULT_HEADERS = new Headers({
 const DEFAULT_DEBUG_MODE = false
 const DEBUG_MODE = false
 
-class Debugger {
+class SimpleDebugger {
     constructor(active=DEFAULT_DEBUG_MODE) {
         this.isActive = active
     }
@@ -36,9 +36,9 @@ class Debugger {
     }
 }
 
-const simpleDebugger = new Debugger(active=DEBUG_MODE)
-const warningDebugger = new Debugger(active=DEBUG_MODE)
-const errorDebugger = new Debugger(active=true)
+const simpleDebugger = new SimpleDebugger(active=DEBUG_MODE)
+const warningDebugger = new SimpleDebugger(active=DEBUG_MODE)
+const errorDebugger = new SimpleDebugger(active=true)
 
 let isMobile = undefined
 
@@ -110,7 +110,7 @@ class AudioQueueManager {
         this._keepPlayingCurrentAudioEnabled = false
         this._methodCallQueue = []
         this._resolvingMethodCall = false
-        this.internalDebugger = new Debugger(active=debug)
+        this.internalDebugger = new SimpleDebugger(active=debug)
         this._resolveLastQueuedMethodCallAndEraseStackIfNeeded()
         this._updateBufferIfNeeded()
     }
@@ -246,7 +246,7 @@ class AudioQueueManager {
                 this.internalDebugger.logIt(`buffer analisys: fromIndex: ${fromIndex}, toIndex: ${toIndex}, desiredToIndex: ${desiredToIndex}, maxIndex: ${maxIndex}, this.buffer.length: ${this.buffer.length}`)
                 if (this.dataList.length >= fromIndex && fromIndex <= toIndex) {
                     for (let index=fromIndex; index<=toIndex; index++) {
-                        this.internalDebugger.logIt(`adding ${this.bufferDataIndex}° data to buffer`)
+                        this.internalDebugger.logIt(`adding ${this.bufferDataIndex + 1}° data to buffer`)
                         this._bufferNewAudio()
                     }
                 } else {
@@ -280,10 +280,10 @@ class AudioQueueManager {
         if (this._keepPlayingCurrentAudioEnabled) {
             setTimeout(() => {
                 if (this._keepPlayingCurrentAudioEnabled) {
-                    this.internalDebugger.logIt(`_keepPlayingCurrentAudio._keepPlayingCurrentAudioEnabled: ${this._keepPlayingCurrentAudioEnabled}`)
-                    this.internalDebugger.logIt(`_keepPlayingCurrentAudio.this.currentAudio: ${this.currentAudio}`)
-                    this.internalDebugger.logIt(`_keepPlayingCurrentAudio._currentAudioIsPaused(): ${this._currentAudioIsPaused()}`)
-                    this.internalDebugger.logIt(`_keepPlayingCurrentAudio._currentAudioIsOver(): ${this._currentAudioIsOver()}`)
+                    // this.internalDebugger.logIt(`_keepPlayingCurrentAudio._keepPlayingCurrentAudioEnabled: ${this._keepPlayingCurrentAudioEnabled}`)
+                    // this.internalDebugger.logIt(`_keepPlayingCurrentAudio.this.currentAudio: ${this.currentAudio}`)
+                    // this.internalDebugger.logIt(`_keepPlayingCurrentAudio._currentAudioIsPaused(): ${this._currentAudioIsPaused()}`)
+                    // this.internalDebugger.logIt(`_keepPlayingCurrentAudio._currentAudioIsOver(): ${this._currentAudioIsOver()}`)
                     if (this._currentAudioIsOver()) {
                         this._updateCurrentAudio()
                     } else if (this._thereIsNoCurrentAudioAndThererAreAudiosAvailableAtBuffer() || this._currentAudioIsPaused()) {
@@ -301,9 +301,9 @@ class AudioQueueManager {
 
     _playCurrentAudio = () => {
         this.currentAudioIsRequested = true
-        this.internalDebugger.logIt(`_playCurrentAudio._currentAudioIsPlaying(): ${this._currentAudioIsPlaying()}`)
-        this.internalDebugger.logIt(`_playCurrentAudio._currentAudioIsPaused(): ${this._currentAudioIsPaused()}`)
-        this.internalDebugger.logIt(`_playCurrentAudio._currentAudioIsOver(): ${this._currentAudioIsOver()}`)
+        // this.internalDebugger.logIt(`_playCurrentAudio._currentAudioIsPlaying(): ${this._currentAudioIsPlaying()}`)
+        // this.internalDebugger.logIt(`_playCurrentAudio._currentAudioIsPaused(): ${this._currentAudioIsPaused()}`)
+        // this.internalDebugger.logIt(`_playCurrentAudio._currentAudioIsOver(): ${this._currentAudioIsOver()}`)
         if (this._bufferHasAvailableAudios() || this._currentAudioIsPaused()) {
             if (this._currentAudioIsPlaying()) {
                 this.currentAudioIsPlaying = true
@@ -314,13 +314,14 @@ class AudioQueueManager {
                     this._updateCurrentAudio()
                 }
                 if (this._thereIsCurrentAudio() && this._currentAudioIsPaused()) {
-                    this.dataIndex = 1 + this.dataIndex
+                    this.dataIndex = this.dataIndex + 1
                     this.internalDebugger.logIt(`current audio is paused and is going to play now. this.dataIndex: ${this.dataIndex}, order: ${this.dataList[this.dataIndex]?.order} -> this.bufferDataIndex: ${this.bufferDataIndex}, bufferOrder ${this.dataList[this.bufferDataIndex]?.order}`)
                     this.currentAudio.play()
+                    this.currentAudio.didStartedToPlay = true
                     this.currentAudioIsPlaying = true
-                } else if (!this.currentAudioIsPlaying()) {
+                } else if (!this._currentAudioIsPlaying()) {
                     this.currentAudioIsPlaying = false
-                    this.internalDebugger.logIt(`audio.pay() would be called, but no audio is present. audio: ${this.currentAudio}`)
+                    this.internalDebugger.logIt(`audio.play() would be called, but no audio is present. audio: ${this.currentAudio}`)
                     this.stop()
                 }
             }
@@ -347,7 +348,7 @@ class AudioQueueManager {
     _removeCurrentAudio = () => {
         this._pauseCurrentAudio()
         if (this._thereIsCurrentAudio()) {
-            this.currentAudio.remove()
+            // this.currentAudio.remove()
         }
         delete this.currentAudio
         this.currentAudio = null
@@ -356,7 +357,7 @@ class AudioQueueManager {
     _updateCurrentAudio = () => {
         this.currentAudioIsRequested = true
         if (this._bufferHasAvailableAudios()) {
-            this.internalDebugger.logIt(`adding new current audio ${this.currentAudio}`)
+            this.internalDebugger.logIt(`adding new current audio. dataIndex: ${this.dataIndex}°`)
             this._removeCurrentAudio()
             this.currentAudio = this.buffer.shift()
         } else {
@@ -404,9 +405,15 @@ class AudioQueueManager {
             if (!this.buffer.map((d) => {d.key}).includes(data.key)) {
                 this.bufferDataIndex = this.bufferDataIndex + 1
                 this.internalDebugger.logIt(`new buffer data: ${data}, this.dataIndex: ${this.dataIndex}, order: ${this.dataList[this.dataIndex]?.order} -> this.bufferDataIndex: ${this.bufferDataIndex}, bufferOrder ${data.order}`)
-                const audio = new Audio(data.staticUrl)
+                // const audio = new Audio(data.staticUrl)
+                const audio = new Howl({
+                    src: [data.staticUrl],
+                    format: 'mp3',
+                    volume: self.volume
+                })
+                audio.didStartedToPlay = false
+                audio.isOver = false
                 audio.load()
-                audio.volume = self.volume
                 this.buffer.push(audio)
             } else {
                 this.internalDebugger.logIt(`data already in buffer: ${data}, this.dataIndex: ${this.dataIndex}, order: ${this.dataList[this.dataIndex]?.order} -> this.bufferDataIndex: ${this.bufferDataIndex}, bufferOrder ${data.order}`)
@@ -433,15 +440,30 @@ class AudioQueueManager {
     }
 
     _currentAudioIsPlaying = () => {
-        return this._thereIsCurrentAudio() && !this._currentAudioIsPaused() && 0 <= this.currentAudio.currentTime && this.currentAudio.currentTime < this.currentAudio.duration
+        this._updateCurrentAutioIsOverAttributeValue()
+        return this._thereIsCurrentAudio() && this.currentAudio?.playing()
+        // return this._thereIsCurrentAudio() && !this._currentAudioIsPaused() && 0 <= this.currentAudio.seek() && this.currentAudio.seek() < this.currentAudio.duration()
     }
 
     _currentAudioIsPaused = () => {
-        return this._thereIsCurrentAudio() && this.currentAudio.duration > 0 && 0 <= this.currentAudio.currentTime && this.currentAudio.currentTime < this.currentAudio.duration && this.currentAudio.paused
+        this._updateCurrentAutioIsOverAttributeValue()
+        return this._thereIsCurrentAudio() && !this._currentAudioIsPlaying()
+        // return this._thereIsCurrentAudio() && 0 < this.currentAudio.duration() && 0 <= this.currentAudio.seek() && this.currentAudio.seek() < this.currentAudio.duration() && !this.currentAudio.playing()
     }
 
     _currentAudioIsOver = () => {
-        return this._thereIsCurrentAudio() && !this._currentAudioIsPaused() && !this._currentAudioIsPlaying() && this.currentAudio.currentTime === this.currentAudio.duration
+        this._updateCurrentAutioIsOverAttributeValue()
+        return this._thereIsNoCurrentAudio() || this._currentAudioIsPaused() && this.currentAudio.isOver
+        // console.log(this.currentAudio?.seek());
+        // console.log(this.currentAudio?.duration());
+        // console.log(this.currentAudio?._duration);
+        // return this._thereIsCurrentAudio() && !this._currentAudioIsPaused() && !this._currentAudioIsPlaying() && false
+    }
+
+    _updateCurrentAutioIsOverAttributeValue = () => {
+        if (this._thereIsCurrentAudio() && this.currentAudio.didStartedToPlay && this.currentAudio.seek() == 0) {
+            this.currentAudio.isOver = true
+        }
     }
 }
 
@@ -451,7 +473,7 @@ class IdentifiersManager {
         this.identifiers = []
         this.headersKey = HEADER_IDENTIFIERS_KEY
         this.delimiter = ','
-        this.internalDebugger = new Debugger(active=debug)
+        this.internalDebugger = new SimpleDebugger(active=debug)
         this._updateIdentifiersCalledAlready = false
         this._promissedUpdateIdentifiersReturn = undefined
         this._defaultAwaitLoopDuration = 10

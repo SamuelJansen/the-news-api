@@ -138,7 +138,7 @@ class TheNewsService:
                     parsedBodyPart = bodyPart
                 collectedBody.append(parsedBodyPart)
             html = StringHelper.join(collectedBody, character='<body')
-            html = html.replace('</body>', '<script src="{{staticUrl}}/utils.js" type="text/javascript"></script></body>')
+            html = html.replace('</body>', '<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script><script src="{{staticUrl}}/utils.js"></script></body>')
 
             self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsModel.key), subject, html, FileOperation.OVERRIDE_TEXT)
             self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
