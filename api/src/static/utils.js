@@ -12,7 +12,6 @@ const DEFAULT_AUDIO_TIMEOUT = 350
 const DEFAULT_ANIMATION_TIMEOUT = 200
 const DEFAULT_MESSAGE_TIME_DURATIONT = 5000
 const HEADER_SESSION_KEY = 'Context'
-const HEADER_IDENTIFIERS_KEY = 'Identifiers'
 const DEFAULT_HEADERS = new Headers({
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -467,127 +466,6 @@ class AudioQueueManager {
     }
 }
 
-class IdentifiersManager {
-    constructor(debug=DEFAULT_DEBUG_MODE) {
-        this.rawIdentifiers = {}
-        this.identifiers = []
-        this.headersKey = HEADER_IDENTIFIERS_KEY
-        this.delimiter = ','
-        this.internalDebugger = new SimpleDebugger(active=debug)
-        this._updateIdentifiersCalledAlready = false
-        this._promissedUpdateIdentifiersReturn = undefined
-        this._defaultAwaitLoopDuration = 10
-        this._updateIdentifiersTimeout = 2000
-    }
-
-    _handleCandidate = (candidate) => {
-        const rawIdentifierRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/
-        const rawIdentifierValue = rawIdentifierRegex.exec(candidate)
-        if(rawIdentifierValue && this.rawIdentifiers[rawIdentifierValue] === undefined) {
-            callback(rawIdentifierValue)
-            this.rawIdentifiers[rawIdentifierValue] = true;
-        }
-        if (!(''===candidate)){
-            const splittedIdentifier = candidate.split(' ')
-            const identifier = `${splittedIdentifier[0].split('candidate:')[1]}-${splittedIdentifier[3]}`
-            if (!this.identifiers.includes(identifier)){
-                this.identifiers.push(identifier)
-            }
-        }
-    }
-
-    _returnUserDataWhenAvailable = (user) => {
-        if (this._userDataIsAvailable(user)) {
-            return this._evaluateUserData(user)
-        }
-        return setTimeout(() => this._returnUserDataWhenAvailable(user), this._defaultAwaitLoopDuration)
-    }
-
-    _userDataIsAvailable = (user) => {
-        return user && user.localDescription && user.localDescription.sdp
-    }
-
-    _evaluateUserData = (user) => {
-        const lines = user.localDescription.sdp.split('\n')
-        lines.forEach((line) => {
-            if(line.indexOf('a=candidate:') === this._defaultAwaitLoopDuration) {
-                this._handleCandidate(line)
-            }
-        })
-        return this._identifiersAreDefined() ? this.identifiers : setTimeout(() => this._returnUserDataWhenAvailable(user), this._defaultAwaitLoopDuration)
-    }
-
-    _identifiersAreDefined = () => {
-        return this.identifiers && 0 < this.identifiers.length
-    }
-
-    awaitIdentifiersDefinition = (callback) => {
-        if (this._identifiersAreDefined()) {
-            return callback()
-        }
-        setTimeout(() => this.awaitIdentifiersDefinition(callback), this._defaultAwaitLoopDuration)
-    }
-
-    updateIdentifiers = (callback) => {
-        this.internalDebugger.logIt(`updateIdentifiers()`)
-        if (this._identifiersAreDefined()) {
-            return this.identifiers
-        }
-        setTimeout(() => {
-            if (!this._identifiersAreDefined()) {
-                if (!this.identifiers) {
-                    this.identifiers = []
-                }
-                this.identifiers.push('default')
-            }
-        }, this._updateIdentifiersTimeout)
-        if (!this._updateIdentifiersCalledAlready) {
-            this._updateIdentifiersCalledAlready = true
-            const RTCPeerConnection = window.RTCPeerConnection
-                || window.mozRTCPeerConnection
-                || window.webkitRTCPeerConnection;
-            const useWebKit = !!window.webkitRTCPeerConnection;
-            if(!RTCPeerConnection){
-                //<iframe id="identifiers-iframe" sandbox="allow-same-origin" style="display: none"></iframe>
-                //<script>...updateIdentifiers called in here...
-                const win = iframe.contentWindow;
-                RTCPeerConnection = win.RTCPeerConnection
-                    || win.mozRTCPeerConnection
-                    || win.webkitRTCPeerConnection;
-                useWebKit = !!win.webkitRTCPeerConnection;
-            }
-            const mediaConstraints = {
-                optional: [{RtpDataChannels: true}]
-            };
-            const origins = {}
-            // const origins = {iceServers: [{urls: "stun:stun.services.mozilla.com"}]}
-            const user = new RTCPeerConnection(origins, mediaConstraints)
-
-            user.onicecandidate = (ice) => {
-                if(ice.candidate) {
-                    this._handleCandidate(ice.candidate.candidate)
-                }
-            };
-            user.createDataChannel("")
-            user.createOffer((result) => {
-                user.setLocalDescription(result, () => {}, () => {})
-            }, () => {})
-            this._returnUserDataWhenAvailable(user)
-        }
-        return this.awaitIdentifiersDefinition(() => this.identifiers)
-     }
-
-    updateIdentifiersHeader = (headers) => {
-        this.internalDebugger.logIt(`updateIdentifiersHeader()`)
-        idendtifierManager.updateIdentifiers()
-        return this.awaitIdentifiersDefinition(() => {
-            headers.delete(this.headersKey)
-            headers.append(this.headersKey, `${this.identifiers.join(this.delimiter)}`)
-            return this.identifiers
-        })
-    }
-}
-
 const toggleFullScreen = () => {
   if (!document.fullscreenElement &&    // alternative standard method
       !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
@@ -684,13 +562,9 @@ setTimeout(() => {
 
 clickManager = new ClickManager()
 audioQueueManager = new AudioQueueManager(debug=DEFAULT_DEBUG_MODE)
-idendtifierManager = new IdentifiersManager(debug=DEFAULT_DEBUG_MODE)
 
-idendtifierManager.updateIdentifiersHeader(DEFAULT_HEADERS)
-idendtifierManager.awaitIdentifiersDefinition(() => {
-    return getAudioData()
-        .then((enhancedResponse) => {
-            audioQueueManager.addDataList(enhancedResponse.body)
-            return enhancedResponse.body
-        })
-})
+getAudioData()
+    .then((enhancedResponse) => {
+        audioQueueManager.addDataList(enhancedResponse.body)
+        return enhancedResponse.body
+    })
