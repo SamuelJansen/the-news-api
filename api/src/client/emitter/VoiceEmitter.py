@@ -1,7 +1,7 @@
 from python_framework import Serializer, HttpStatus, JwtConstant
 from queue_manager_api import MessageEmitter, MessageEmitterMethod, MessageDto
 
-from config import VoiceQueueConfig
+from config import VoiceQueueConfig, VoiceClientConfig
 
 
 @MessageEmitter(
@@ -27,4 +27,10 @@ class VoiceEmitter:
         , logResponse = True
     )
     def createAll(self, dto, headers=None):
-        return self.emit(headers=headers, body=dto)
+        return self.emit(
+            headers = headers,
+            messageHeaders = {
+                JwtConstant.DEFAULT_JWT_API_KEY_HEADER_NAME: f'Bearer {VoiceClientConfig.API_KEY}'
+            },
+            body = dto
+        )

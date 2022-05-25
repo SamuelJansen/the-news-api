@@ -195,7 +195,7 @@ class TheNewsService:
                     [
                         charactere
                         for charactere in sentenceEnd
-                        if charactere not in c.PUNCTUATION
+                        if charactere in c.CHARACTERES
                     ],
                     character=c.BLANK
                 )
@@ -215,6 +215,15 @@ class TheNewsService:
                     isMarketing = False
                 if isMarketing:
                     lastSentence = emailBodySentence
+                    if lastSentence in [
+                        'FL',
+                        'QUIZ THE NEWS',
+                        'QUIZ',
+                        'EDIÇÃO ESPECIAL DE SÁBADO',
+                        'PROGRAMA DE INDICAÇÃO',
+                        'GIVEAWAY DO DÊNIUS'
+                    ]:
+                        notFilteredEmailBodySentenceList.pop()
                 else:
                     if (
                         (
@@ -226,7 +235,12 @@ class TheNewsService:
                             not sentenceEndFilterd[-5].isupper()
                         ) if sentenceEnd[-1].isupper() else not isMarketing
                     ):
-                        notFilteredEmailBodySentenceList.append(emailBodySentence)
+                        if 'PATROCINADO POR' in emailBodySentence:
+                            isMarketing = True
+                            if emailBodySentence.startswith('PATROCINADO POR'):
+                                notFilteredEmailBodySentenceList.pop()
+                        else:
+                            notFilteredEmailBodySentenceList.append(emailBodySentence)
                     else:
                         upperCaseWords = c.BLANK
                         for charactere in reversed(emailBodySentence):
@@ -236,6 +250,7 @@ class TheNewsService:
                                 upperCaseWords = c.BLANK
                             else:
                                 break
+                        upperCaseWords = upperCaseWords.strip()
                         sentence = emailBodySentence.replace(upperCaseWords, c.BLANK).strip()
                         if (
                             upperCaseWords.startswith('PATROCINADO POR') or
@@ -247,6 +262,7 @@ class TheNewsService:
                             upperCaseWords.startswith('PROGRAMA DE INDICAÇÃO') or
                             upperCaseWords.startswith('GIVEAWAY DO DÊNIUS')
                         ):
+
                             isMarketing = True
                             if StringHelper.isBlank(sentence):
                                 rawMarketingSentence = notFilteredEmailBodySentenceList.pop()
