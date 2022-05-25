@@ -380,6 +380,11 @@ class TheNewsService:
                             if StringHelper.isNotBlank(strippedSencence):
                                 compiledEmailBodyList.append(f'{strippedSencence}{c.DOT}')
 
+            compiledEmailBodyList = [
+                sentence.replace('<=', '&le;').replace('>=', '&ge;').replace('<', '&lt;').replace('>', '&gt;')
+                for sentence in compiledEmailBodyList
+            ]
+
             totalEmailBodySentenceList.append(compiledEmailBodyList)
 
             log.prettyPython(self.getEmailBodySentenceList, 'Email body sentences', compiledEmailBodyList, logLevel=log.STATUS)
