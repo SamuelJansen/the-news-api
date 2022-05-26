@@ -36,6 +36,11 @@ api:
         mute-logs: False
         timeout: 30
 
+today-news:
+    update:
+        hour: ${TODAY_NEWS_UPDATE_HOUR:7}
+        minute: ${TODAY_NEWS_UPDATE_HOUR:30}
+
 email-manager-api:
     base-url: ${EMAIL_MANAGER_API_HOST}/email-manager-api
     api-key: ${EMAIL_MANAGER_API_API_KEY:default}

@@ -11,9 +11,9 @@ class EmailScheduler :
         SchedulerType.CRON,
         week = WeekDayConstant.ALL_WEEK,
         weekDays = WeekDayConstant.WEEK_CHRON,
-        hour = UpdateMoment.THE_NEWS.hour,
-        minute = UpdateMoment.THE_NEWS.minute,
-        toleranceTime = 10
+        hour = UpdateMoment.TODAY_NEWS.hour,
+        minute = UpdateMoment.TODAY_NEWS.minute,
+        toleranceTime = 30
     )
     def startTodaysNewsUpdate(self):
         self.service.theNews.startTodaysNewsUpdate()
