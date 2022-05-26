@@ -1,4 +1,9 @@
+from globals import getGlobalsInstance
+
 from python_framework import Enum, EnumItem
+
+
+globalsInstance = getGlobalsInstance()
 
 
 @Enum()
