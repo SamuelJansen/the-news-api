@@ -3,6 +3,7 @@ import datetime
 from python_helper import Constant as c
 from python_helper import EnvironmentHelper, ObjectHelper, RandomHelper, StringHelper, log, DateTimeHelper
 from python_framework import Service, ServiceMethod, EnumItem
+from notification_manager_api import NotificationDestiny
 
 import AudioDataDto
 import AudioData
@@ -13,7 +14,9 @@ class AudioDataService :
 
     @ServiceMethod(requestClass=[[AudioDataDto.AudioDataRequestDto], datetime.date])
     def createOrUpdateAll(self, dtoList, date):
-        log.prettyPython(self.createOrUpdateAll, 'Receiving audio datas', [dto.key for dto in dtoList], logLevel=log.STATUS)
+        logMessage = 'Receiving audio datas'
+        log.prettyPython(self.createOrUpdateAll, logMessage, [dto.key for dto in dtoList], logLevel=log.STATUS)
+        self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
         requestKeyList = [dto.key for dto in dtoList if dto and dto.key]
         assert 0 < len(requestKeyList), f'Request dto must have defined keys. Keys: {requestKeyList}'
 
@@ -40,13 +43,17 @@ class AudioDataService :
 
     @ServiceMethod(requestClass=[[AudioData.AudioData]])
     def persistAll(self, modelList):
-        log.prettyPython(self.persistAll, 'Persisting audios', [model.key for model in modelList], logLevel=log.STATUS)
+        logMessage = 'Persisting audios'
+        log.prettyPython(self.persistAll, logMessage, [model.key for model in modelList], logLevel=log.STATUS)
+        self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
         return self.repository.audioData.saveAll(modelList)
 
 
     @ServiceMethod(requestClass=[[AudioData.AudioData]])
     def deleteAll(self, modelList):
-        log.prettyPython(self.deleteAll, 'Deleting audios', [model.key for model in modelList], logLevel=log.STATUS)
+        logMessage = 'Deleting audios'
+        log.prettyPython(self.deleteAll, logMessage, [model.key for model in modelList], logLevel=log.STATUS)
+        self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
         return self.repository.audioData.deleteAll(modelList)
 
 

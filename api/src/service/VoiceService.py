@@ -1,6 +1,7 @@
 from python_helper import Constant as c
 from python_helper import EnvironmentHelper, ObjectHelper, RandomHelper, StringHelper, log
 from python_framework import Service, ServiceMethod, EnumItem
+from notification_manager_api import NotificationDestiny
 
 import AudioDataDto
 import AudioData
@@ -22,7 +23,9 @@ class VoiceService :
                 } for text in textList
             ])
         except Exception as exception:
-             log.warning(self.speakAll, 'Not possible to speak', exception=exception, muteStackTrace=True)
+            errorMessage = 'Not possible to get audios'
+            log.warning(self.speakAll, errorMessage, exception=exception, muteStackTrace=True)
+            self.service.notification.notifyWarningTo(errorMessage, [NotificationDestiny.TELEGRAM])
         return serviceReturn
 
 
@@ -38,5 +41,7 @@ class VoiceService :
                 } for text in textList
             ])
         except Exception as exception:
-             log.warning(self.speakAll, 'Not possible to speak', exception=exception, muteStackTrace=True)
+            errorMessage = 'Not possible to create audios'
+            log.warning(self.speakAll, errorMessage, exception=exception, muteStackTrace=True)
+            self.service.notification.notifyWarningTo(errorMessage, [NotificationDestiny.TELEGRAM])
         return serviceReturn

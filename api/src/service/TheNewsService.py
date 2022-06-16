@@ -3,6 +3,7 @@ import datetime
 from python_helper import Constant as c
 from python_helper import log, StringHelper, ObjectHelper, DateTimeHelper, FileOperation
 from python_framework import Service, ServiceMethod, EnumItem
+from notification_manager_api import NotificationDestiny
 
 from config import TheNewsConfig
 from domain.ContentType import ContentType
@@ -39,9 +40,14 @@ class TheNewsService:
                     self.updateNewsModel(newsModel, NewsStatus.ERROR)
                     raise Exception(f'Not enought audio datas were created this time. There are only {existingAudioDatas} existing audio datas. Should be {len(audioDataRequestDtoList)}')
             self.updateNewsModel(newsModel, NewsStatus.FINISHED)
-            log.status(self.finishTodayNewsUpdate, f'Today news created')
+
+            successMessage = f'Today news created'
+            log.status(self.finishTodayNewsUpdate, successMessage)
+            self.service.notification.notifySuccess(successMessage)
         except Exception as exception:
-            log.failure(self.finishTodayNewsUpdate, 'Not possible to finish today news update', exception=exception, muteStackTrace=True)
+            errorMessage = 'Not possible to finish today news update'
+            log.failure(self.finishTodayNewsUpdate, errorMessage, exception=exception, muteStackTrace=True)
+            self.service.notification.notifyError(errorMessage)
             self.updateNewsModel(newsModel, NewsStatus.ERROR)
             raise exception
         return audioDataResponseDtoList
@@ -110,7 +116,9 @@ class TheNewsService:
 
     @ServiceMethod()
     def startTodaysNewsUpdate(self):
-        log.status(self.startTodaysNewsUpdate, f'Updating today news')
+        logMessage = f'Updating today news'
+        log.status(self.startTodaysNewsUpdate, logMessage)
+        self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
         try:
             newsModel = self.createOrUpdateNewsModel(DateTimeHelper.dateNow(), NewsStatus.CREATED)
 
@@ -141,13 +149,19 @@ class TheNewsService:
             html = html.replace('</body>', '<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script><script src="{{staticUrl}}/utils.js"></script></body>')
 
             self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsModel.key), subject, html, FileOperation.OVERRIDE_TEXT)
+
+            logMessage = f'Creatting today news voice overs'
+            log.status(self.startTodaysNewsUpdate, logMessage)
+            self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
             self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
+
             self.updateNewsModel(newsModel, NewsStatus.PROCESSING_AUDIO)
 
-            log.status(self.startTodaysNewsUpdate, f'Creatting today news voice overs')
         except Exception as exception:
             self.updateNewsModel(newsModel, NewsStatus.ERROR)
-            log.error(self.startTodaysNewsUpdate, 'Error while updating today news', exception=exception)
+            errorMessage = 'Error while updating today news'
+            log.error(self.startTodaysNewsUpdate, errorMessage, exception=exception)
+            self.service.notification.notifyError(errorMessage)
 
 
     @ServiceMethod()
@@ -176,7 +190,9 @@ class TheNewsService:
 
     @ServiceMethod(requestClass=[int, [str]])
     def getEmailBodySentenceList(self, subject, plainTextEmailList):
-        log.prettyPython(self.getEmailBodySentenceList, 'Parsing email body sentences', plainTextEmailList, logLevel=log.STATUS)
+        logMessage = 'Parsing email body sentences'
+        log.prettyPython(self.getEmailBodySentenceList, logMessage, plainTextEmailList, logLevel=log.STATUS)
+        self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
         totalEmailBodySentenceList = []
         for plainTextEmail in plainTextEmailList:
             isMarketing = False
@@ -388,5 +404,8 @@ class TheNewsService:
             totalEmailBodySentenceList.append(compiledEmailBodyList)
 
             log.prettyPython(self.getEmailBodySentenceList, 'Email body sentences', compiledEmailBodyList, logLevel=log.STATUS)
-            log.status(self.getEmailBodySentenceList, f'There is a total of {len(compiledEmailBodyList)} email body sentences')
+
+            logMessage = f'There are a total of {len(compiledEmailBodyList)} email body sentences'
+            log.status(self.getEmailBodySentenceList, logMessage)
+            self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
         return totalEmailBodySentenceList

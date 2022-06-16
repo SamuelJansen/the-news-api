@@ -1,14 +1,16 @@
 from flask import render_template, send_from_directory
 from python_helper import Constant as c
 from python_helper import log, EnvironmentHelper
-from python_framework import ResourceManager, FlaskUtil, LogConstant
+from python_framework import ResourceManager, FlaskUtil, LogConstant, HttpStatus
 from queue_manager_api import QueueManager
+from notification_manager_api import NotificationManager
 
 import ModelAssociation
 
 
 app = ResourceManager.initialize(__name__, ModelAssociation.MODEL, managerList=[
-    QueueManager()
+    QueueManager(),
+    NotificationManager()
 ])
 
 
@@ -27,7 +29,7 @@ def todayNews():
         MESSAGE_KEY = 'message'
         responseDto = {MESSAGE_KEY: 'Today news not found'}
         log.error(todayNews, responseDto.get(MESSAGE_KEY), exception=exception)
-    return responseDto, 404
+    return responseDto, HttpStatus.NOT_FOUND
 
 
 @app.route('/favicon.ico')
