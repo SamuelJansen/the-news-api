@@ -236,29 +236,34 @@ def getCompiledEmailBodyList(plainTextEmail):
     ]
 
 
-def buildHtml(textHtmlEmail):
-    rawHtml = str(textHtmlEmail)
-    rawHtml = rawHtml.replace(
-        '</head>',
-        '''<link rel="icon" type="image/x-icon" href="https://cdn.data-explore.com/favicon.ico"><link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="{{staticUrl}}/util-style.css"/></head>'''
-    )
-    collectedBody = []
-    for index, bodyPart in enumerate(rawHtml.split('<body')):
-        if index > 0:
-            splitHtml = bodyPart.split('>')
-            parsedBodyPart = StringHelper.join(
-                [
-                    splitHtml[0],
-                    '<div role="play buttom" onClick="handlePlayClick()" class="audio-circle"><span id="spam-audio-circle" class="material-icons">play_circle</span></div', ###- <button onClick="handlePlayClick()">voice over</button><div class="circle">
-                    *splitHtml[1:]
-                ],
-                character='>'
+def buildHtml(textHtmlEmailList):
+    parsedTextHtmlEmailList = []
+    for textHtmlEmail in textHtmlEmailList:
+        rawHtml = str(textHtmlEmail)
+        rawHtml = rawHtml.replace(
+            '</head>',
+            '''<link rel="icon" type="image/x-icon" href="https://cdn.data-explore.com/favicon.ico"><link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="{{staticUrl}}/util-style.css"/></head>'''
+        )
+        collectedBody = []
+        for index, bodyPart in enumerate(rawHtml.split('<body')):
+            if index > 0:
+                splitHtml = bodyPart.split('>')
+                parsedBodyPart = StringHelper.join(
+                    [
+                        splitHtml[0],
+                        '<div role="play buttom" onClick="handlePlayClick()" class="audio-circle"><span id="spam-audio-circle" class="material-icons">play_circle</span></div', ###- <button onClick="handlePlayClick()">voice over</button><div class="circle">
+                        *splitHtml[1:]
+                    ],
+                    character='>'
+                )
+            else:
+                parsedBodyPart = bodyPart
+            collectedBody.append(parsedBodyPart)
+        html = StringHelper.join(collectedBody, character='<body')
+        parsedTextHtmlEmailList.append(
+            html.replace(
+                '</body>',
+                '<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script><script src="{{staticUrl}}/utils.js"></script></body>'
             )
-        else:
-            parsedBodyPart = bodyPart
-        collectedBody.append(parsedBodyPart)
-    html = StringHelper.join(collectedBody, character='<body')
-    return html.replace(
-        '</body>',
-        '<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script><script src="{{staticUrl}}/utils.js"></script></body>'
-    )
+        )
+    return parsedTextHtmlEmailList
