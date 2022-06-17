@@ -25,9 +25,41 @@ TEXT_HTML_LIST_KEY = 'textHtmlList'
 @Service()
 class TheNewsService:
 
+    @ServiceMethod()
+    def startTodaysNewsUpdate(self):
+        logMessage = f'Updating today news'
+        log.status(self.startTodaysNewsUpdate, logMessage)
+        self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
+        try:
+            newsModel = self.createOrUpdateNewsModel(DateTimeHelper.dateNow(), NewsStatus.CREATED)
+
+            emailBody = self.getEmailBodyList(TheNewsConfig.TODAY_NEWS_EMAIL_AMOUNT)
+            self.updateNewsModel(newsModel, NewsStatus.PROCESSING_TEXT)
+
+            subject = emailBody.get(EMAIL_SUBJECT_KEY, c.BLANK)
+            emailBodySentenceList = self.getEmailBodySentenceList(subject, emailBody.get(TEXT_PLAIN_LIST_KEY, []))[-1]
+            emailHtml = EmailStaticHelper.buildHtml(emailBody.get(TEXT_HTML_LIST_KEY, c.BLANK))[-1]
+            self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsModel.key), subject, emailHtml, FileOperation.OVERRIDE_TEXT)
+
+            logMessage = f'Creatting today news voice overs'
+            log.status(self.startTodaysNewsUpdate, logMessage)
+            self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
+            self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
+
+            self.updateNewsModel(newsModel, NewsStatus.PROCESSING_AUDIO)
+
+        except Exception as exception:
+            self.updateNewsModel(newsModel, NewsStatus.ERROR)
+            errorMessage = 'Error while updating today news'
+            log.error(self.startTodaysNewsUpdate, errorMessage, exception=exception)
+            self.service.notification.notifyError(errorMessage)
+
+
     @ServiceMethod(requestClass=[[AudioDataDto.AudioDataRequestDto]])
     def finishTodayNewsUpdate(self, audioDataRequestDtoList):
-        log.status(self.finishTodayNewsUpdate, f'Finishing today news update')
+        logMessage = f'Finishing today news update'
+        self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
+        log.status(self.finishTodayNewsUpdate, logMessage)
         newsModel = self.createOrUpdateNewsModel(DateTimeHelper.dateNow(), NewsStatus.PROCESSING)
         audioDataResponseDtoList = []
         try:
@@ -113,36 +145,6 @@ class TheNewsService:
 
     def getTodayNewsHtmlFileName(self):
         return self.buildTodayNewsHtmlFileName(self.getOrCreateTodayNewsModel().key)
-
-
-    @ServiceMethod()
-    def startTodaysNewsUpdate(self):
-        logMessage = f'Updating today news'
-        log.status(self.startTodaysNewsUpdate, logMessage)
-        self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
-        try:
-            newsModel = self.createOrUpdateNewsModel(DateTimeHelper.dateNow(), NewsStatus.CREATED)
-
-            emailBody = self.getEmailBodyList(TheNewsConfig.TODAY_NEWS_EMAIL_AMOUNT)
-            self.updateNewsModel(newsModel, NewsStatus.PROCESSING_TEXT)
-
-            subject = emailBody.get(EMAIL_SUBJECT_KEY, c.BLANK)
-            emailBodySentenceList = self.getEmailBodySentenceList(subject, emailBody.get(TEXT_PLAIN_LIST_KEY, []))[-1]
-            emailHtml = EmailStaticHelper.buildHtml(emailBody.get(TEXT_HTML_LIST_KEY, c.BLANK))[-1]
-            self.client.theNews.writeContent(self.buildTodayNewsHtmlFileName(newsModel.key), subject, emailHtml, FileOperation.OVERRIDE_TEXT)
-
-            logMessage = f'Creatting today news voice overs'
-            log.status(self.startTodaysNewsUpdate, logMessage)
-            self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
-            # self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
-
-            self.updateNewsModel(newsModel, NewsStatus.PROCESSING_AUDIO)
-
-        except Exception as exception:
-            self.updateNewsModel(newsModel, NewsStatus.ERROR)
-            errorMessage = 'Error while updating today news'
-            log.error(self.startTodaysNewsUpdate, errorMessage, exception=exception)
-            self.service.notification.notifyError(errorMessage)
 
 
     @ServiceMethod()
