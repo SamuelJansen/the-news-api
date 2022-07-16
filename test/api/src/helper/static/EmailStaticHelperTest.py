@@ -286,6 +286,278 @@ Actualizar preferências https://thenews.updatemyprofile.com/t-qkyikly-AF625213-
             "Paixão nacional. Com essa receita de empadinha de frango você pode praticar à vontade, deixando a massa no ponto perfeito. 👨‍🍳",
             "Para quem gosta de MPB. Chico Buarque está lançando, hoje, seu primeiro single inédito em 5 anos. Clique para escutar ' Que tal um samba? ' assim que estiver disponível. 🎶"
         ]
+    },
+    {
+        ARRANGED: """relaxa
+
+bom dia. hoje, o estagiário acordou sem inspiração e não conseguiu elaborar mensagem motivacional. às vezes, quando bate o cansaço, a única solução é um happy hour com os amigos.
+
+Uma onda de renúncias na Europa?MUNDO
+
+(Imagem: Reuters | Reprodução)
+
+Boris Johnson fez escola. O primeiro-ministro italiano, Mario Draghi, formalizou ontem um pedido de renúncia do cargo, a exemplo do que seu semelhante inglês fez na semana passada.
+
+Só que o presidente do país  simplesmente rejeitou o pedido [https://www.cnnbrasil.com.br/internacional/primeiro-ministro-da-italia-diz-que-ira-renunciar/?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral] e o aconselhou a se apresentar ao Parlamento, para melhor entender sua situação política.
+
+O que está acontecendo? Mario Draghi perdeu apoio do principal partido da sua base de governo, o Movimento 5 Estrelas, que  boicotou uma das votações dos pacotes propostos por ele [https://g1.globo.com/mundo/noticia/2022/07/14/primeiro-ministro-da-italia-mario-draghi-renuncia-ao-cargo.ghtml?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral], desencadeando a crise.
+
+O boicote. O premiê propôs medidas para conter o impacto da inflação e apresentou um projeto para a construção de um incinerador de lixo. Fazendo críticas às propostas, o partido discordou do italiano.
+
+A realidade é que Draghi não precisa do apoio do partido para se manter no poder, porque tem  ampla maioria no parlamento [https://www1.folha.uol.com.br/mundo/2022/07/primeiro-ministro-da-italia-anuncia-renuncia-apos-implosao-de-coalizao-governista.shtml?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral]. Mas, para o político, não faz sentido ser premiê sem o apoio do M5E.
+
+A crise está instaurada na terra da pizza e a situação terá que ser bem costurada. Ao contrário do que aconteceu no Reino Unido, a maioria dos italianos quer continuar com a liderança do primeiro-ministro. Mais discreto, né? risos.
+
+O que mais é destaque mundialmente falando?
+
+Retratos da guerra.  Ataques russos deixaram mais de 20 mortos no centro da Ucrânia [https://g1.globo.com/mundo/ucrania-russia/noticia/2022/07/14/ataques-russos-deixam-12-mortos-no-centro-da-ucrania.ghtml?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral]
+
+Conflito secreto?  Israel e Irã estão desvelando várias ações clandestinas que realizam um contra o outro [https://www.bbc.com/portuguese/internacional-62067419?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral]
+
+Cuidado.  Homem morre depois de tomar uma garrafa inteira de licor em apenas dois minutos [https://g1.globo.com/mundo/noticia/2022/07/14/homem-morre-apos-ingerir-uma-garrafa-inteira-de-licor-em-dois-minutos.ghtml?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral]
+
+De PEC em PECBRASIL
+
+(Imagem: Veja | Reprodução)
+
+Muito trabalho em Brasília. Se tem um assunto que o pessoal da política tem falado neste ano é sobre as PECs. Depois de tantos votos para mudanças na Constituição, os congressistas bateram um recorde em 2022.
+
+Este ano foi o que  mais teve PECs aprovadas em toda a história da Lei Maior [https://www.poder360.com.br/historia/2022-bate-recorde-de-mudancas-na-constituicao/?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral], nos seus longos e bem vividos 33 anos de promulgação, com 11 alterações ao texto constitucional — até agora.
+
+Looking back. O Brasil tem uma grande tradição de inovações constitucionais. O período em que houve mais mudanças foi no governo de Jair Bolsonaro, com 26, seguido pelo primeiro mandato de Dilma Rousseff, com 17.
+
+Só para comparar: Os Estados Unidos, que são conhecidos por ter uma Constituição bem enxuta, aprovou  apenas 27 alterações nos seus 233 anos [https://oglobo.globo.com/politica/constituicao-dos-eua-teve-27-emendas-em-230-anos-23581420?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral] de existência. O Brasileiro é realmente cheio de opiniões. risos.
+
+E por falar nisso… Ontem,  f [https://g1.globo.com/politica/noticia/2022/07/14/com-presenca-de-bolsonaro-congresso-promulga-emenda-que-permite-pacote-social-pre-eleitoral.ghtml?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral] oi promulgada a  [https://g1.globo.com/politica/noticia/2022/07/14/com-presenca-de-bolsonaro-congresso-promulga-emenda-que-permite-pacote-social-pre-eleitoral.ghtml?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral] Emenda Constitucional Kamikaze [https://g1.globo.com/politica/noticia/2022/07/14/com-presenca-de-bolsonaro-congresso-promulga-emenda-que-permite-pacote-social-pre-eleitoral.ghtml?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral], que autoriza o estado de emergência no país e libera um gasto público de R$ 41,2 bilhões.
+
+Outras notícias importantes no país:
+
+Polêmica no Rio Grande do Sul.  Juíza eleitoral afirmou que a bandeira do Brasil seria considerada uma propaganda para o Governo Bolsonaro [https://veja.abril.com.br/coluna/radar/juiza-eleitoral-diz-que-bandeira-do-brasil-virou-simbolo-de-bolsonaro/?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral]
+
+Qualidade do ensino.  7 das 10 melhores universidades da América Latina estão no Brasil [https://www.cnnbrasil.com.br/nacional/sete-das-dez-melhores-universidades-na-america-latina-estao-no-brasil-veja-lista/?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral]
+
+Excelente para PPPs.  Brasil foi eleito um dos melhores ambientes para se estabelecer parcerias público-privadas [https://www.abdib.org.br/2022/07/13/brasil-tem-um-dos-melhores-ambientes-para-ppp-na-america-latina/?utm_source=thenewscc&utm_medium=e-mail&utm_campaign=referral]
+
+TikTok e Instagram estão ameaçando o Google Maps
+
+TECNOLOGIA
+
+(GIF: Tenor | Reprodução)
+
+A geração Z não gosta de mapas. Um novo estudo mostrou que  40% dos jovens não vão ao Google Maps [https://www.tecmundo.com.br/redes-sociais/241822-tiktok-instagram-ameacando-google-maps-busca.htm?utm_source=email&utm_campaign=thenewscc&utm_id=referral] quando procuram um lugar para almoçar — eles vão para o TikTok ou Instagram.
+
+Com a descoberta, a ameaça do aplicativo chinês aos negócios do Google não se limita apenas ao Youtube, impactando também os serviços de Pesquisa e Mapas.
+
+A explicação: O Google Maps foi feito com a intenção de levar mapas de papel para o computador. O objetivo faz sentido para quem cresceu sem GPS, mas fica distante da realidade dos adolescentes que nunca viram um mapa de papel.
+
+Segundo os executivos do Google, em vez de digitar palavras-chave, essa nova geração procura descobrir conteúdo de  maneiras novas e mais imersivas [https://techcrunch.com/2022/07/12/google-exec-suggests-instagram-and-tiktok-are-eating-into-googles-core-products-search-and-maps/?utm_source=email&utm_campaign=thenewscc&utm_id=referral].
+
+Por que isso é relevante? Embora os usuários mais velhos da Internet não usem o tico-teco para encontrar um restaurante, essa tendência pode  reduzir o negócio principal do Google de pesquisa e descoberta ao longo do tempo [https://techcrunch.com/2022/07/12/google-exec-suggests-instagram-and-tiktok-are-eating-into-googles-core-products-search-and-maps/?utm_source=email&utm_campaign=thenewscc&utm_id=referral].
+
+Tentando afastar o Google Maps dos mapas de papel, a empresa está incorporando realidade aumentada e outras inovações no sistema — será que é suficiente pra atrair a gen Z?
+
+Com essa seleção, você vai subir de cargo
+
+PATROCINADO POR AMAZON
+
+Esses produtos que achamos na Amazon te farão trabalhar melhor, ser mais produtivo e ter mais resultados — todas as condições para você ser promovido. risos.
+
+💻 Sua postura agradece.  Esse suporte para notebook custa só R$ 54 e vai fazer seu trabalho bem mais confortável. [https://amzn.to/3o1ZQJM]
+
+👊 Seu punho também…  Um desconto de 18% em um mouse pad como esse não pode passar batido [https://amzn.to/3IDsTge]. Para você que digita o dia todo, é essencial.
+
+📚 Ler faz bem para a carreira:  Do autor de Como Fazer Amigos e Influenciar Pessoas, esse livro vai te ensinar a fazer sua carreira decolar [https://amzn.to/3O4u3m9]. Está com 45% OFF!
+
+🎧 Suas calls sem ruídos e fios atrapalhando.  Com esses fones, suas reuniões vão ficar melhores e você vai poder colocar aquela música de fundo para te ajudar a focar. [https://amzn.to/3yIDaU4]
+
+🖥️ Melhore sua mesa.  Nunca vimos um produto tão simples mas capaz de organizar sua mesa, delimitar  o seu espaço e deixá-lo esteticamente mais bonito [https://amzn.to/3yD0mmF]. Vale conferir!
+
+Clique aqui [https://amzn.to/3uNviiG] e veja tudo o que a loja de Jeff Bezos tem para você.
+
+Enquanto a OpenSea entra no inverno cripto, o Itaú acredita no verão
+
+NEGÓCIOS
+
+(Imagem: Anton Petrus | Getty Images))
+
+Deve ser a diferença entre os hemisférios. A OpenSea — o maior mercado para negociar NFTs do mundo — parece ter visto que a febre das fotos de perfil de macacos passou e  demitiu 20% de sua equipe ontem [https://techcrunch.com/2022/07/14/nft-marketplace-opensea-lays-off-20-percent-of-its-staff-we-have-entered-crypto-winter/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral].
+
+O CEO da startup não mediu suas palavras e afirmou que a empresa entrou num inverno criptográfico sem precedentes, somado à instabilidade da economia.
+
+O medo é claro. Uma desaceleração no crescimento,  depois de uma avaliação de US$ 13,3 bilhões [https://techcrunch.com/2022/07/14/nft-marketplace-opensea-lays-off-20-percent-of-its-staff-we-have-entered-crypto-winter/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] com a corrida de alta da criptomoeda de 2021.
+
+(Imagem: Pinterest | Reprodução)
+
+Falando em tokens e mudando de estação… No mesmo dia das demissões da OpenSea,  o Itaú anunciou que está aderindo [https://www.infomoney.com.br/mercados/itau-lanca-plataforma-de-tokenizacao-de-ativos/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]   [https://www.infomoney.com.br/mercados/itau-lanca-plataforma-de-tokenizacao-de-ativos/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] à tokenização [https://www.infomoney.com.br/mercados/itau-lanca-plataforma-de-tokenizacao-de-ativos/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] e vai emitir, distribuir e negociar ativos financeiros digitalizados — basicamente, ativos tradicionais que viram representações digitais.
+
+A nova unidade se chamará Itaú Digital Assets, marcando uma  entrada considerada inevitável pela companhia [https://www.infomoney.com.br/mercados/itau-lanca-plataforma-de-tokenizacao-de-ativos/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] no mundo de criptoativos. Ninguém vai ficar de fora.
+
+O Ibovespa está tendo que se preocupar com muita coisa…
+
+ECONOMIA
+
+(GIF: Gifer | Reprodução)
+
+As notícias de um país do tamanho do Brasil já seriam suficientes para movimentar a Bolsa, mas os temores que vêm do exterior têm prevalecido.  Nessa quinta-feira, o Ibovespa caiu 1,80%, aos 96.120 pontos, e a culpa foi externa [https://www.infomoney.com.br/mercados/ibovespa-fecha-em-queda-de-180-e-renova-minima-desde-novembro-de-2020-dolar-vai-a-r-5433/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral].
+
+Ontem, o nosso principal índice voltou a sentir o peso da inflação nos EUA — e suas perspectivas para o crescimento global — e de problemas imobiliários na China.
+
+O movimento risk off 🔍
+
+Esse nome é dado quando os grandes investidores não estão dispostos a tomar riscos, buscando oportunidades mais conservadoras e protegidas. Bye, bye, ações.
+
+Para piorar as coisas, o mercado de trabalho americano demonstrou fraqueza com os  números de novos pedidos de seguro-desemprego ficando acima do esperando [https://www.infomoney.com.br/mercados/ibovespa-fecha-em-queda-de-180-e-renova-minima-desde-novembro-de-2020-dolar-vai-a-r-5433/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral].
+
+Já o dólar não sentiu tanto. A moeda americana caiu 0,07%, cotada a R$ 5,43. 💵
+
+O que mais é bom saber no cenário econômico?
+
+Nossa nota passou de negativa para estável.  Fitch reafirma rating BB- do Brasil e melhora perspectiva [https://www.infomoney.com.br/economia/fitch-reafirma-rating-bb-do-brasil-e-melhora-perspectiva-para-nota-de-negativa-para-estavel/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]
+
+Acordo com o Banco Central:  Santander vai devolver R$ 79,2 milhões a clientes por cobranças indevidas [https://www.infomoney.com.br/minhas-financas/santander-vai-devolver-r-792-milhoes-a-clientes-por-cobrancas-indevidas-veja-como-receber-valores/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]
+
+Mevo levanta R$ 45 milhões:  Investidores aportam para escalar e-commerce de medicamentos [https://braziljournal.com/mevo-atrai-investidores-para-escalar-seu-ecommerce-de-medicamentos/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]
+
+Só invista no que tem a ver com você
+
+PATROCINADO POR ÍON ITAÚ
+
+Com íon, você simula quanto o seu dinheiro pode render e analisa todos os cenários. Tudo isso pra que a sua decisão seja a melhor possível na hora de investir.  Clique aqui se você quer acertar. [https://app.adjust.com/jsr?url=https%3A%2F%2Fv9v8.adj.st%2Facompanhamento-relatorios-home%3Fadj_t%3Dyb15lh7%26adj_deep_link%3Dionitau%253A%252F%252F%26adj_redirect%3Dhttps%253A%252F%252Fion.itau%252F%26adj_campaign%3Dthe_news]
+
+O estagiário não aceita menos que 10/10
+
+QUIZ
+
+Somos exigentes. Informamos vocês diariamente e sabemos que vocês são espertos.  Por isso, esperamos que você acerte todas as perguntas do nosso QUIZ [http://thenewscc.com.br/quiz-atualidades]. Valendo!
+
+Já ta sabendo que dia é hoje?
+
+DICAS DE SEXTA
+
+(GIF: Gifer | Reprodução)
+
+É sexta-feira e tem dica do dênius. Se o clima de folga ainda não chegou por aí, siga as nossas dicas e aproveite o final de semana — você merece!
+
+Ansiedade ou stress atrapalham sua alimentação? Achamos  esse produto 100% natural [http://www.satisfazvoce.com.br/] que reduz aquela “fome emocional” que faz a gente descontar tudo na comida.  Tem 15% OFF e frete grátis com o cupom SATISFAZ. [http://www.satisfazvoce.com.br/] 💪
+
+Para quem vive recebendo a mensagem de “armazenamento quase cheio”, limpar a memória do Spotify pode solucionar o problema.  Siga a dica e libere espaço no seu celular [https://canaltech.com.br/apps/como-limpar-a-memoria-do-spotify-e-liberar-espaco-no-celular/?utm_source=email&utm_campaign=thenewscc&utm_id=referral]. 📲
+
+Você sente que a sua vida é uma lista de tarefas infinitas? O livro  Não aguento mais não aguentar mais: Como os Millennials se tornaram a geração do burnout [https://www.amazon.com.br/N%C3%A3o-aguento-mais-n%C3%A3o-aguentar/dp/6555111976/?_encoding=UTF8&pd_rd_w=4TSBh&content-id=amzn1.sym.717e1082-1b26-481d-94d5-2a1a46904215&pf_rd_p=717e1082-1b26-481d-94d5-2a1a46904215&pf_rd_r=CY42KJN651PD1VJ61TKN&pd_rd_wg=FcFEd&pd_rd_r=4000a2e8-db85-4296-b14c-7c8210fd056e&ref_=pd_gw_ci_mcx_mr_hp_atf_m&utm_source=email&utm_campaign=thenewscc&utm_id=referral] mostra que não estamos sozinhos nessa. 📚
+
+Quer saber como investir, ter grandes rentabilidades sem se expor tanto ao risco? Então você não pode perder  esse evento 100% online e gratuito [https://moneyweek.com.br/?referralCode=gth2b3l&refSource=copy] que acontecerá na segunda.  Inscreva-se aqui logo, as vagas vão se encerrar [https://moneyweek.com.br/?referralCode=gth2b3l&refSource=copy].💨
+
+Saíram os indicados do Emmy 2022.  Clique para ver quem está concorrendo ao maior prêmio de televisão do mundo [https://www.omelete.com.br/series-tv/emmy-2022-indicados?utm_source=email&utm_campaign=thenewscc&utm_id=referral] — e prepare a pipoca.🍿
+
+Campeão de audiência e sucesso garantido no brunch.  Clique para aprender a receita [https://www.panelinha.com.br/receita/Pao-Australiano?utm_source=email&utm_campaign=thenewscc&utm_id=referral] desse pão australiano — e descobrir o segredo dessa massa escura, macia e adocicada. 🥖
+
+Quer viajar sem sair de casa?  Clique para ver os 51 melhores Airbnbs dos Estados Unidos [https://www.architecturaldigest.com/gallery/most-beautiful-airbnb-in-every-state?utm_source=email&utm_campaign=thenewscc&utm_id=referral#intcid=_architectural-digest-bottom-recirc_6474ea5e-c046-4cfa-91c2-5f2236c1b856_aff-content-entity-topic-similarity-v2] — um deleite para os olhos. 🏡
+
+Indicações + Prêmios = FelicidadePROGRAMA DE INDICAÇÃO
+
+O GIF é novo, mas a chance de ganhar prêmios maravilhosos segue de pé.
+
+O trabalho que deve ser feito você já sabe. Pegue o link clicando no botão aqui em baixo, compartilhe-o com a turma e seja — muito — feliz com seus novos prêmios.
+
+CLIQUE PARA COMPARTILHAR [https://grow.surf/x5eg0s?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessao-copy-pi]
+
+PS: E-mails da mesma titularidade (mesmo IP) não serão considerados válidos.
+
+the news 📬
+
+Mais inteligente em 5 minutos. Somos um jornal gratuito e diário, que tem por objetivo te trazer tudo que você precisa saber para começar o seu dia bem e informado.
+
+Notícias, de fato, relevantes sobre as principais atualidades do mundo, do Brasil, tecnologia e do mercado financeiro, sempre nessa ordem.
+
+Direto na sua caixa de entrada do e-mail favorito, sempre às 06:06. É gratuito, mas pode viciar.
+
+🎟️  O próximo anunciante pode ser você.  É só clicar aqui [https://thenewscc.typeform.com/to/twCcjR bQ].
+
+👍👎 Gostou da edição de hoje?  Nos conte aqui [https://docs.google.com/forms/d/12jhUljBzSvd-RQKLmpXAo7tw94QchngJEi26PTrZkxg/edit].
+
+já conhece nossas outras newsletters?
+
+🦄  the bizness [https://thenewscc.com.br/bizness/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao]: sua dose de conteúdo sobre os assuntos mais relevantes do mundo dos negócios. análises, números e insights.  um MBA em forma de e-mail. [https://thenewscc.com.br/bizness/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao]
+
+🏆  the champs [https://thenewscc.com.br/champs/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao]: todo o não óbvio sobre os esportes, na palma da sua mão.  descontraído e direto ao ponto, como deve ser [https://thenewscc.com.br/champs/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao].
+
+🧸  the stories [https://thenewscc.com.br/stories/?utm_source=newsletter&utm_medium=orgânico&utm_cam paign=sessa-recomendacao]: histórias que emocionam. não tão longas quanto um romance, mas suficientes pra te fazer sentir.  contamos e escrevemos amor. [https://thenewscc.com.br/stories/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao]
+
+até amanhã
+
+Sempre chegamos a sua caixa de entrada por volta das 06:06. Alguns servidores de e-mail são teimosos e atrasam… Outros são piores ainda e nos jogam para o spam e/ ou promoções. Sempre que não nos encontrar na caixa de entrada, procure nessas duas.
+
+[https://twitter.com/thenews_br]                               mais inteligente em 5 minutos.
+
+the news.cc | newsletter
+
+São Paulo, SP 04506-000 | Miami, FL
+
+Política de Privacidade [https://drive.google.com/file/d/1Yi-bty-sLL5mCBwiDWKlE2JNLDclCmVe/view?usp=sharing] |  Anuncie conosco [https://thenewscc.typeform.com/to/twCcjRbQ]
+
+Actualizar preferências https://thenews.updatemyprofile.com/t-alydytt-851105C4-jyykiytlo-td  |   Remover subscrição https://thenews.cmail19.com/t/t-u-alydytt-jyykiytlo-th/""",
+        EXPECTED: [
+            'relaxa',
+            'bom dia. hoje, o estagiário acordou sem inspiração e não conseguiu elaborar mensagem motivacional. às vezes, quando bate o cansaço, a única solução é um happy hour com os amigos.',
+            'MUNDO',
+            'Uma onda de renúncias na Europa?',
+            'Boris Johnson fez escola. O primeiro-ministro italiano, Mario Draghi, formalizou ontem um pedido de renúncia do cargo, a exemplo do que seu semelhante inglês fez na semana passada.',
+            'Só que o presidente do país simplesmente rejeitou o pedido e o aconselhou a se apresentar ao Parlamento, para melhor entender sua situação política.',
+            'O que está acontecendo? Mario Draghi perdeu apoio do principal partido da sua base de governo, o Movimento 5 Estrelas, que boicotou uma das votações dos pacotes propostos por ele, desencadeando a crise.',
+            'O boicote. O premiê propôs medidas para conter o impacto da inflação e apresentou um projeto para a construção de um incinerador de lixo. Fazendo críticas às propostas, o partido discordou do italiano.',
+            'A realidade é que Draghi não precisa do apoio do partido para se manter no poder, porque tem ampla maioria no parlamento. Mas, para o político, não faz sentido ser premiê sem o apoio do M5E.',
+            'A crise está instaurada na terra da pizza e a situação terá que ser bem costurada. Ao contrário do que aconteceu no Reino Unido, a maioria dos italianos quer continuar com a liderança do primeiro-ministro. Mais discreto, né? risos.',
+            'O que mais é destaque mundialmente falando?',
+            'Retratos da guerra. Ataques russos deixaram mais de 20 mortos no centro da Ucrânia',
+            'Conflito secreto? Israel e Irã estão desvelando várias ações clandestinas que realizam um contra o outro',
+            'Cuidado. Homem morre depois de tomar uma garrafa inteira de licor em apenas dois minutos',
+            'PECBRASIL',
+            'De PEC em',
+            'Muito trabalho em Brasília. Se tem um assunto que o pessoal da política tem falado neste ano é sobre as PECs. Depois de tantos votos para mudanças na Constituição, os congressistas bateram um recorde em 2022.',
+            'Este ano foi o que mais teve PECs aprovadas em toda a história da Lei Maior, nos seus longos e bem vividos 33 anos de promulgação, com 11 alterações ao texto constitucional — até agora.',
+            'Looking back. O Brasil tem uma grande tradição de inovações constitucionais. O período em que houve mais mudanças foi no governo de Jair Bolsonaro, com 26, seguido pelo primeiro mandato de Dilma Rousseff, com 17.',
+            'Só para comparar: Os Estados Unidos, que são conhecidos por ter uma Constituição bem enxuta, aprovou apenas 27 alterações nos seus 233 anos de existência. O Brasileiro é realmente cheio de opiniões. risos.',
+            'E por falar nisso… Ontem, f oi promulgada a Emenda Constitucional Kamikaze, que autoriza o estado de emergência no país e libera um gasto público de R$ 41,2 bilhões.',
+            'Outras notícias importantes no país:',
+            'Polêmica no Rio Grande do Sul. Juíza eleitoral afirmou que a bandeira do Brasil seria considerada uma propaganda para o Governo Bolsonaro',
+            'Qualidade do ensino. 7 das 10 melhores universidades da América Latina estão no Brasil',
+            'Excelente para PPPs. Brasil foi eleito um dos melhores ambientes para se estabelecer parcerias público-privadas',
+            'TECNOLOGIA',
+            'TikTok e Instagram estão ameaçando o Google Maps',
+            'A geração Z não gosta de mapas. Um novo estudo mostrou que 40% dos jovens não vão ao Google Maps quando procuram um lugar para almoçar — eles vão para o TikTok ou Instagram.',
+            'Com a descoberta, a ameaça do aplicativo chinês aos negócios do Google não se limita apenas ao Youtube, impactando também os serviços de Pesquisa e Mapas.',
+            'A explicação: O Google Maps foi feito com a intenção de levar mapas de papel para o computador. O objetivo faz sentido para quem cresceu sem GPS, mas fica distante da realidade dos adolescentes que nunca viram um mapa de papel.',
+            'Segundo os executivos do Google, em vez de digitar palavras-chave, essa nova geração procura descobrir conteúdo de maneiras novas e mais imersivas.',
+            'Por que isso é relevante? Embora os usuários mais velhos da Internet não usem o tico-teco para encontrar um restaurante, essa tendência pode reduzir o negócio principal do Google de pesquisa e descoberta ao longo do tempo.',
+            'Tentando afastar o Google Maps dos mapas de papel, a empresa está incorporando realidade aumentada e outras inovações no sistema — será que é suficiente pra atrair a gen Z?',
+            'NEGÓCIOS',
+            'Enquanto a OpenSea entra no inverno cripto, o Itaú acredita no verão',
+            'Deve ser a diferença entre os hemisférios. A OpenSea — o maior mercado para negociar NFTs do mundo — parece ter visto que a febre das fotos de perfil de macacos passou e demitiu 20% de sua equipe ontem.',
+            'O CEO da startup não mediu suas palavras e afirmou que a empresa entrou num inverno criptográfico sem precedentes, somado à instabilidade da economia.',
+            'O medo é claro. Uma desaceleração no crescimento, depois de uma avaliação de US$ 13,3 bilhões com a corrida de alta da criptomoeda de 2021.',
+            'Falando em tokens e mudando de estação… No mesmo dia das demissões da OpenSea, o Itaú anunciou que está aderindo à tokenização e vai emitir, distribuir e negociar ativos financeiros digitalizados — basicamente, ativos tradicionais que viram representações digitais.',
+            'A nova unidade se chamará Itaú Digital Assets, marcando uma entrada considerada inevitável pela companhia no mundo de criptoativos. Ninguém vai ficar de fora.',
+            'ECONOMIA',
+            'O Ibovespa está tendo que se preocupar com muita coisa…',
+            'As notícias de um país do tamanho do Brasil já seriam suficientes para movimentar a Bolsa, mas os temores que vêm do exterior têm prevalecido. Nessa quinta-feira, o Ibovespa caiu 1,80%, aos 96.120 pontos, e a culpa foi externa.',
+            'Ontem, o nosso principal índice voltou a sentir o peso da inflação nos EUA — e suas perspectivas para o crescimento global — e de problemas imobiliários na China.',
+            'O movimento risk off 🔍',
+            'Esse nome é dado quando os grandes investidores não estão dispostos a tomar riscos, buscando oportunidades mais conservadoras e protegidas. Bye, bye, ações.',
+            'Para piorar as coisas, o mercado de trabalho americano demonstrou fraqueza com os números de novos pedidos de seguro-desemprego ficando acima do esperando.',
+            'Já o dólar não sentiu tanto. A moeda americana caiu 0,07%, cotada a R$ 5,43. 💵',
+            'O que mais é bom saber no cenário econômico?',
+            'Nossa nota passou de negativa para estável. Fitch reafirma rating BB- do Brasil e melhora perspectiva',
+            'Acordo com o Banco Central: Santander vai devolver R$ 79,2 milhões a clientes por cobranças indevidas',
+            'DICAS DE SEXTA',
+            'Já ta sabendo que dia é hoje?',
+            'É sexta-feira e tem dica do dênius. Se o clima de folga ainda não chegou por aí, siga as nossas dicas e aproveite o final de semana — você merece!',
+            'Ansiedade ou stress atrapalham sua alimentação? Achamos esse produto 100% natural que reduz aquela “fome emocional” que faz a gente descontar tudo na comida. Tem 15% OFF e frete grátis com o cupom SATISFAZ. 💪',
+            'Para quem vive recebendo a mensagem de “armazenamento quase cheio”, limpar a memória do Spotify pode solucionar o problema. Siga a dica e libere espaço no seu celular. 📲',
+            'Você sente que a sua vida é uma lista de tarefas infinitas? O livro Não aguento mais não aguentar mais: Como os Millennials se tornaram a geração do burnout mostra que não estamos sozinhos nessa. 📚',
+            'Quer saber como investir, ter grandes rentabilidades sem se expor tanto ao risco? Então você não pode perder esse evento 100% online e gratuito que acontecerá na segunda. Inscreva-se aqui logo, as vagas vão se encerrar.💨',
+            'Saíram os indicados do Emmy 2022. Clique para ver quem está concorrendo ao maior prêmio de televisão do mundo — e prepare a pipoca.🍿',
+            'Campeão de audiência e sucesso garantido no brunch. Clique para aprender a receita desse pão australiano — e descobrir o segredo dessa massa escura, macia e adocicada. 🥖',
+            'Quer viajar sem sair de casa? Clique para ver os 51 melhores Airbnbs dos Estados Unidos — um deleite para os olhos. 🏡'
+        ]
     }
 ]
 

@@ -146,7 +146,7 @@ def getCompiledEmailBodyList(plainTextEmail):
     filteredEmailBodySentenceList = [
         emailBodySentence if not '[http' in emailBodySentence else ' '.join([
             ' '.join([
-                p if not p.startswith('s://') else c.BLANK
+                p if not (p.startswith('s://') or p.startswith('://')) else c.BLANK
                 for p in part.split(']')
             ])
             for part in emailBodySentence.split('[http')
