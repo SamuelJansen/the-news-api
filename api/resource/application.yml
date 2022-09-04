@@ -77,6 +77,10 @@ notification-manager-api:
             base-url: ${queue-manager-api.base-url}
             timeout: ${queue-manager-api.api-notifications.emitter.timeout}
 
+the-news-api:
+    today-news:
+        public-url: ${TODAY_NEWS_PUBLIC_BASE_URL}/the-news
+
 swagger:
     # schemes: [${api.server.scheme}] ###- bug
     # host: ${SWAGGER_HOST:${api.server.host}}:${api.server.port} ###- bug

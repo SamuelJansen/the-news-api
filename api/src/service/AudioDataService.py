@@ -24,16 +24,20 @@ class AudioDataService :
         newModels = self.mapper.audioData.fromRequestDtoListToModelList([
             dto
             for dto in dtoList
-            if dto and dto.key not in [
+            if dto and dto.key not in set([
                 model.key for model in existingModelList
-            ]
+            ])
         ])
-        modelList = [
-            self.mapper.audioData.overrideModelUpdate(model, date, dtoList.index(dto))
-            for dto in dtoList
-            for model in [*existingModelList, *newModels]
-            if dto.key == model.key
-        ]
+
+        ###- unfortnatelly, there can be repeaded audio datas...
+        modelList = []
+        allModels =  [*existingModelList, *newModels]
+        for dto in dtoList:
+            for model in allModels:
+                if dto.key == model.key and model not in modelList:
+                    modelList.append(model)
+                    break
+
         assert len(dtoList) == len(modelList), f'Missing audio datas werent created. Causes dtoList: {[dto.key for dto in dtoList]}, modelList: {[model.key for model in modelList]}. Request length: {len(dtoList)}, model length: {len(modelList)}'
 
         self.deleteAll(self.repository.audioData.findAllByDateAndKeyNotIn(date, requestKeyList))

@@ -76,7 +76,8 @@ class TheNewsService:
 
             successMessage = f'Today news created'
             log.status(self.finishTodayNewsUpdate, successMessage)
-            self.service.notification.notifySuccess(successMessage)
+            self.service.notification.notifySuccess(successMessage, [NotificationDestiny.VOICE])
+            self.service.notification.notifySuccess(f'{successMessage}{c.COLOM_SPACE}{TheNewsConfig.TODAY_NEWS_PUBLIC_URL}', [NotificationDestiny.TELEGRAM])
         except Exception as exception:
             errorMessage = 'Not possible to finish today news update'
             log.failure(self.finishTodayNewsUpdate, errorMessage, exception=exception, muteStackTrace=True)
