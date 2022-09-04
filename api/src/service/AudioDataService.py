@@ -35,7 +35,7 @@ class AudioDataService :
         for dto in dtoList:
             for model in allModels:
                 if dto.key == model.key and model not in modelList:
-                    modelList.append(model)
+                    modelList.append(self.mapper.audioData.overrideModelUpdate(model, date, dtoList.index(dto)))
                     break
 
         assert len(dtoList) == len(modelList), f'Missing audio datas werent created. Causes dtoList: {[dto.key for dto in dtoList]}, modelList: {[model.key for model in modelList]}. Request length: {len(dtoList)}, model length: {len(modelList)}'
