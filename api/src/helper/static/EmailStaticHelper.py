@@ -1,5 +1,5 @@
 from python_helper import Constant as c
-from python_helper import StringHelper
+from python_helper import StringHelper, ObjectHelper
 
 
 SYMBOLS = list({
@@ -112,7 +112,6 @@ def getCompiledEmailBodyList(plainTextEmail):
                     upperCaseWords.startswith('GIVEAWAY DO DÊNIUS') or
                     emailBodySentence.endswith('SUPER GIVEAWAY')
                 ):
-
                     isMarketing = True
                     if StringHelper.isBlank(sentence):
                         rawMarketingSentence = notFilteredEmailBodySentenceList.pop()
@@ -143,9 +142,10 @@ def getCompiledEmailBodyList(plainTextEmail):
                     else:
                         notFilteredEmailBodySentenceList.append(emailBodySentence)
 
+    # print(notFilteredEmailBodySentenceList)
     filteredEmailBodySentenceList = [
         emailBodySentence if not '[http' in emailBodySentence else ' '.join([
-            ' '.join([
+            c.SPACE.join([
                 p if not (p.startswith('s://') or p.startswith('://')) else c.BLANK
                 for p in part.split(']')
             ])
@@ -153,10 +153,33 @@ def getCompiledEmailBodyList(plainTextEmail):
         ])
         for emailBodySentence in notFilteredEmailBodySentenceList
     ]
+    # print(filteredEmailBodySentenceList)
+
+    emailBodySentenceList = fixPunctuationIssues(filteredEmailBodySentenceList)
+    # for sentence in filteredEmailBodySentenceList:
+    #     filteredEmailBodySentenceListWithoutMessedUpPunctuations.append(
+    #         sentence.replace('....', '... ')\
+    #             .replace('...', '--THREE_DOTS--')\
+    #             .replace('..', '. ')\
+    #             .replace(',.', ', ')\
+    #             .replace('!.', '! ')\
+    #             .replace('?.', '? ')\
+    #             .replace(':.', ': ')\
+    #             .replace('….', '… ')\
+    #             .replace(' .', '. ')\
+    #             .replace(' ,', ', ')\
+    #             .replace(' !', '! ')\
+    #             .replace(' ?', '? ')\
+    #             .replace(' :', ': ')\
+    #             .replace(' …', '… ')\
+    #             .replace('--THREE_DOTS--', '… ')
+    #             .strip()
+    #     )
+
 
     emailBodySentenceList = [
-        StringHelper.join(emailBodySentence.strip().split(), character=c.SPACE)
-        for filteredEmailBodySentence in filteredEmailBodySentenceList
+        removeDoubleSpaces(emailBodySentence)
+        for filteredEmailBodySentence in emailBodySentenceList
         for emailBodySentence in filteredEmailBodySentence.split(c.NEW_LINE)
         if (
             StringHelper.isNotBlank(emailBodySentence.strip()) and
@@ -165,34 +188,10 @@ def getCompiledEmailBodyList(plainTextEmail):
             not '[Link]' == emailBodySentence.strip()
         )
     ]
+    # print(emailBodySentenceList)
 
-    recentensedList = []
-    for sentence in emailBodySentenceList:
-        if sentence.startswith(c.DOT_SPACE) or sentence.startswith(c.COMA_SPACE):
-            if sentence.startswith(c.DOT_SPACE):
-                recentensedList[-1] = f'{recentensedList[-1]}{c.DOT}'
-            else:
-                recentensedList[-1] = f'{recentensedList[-1]}{c.COMA}'
-            recentensedList.append(sentence[2:].strip())
-        else:
-            recentensedList.append(sentence.strip())
-
-    emailBodySentenceList = []
-    for sentence in recentensedList:
-        if sentence.startswith(c.DOT) or sentence.startswith(c.COMA):
-            if sentence.startswith(c.DOT):
-                emailBodySentenceList[-1] = f'{emailBodySentenceList[-1]}{c.DOT}'
-            else:
-                emailBodySentenceList[-1] = f'{emailBodySentenceList[-1]}{c.COMA}'
-            emailBodySentenceList.append(sentence[1:].strip())
-        else:
-            emailBodySentenceList.append(sentence.strip())
-
-    for punctuation in c.PUNCTUATION:
-        emailBodySentenceList = [
-            sentence.replace(f'{3*c.SPACE}{punctuation}', punctuation).replace(f'{2*c.SPACE}{punctuation}', punctuation).replace(f'{c.SPACE}{punctuation}', punctuation)
-            for sentence in emailBodySentenceList
-        ]
+    emailBodySentenceList = fixPunctuationIssues(emailBodySentenceList)
+    # print(emailBodySentenceList)
 
     emailBodySentenceList = [
         sentence\
@@ -203,9 +202,11 @@ def getCompiledEmailBodyList(plainTextEmail):
             .replace(c.AND, f'{c.SPACE}and{c.SPACE}')
         for sentence in emailBodySentenceList
     ]
+    # print(emailBodySentenceList)
+
 
     emailBodySentenceList = [
-        sentence
+        removeDoubleSpaces(sentence)
         for sentence in emailBodySentenceList
         if (
             not sentence.lower().startswith('(imagem') and
@@ -229,11 +230,18 @@ def getCompiledEmailBodyList(plainTextEmail):
                     strippedSencence = s.strip()
                     if StringHelper.isNotBlank(strippedSencence):
                         preCompiledEmailBodyList.append(f'{strippedSencence}{c.DOT}')
+    print(preCompiledEmailBodyList)
 
-    return [
+    emailBodyWithSpecialCharacteresReplacedList = [
         sentence.replace('<=', '&le;').replace('>=', '&ge;').replace('<', '&lt;').replace('>', '&gt;')
         for sentence in preCompiledEmailBodyList
     ]
+
+    return fixPunctuationIssues([
+        removeDoubleSpaces(sentence)
+        for sentence in emailBodyWithSpecialCharacteresReplacedList
+    ])
+
 
 
 def buildHtml(textHtmlEmailList):
@@ -267,3 +275,108 @@ def buildHtml(textHtmlEmailList):
             )
         )
     return parsedTextHtmlEmailList
+
+
+def removeDoubleSpaces(sentence):
+    newSentence = StringHelper.join(
+        [
+            word.strip()
+            for word in sentence.strip().split()
+            if ObjectHelper.isNeitherNoneNorBlank(word)
+        ],
+        character=c.SPACE
+    )
+    return newSentence
+
+
+THREE_DOTS = '…'
+THREE_DOTS_TOKEN = '--THREE_DOTS--'
+PUNCTUATION_LIST = [
+    c.DOT,
+    c.COMA,
+    c.QUESTION_MARK,
+    c.EXCLAMATION_MARK,
+    c.SEMI_COLON,
+    c.COLON,
+    c.DASH,
+    THREE_DOTS
+]
+
+
+def fixPunctuationIssues(sentenceList):
+    sentenceListWithDotSpaceAdded = [
+        c.BLANK.join([
+            f'{segment}{c.DOT_SPACE if shouldAddADotSpace(sentence, segment) else c.SPACE}'
+            for segment in sentence.split(2*c.SPACE)
+        ])
+        for sentence in sentenceList
+    ]
+
+    filteredSentenceList = []
+    for sentence in sentenceListWithDotSpaceAdded:
+        filteredSentence = sentence.replace(f'{4*c.DOT}', f'{THREE_DOTS_TOKEN}{c.SPACE}')
+        filteredSentence = filteredSentence.replace(f'{3*c.DOT}', THREE_DOTS_TOKEN)
+        for punctuation in PUNCTUATION_LIST:
+            filteredSentence = filteredSentence.replace(f'{punctuation}{c.DOT}', f'{punctuation}{c.SPACE}')
+            filteredSentence = filteredSentence.replace(f'{c.DOT}{punctuation}', f'{punctuation}{c.SPACE}')
+            filteredSentence = filteredSentence.replace(f'{c.SPACE}{punctuation}', f'{punctuation}{c.SPACE}')
+        filteredSentence = filteredSentence.replace(THREE_DOTS_TOKEN, f'{c.SPACE}')
+        filteredSentence = filteredSentence.replace(f'{3*THREE_DOTS}', f'{THREE_DOTS}{c.SPACE}')
+        filteredSentence = filteredSentence.replace(f'{2*THREE_DOTS}', f'{THREE_DOTS}{c.SPACE}')
+        filteredSentenceList.append(filteredSentence.strip())
+
+    recentensedList = []
+    for sentence in filteredSentenceList:
+        if sentence.startswith(c.DOT_SPACE) or sentence.startswith(c.COMA_SPACE):
+            if sentence.startswith(c.DOT_SPACE):
+                recentensedList[-1] = f'{recentensedList[-1]}{c.DOT}'
+            else:
+                recentensedList[-1] = f'{recentensedList[-1]}{c.COMA}'
+            recentensedList.append(sentence[2:].strip())
+        else:
+            recentensedList.append(sentence.strip())
+
+    emailBodySentenceList = []
+    for sentence in recentensedList:
+        if sentence.startswith(c.DOT) or sentence.startswith(c.COMA):
+            if sentence.startswith(c.DOT):
+                emailBodySentenceList[-1] = f'{emailBodySentenceList[-1]}{c.DOT}'
+            else:
+                emailBodySentenceList[-1] = f'{emailBodySentenceList[-1]}{c.COMA}'
+            emailBodySentenceList.append(sentence[1:].strip())
+        else:
+            emailBodySentenceList.append(sentence.strip())
+
+    for punctuation in c.PUNCTUATION:
+        emailBodySentenceList = [
+            sentence.replace(f'{3*c.SPACE}{punctuation}', punctuation).replace(f'{2*c.SPACE}{punctuation}', punctuation).replace(f'{c.SPACE}{punctuation}', punctuation)
+            for sentence in emailBodySentenceList
+        ]
+
+    return emailBodySentenceList
+
+
+def shouldAddADotSpace(sentence, segment):
+    splitedSentence = sentence.split('  ')
+    strippedSegment = segment.strip()
+    return (
+        ObjectHelper.isNeitherNoneNorBlank(strippedSegment)
+    ) and (
+        not strippedSegment.isupper()
+    ) and (
+        (
+            splitedSentence.index(segment) == len(splitedSentence)-1
+        ) or (
+            (
+                splitedSentence.index(segment) < len(splitedSentence)-1
+            ) and (
+                ObjectHelper.isNeitherNoneNorBlank(splitedSentence[splitedSentence.index(segment)+1].strip())
+            ) and (
+                splitedSentence[splitedSentence.index(segment)+1].strip()[0].isupper()
+            )
+        )
+    ) and (
+        strippedSegment[-1] not in PUNCTUATION_LIST
+    ) and (
+        strippedSegment[-1] in c.CHARACTERES
+    )
