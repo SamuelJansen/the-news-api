@@ -20,6 +20,19 @@ SYMBOLS = list({
     "-",
     "+"
 })
+THREE_DOTS = '…'
+THREE_DOTS_TOKEN = '--THREE_DOTS--'
+PUNCTUATION_LIST = [
+    c.DOT,
+    c.COMA,
+    c.QUESTION_MARK,
+    c.EXCLAMATION_MARK,
+    c.SEMI_COLON,
+    c.COLON,
+    c.DASH,
+    c.UNDERSCORE,
+    THREE_DOTS
+]
 
 
 def getCompiledEmailBodyList(plainTextEmail):
@@ -142,7 +155,6 @@ def getCompiledEmailBodyList(plainTextEmail):
                     else:
                         notFilteredEmailBodySentenceList.append(emailBodySentence)
 
-    # print(notFilteredEmailBodySentenceList)
     filteredEmailBodySentenceList = [
         emailBodySentence if not '[http' in emailBodySentence else ' '.join([
             c.SPACE.join([
@@ -153,29 +165,8 @@ def getCompiledEmailBodyList(plainTextEmail):
         ])
         for emailBodySentence in notFilteredEmailBodySentenceList
     ]
-    # print(filteredEmailBodySentenceList)
 
     emailBodySentenceList = fixPunctuationIssues(filteredEmailBodySentenceList)
-    # for sentence in filteredEmailBodySentenceList:
-    #     filteredEmailBodySentenceListWithoutMessedUpPunctuations.append(
-    #         sentence.replace('....', '... ')\
-    #             .replace('...', '--THREE_DOTS--')\
-    #             .replace('..', '. ')\
-    #             .replace(',.', ', ')\
-    #             .replace('!.', '! ')\
-    #             .replace('?.', '? ')\
-    #             .replace(':.', ': ')\
-    #             .replace('….', '… ')\
-    #             .replace(' .', '. ')\
-    #             .replace(' ,', ', ')\
-    #             .replace(' !', '! ')\
-    #             .replace(' ?', '? ')\
-    #             .replace(' :', ': ')\
-    #             .replace(' …', '… ')\
-    #             .replace('--THREE_DOTS--', '… ')
-    #             .strip()
-    #     )
-
 
     emailBodySentenceList = [
         removeDoubleSpaces(emailBodySentence)
@@ -188,10 +179,8 @@ def getCompiledEmailBodyList(plainTextEmail):
             not '[Link]' == emailBodySentence.strip()
         )
     ]
-    # print(emailBodySentenceList)
 
     emailBodySentenceList = fixPunctuationIssues(emailBodySentenceList)
-    # print(emailBodySentenceList)
 
     emailBodySentenceList = [
         sentence\
@@ -202,7 +191,6 @@ def getCompiledEmailBodyList(plainTextEmail):
             .replace(c.AND, f'{c.SPACE}and{c.SPACE}')
         for sentence in emailBodySentenceList
     ]
-    # print(emailBodySentenceList)
 
 
     emailBodySentenceList = [
@@ -213,6 +201,10 @@ def getCompiledEmailBodyList(plainTextEmail):
             not sentence.lower().startswith('(gif') and
             not sentence.lower().startswith('(foto') and
             not sentence.lower().startswith('(print')
+            not sentence.lower().startswith('(magem') and
+            not sentence.lower().startswith('(if') and
+            not sentence.lower().startswith('(oto') and
+            not sentence.lower().startswith('(rint')
         )
     ]
 
@@ -230,7 +222,6 @@ def getCompiledEmailBodyList(plainTextEmail):
                     strippedSencence = s.strip()
                     if StringHelper.isNotBlank(strippedSencence):
                         preCompiledEmailBodyList.append(f'{strippedSencence}{c.DOT}')
-    print(preCompiledEmailBodyList)
 
     emailBodyWithSpecialCharacteresReplacedList = [
         sentence.replace('<=', '&le;').replace('>=', '&ge;').replace('<', '&lt;').replace('>', '&gt;')
@@ -259,7 +250,7 @@ def buildHtml(textHtmlEmailList):
                 parsedBodyPart = StringHelper.join(
                     [
                         splitHtml[0],
-                        '<div role="play buttom" onClick="handlePlayClick()" class="audio-circle"><span id="spam-audio-circle" class="material-icons">play_circle</span></div', ###- <button onClick="handlePlayClick()">voice over</button><div class="circle">
+                        '<div role="play buttom" onClick="handlePlayClick()" class="audio-circle"><span id="spam-audio-circle" class="material-icons">play_circle</span></div',
                         *splitHtml[1:]
                     ],
                     character='>'
@@ -275,32 +266,6 @@ def buildHtml(textHtmlEmailList):
             )
         )
     return parsedTextHtmlEmailList
-
-
-def removeDoubleSpaces(sentence):
-    newSentence = StringHelper.join(
-        [
-            word.strip()
-            for word in sentence.strip().split()
-            if ObjectHelper.isNeitherNoneNorBlank(word)
-        ],
-        character=c.SPACE
-    )
-    return newSentence
-
-
-THREE_DOTS = '…'
-THREE_DOTS_TOKEN = '--THREE_DOTS--'
-PUNCTUATION_LIST = [
-    c.DOT,
-    c.COMA,
-    c.QUESTION_MARK,
-    c.EXCLAMATION_MARK,
-    c.SEMI_COLON,
-    c.COLON,
-    c.DASH,
-    THREE_DOTS
-]
 
 
 def fixPunctuationIssues(sentenceList):
@@ -347,13 +312,25 @@ def fixPunctuationIssues(sentenceList):
         else:
             emailBodySentenceList.append(sentence.strip())
 
-    for punctuation in c.PUNCTUATION:
+    for punctuation in c.PUNCTUATION_LIST:
         emailBodySentenceList = [
             sentence.replace(f'{3*c.SPACE}{punctuation}', punctuation).replace(f'{2*c.SPACE}{punctuation}', punctuation).replace(f'{c.SPACE}{punctuation}', punctuation)
             for sentence in emailBodySentenceList
         ]
 
     return emailBodySentenceList
+
+
+def removeDoubleSpaces(sentence):
+    newSentence = StringHelper.join(
+        [
+            word.strip()
+            for word in sentence.strip().split()
+            if ObjectHelper.isNeitherNoneNorBlank(word)
+        ],
+        character=c.SPACE
+    )
+    return newSentence
 
 
 def shouldAddADotSpace(sentence, segment):
