@@ -1,5 +1,5 @@
 from python_helper import Constant as c
-from python_helper import StringHelper, ObjectHelper
+from python_helper import StringHelper, ObjectHelper, log
 
 
 SYMBOLS = list({
@@ -166,6 +166,7 @@ def getCompiledEmailBodyList(plainTextEmail):
         for emailBodySentence in notFilteredEmailBodySentenceList
     ]
 
+    # emailBodySentenceList = [*filteredEmailBodySentenceList]
     emailBodySentenceList = fixPunctuationIssues(filteredEmailBodySentenceList)
 
     emailBodySentenceList = [
@@ -200,7 +201,7 @@ def getCompiledEmailBodyList(plainTextEmail):
             not sentence.lower().startswith('(imagem') and
             not sentence.lower().startswith('(gif') and
             not sentence.lower().startswith('(foto') and
-            not sentence.lower().startswith('(print')
+            not sentence.lower().startswith('(print') and
             not sentence.lower().startswith('(magem') and
             not sentence.lower().startswith('(if') and
             not sentence.lower().startswith('(oto') and
@@ -220,7 +221,14 @@ def getCompiledEmailBodyList(plainTextEmail):
             else:
                 for s in sentence.split(c.DOT):
                     strippedSencence = s.strip()
-                    if StringHelper.isNotBlank(strippedSencence):
+                    if 256 <= len(strippedSencence):
+                        log.warning(getCompiledEmailBodyList, f'Sentence is too large: {strippedSencence}')
+                        splitedStrippedSentence = strippedSencence.split(f'que{c.COMA}')
+                        for miniS in splitedStrippedSentence:
+                            strippedMiniSencence = miniS.strip()
+                            if ObjectHelper.isNeitherNoneNorBlank(strippedMiniSencence):
+                                preCompiledEmailBodyList.append(f'''{strippedMiniSencence}{(f"{c.SPACE}{'que'}{c.COLON}" if splitedStrippedSentence[-1] is not miniS else c.BLANK)}''')
+                    elif ObjectHelper.isNeitherNoneNorBlank(strippedSencence):
                         preCompiledEmailBodyList.append(f'{strippedSencence}{c.DOT}')
 
     emailBodyWithSpecialCharacteresReplacedList = [
@@ -285,7 +293,7 @@ def fixPunctuationIssues(sentenceList):
             filteredSentence = filteredSentence.replace(f'{punctuation}{c.DOT}', f'{punctuation}{c.SPACE}')
             filteredSentence = filteredSentence.replace(f'{c.DOT}{punctuation}', f'{punctuation}{c.SPACE}')
             filteredSentence = filteredSentence.replace(f'{c.SPACE}{punctuation}', f'{punctuation}{c.SPACE}')
-        filteredSentence = filteredSentence.replace(THREE_DOTS_TOKEN, f'{c.SPACE}')
+        filteredSentence = filteredSentence.replace(THREE_DOTS_TOKEN, f'{THREE_DOTS}')
         filteredSentence = filteredSentence.replace(f'{3*THREE_DOTS}', f'{THREE_DOTS}{c.SPACE}')
         filteredSentence = filteredSentence.replace(f'{2*THREE_DOTS}', f'{THREE_DOTS}{c.SPACE}')
         filteredSentenceList.append(filteredSentence.strip())
@@ -312,7 +320,7 @@ def fixPunctuationIssues(sentenceList):
         else:
             emailBodySentenceList.append(sentence.strip())
 
-    for punctuation in c.PUNCTUATION_LIST:
+    for punctuation in PUNCTUATION_LIST:
         emailBodySentenceList = [
             sentence.replace(f'{3*c.SPACE}{punctuation}', punctuation).replace(f'{2*c.SPACE}{punctuation}', punctuation).replace(f'{c.SPACE}{punctuation}', punctuation)
             for sentence in emailBodySentenceList
@@ -345,6 +353,8 @@ def shouldAddADotSpace(sentence, segment):
             splitedSentence.index(segment) == len(splitedSentence)-1
         ) or (
             (
+                1 < len(segment.split()[-1].strip())
+            ) and (
                 splitedSentence.index(segment) < len(splitedSentence)-1
             ) and (
                 ObjectHelper.isNeitherNoneNorBlank(splitedSentence[splitedSentence.index(segment)+1].strip())
@@ -355,5 +365,9 @@ def shouldAddADotSpace(sentence, segment):
     ) and (
         strippedSegment[-1] not in PUNCTUATION_LIST
     ) and (
-        strippedSegment[-1] in c.CHARACTERES
+        (
+            strippedSegment[-1] in c.CHARACTERES
+        ) or (
+            strippedSegment[-1] in c.NUMBERS
+        )
     )
