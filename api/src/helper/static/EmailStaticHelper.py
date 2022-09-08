@@ -20,6 +20,9 @@ SYMBOLS = list({
     "-",
     "+"
 })
+LONG_DASH = f'—'
+SPACE_LONG_DASH_SPACE = f'{c.SPACE}—{c.SPACE}'
+SPACE_DASH_SPACE = f'{c.SPACE}{c.DASH}{c.SPACE}'
 THREE_DOTS = '…'
 THREE_DOTS_TOKEN = '--THREE_DOTS--'
 PUNCTUATION_LIST = [
@@ -29,10 +32,12 @@ PUNCTUATION_LIST = [
     c.EXCLAMATION_MARK,
     c.SEMI_COLON,
     c.COLON,
-    c.DASH,
     c.UNDERSCORE,
-    THREE_DOTS
+    THREE_DOTS,
+    SPACE_DASH_SPACE,
+    SPACE_LONG_DASH_SPACE
 ]
+MAX_SENTENCE_SIZE = 256
 
 
 def getCompiledEmailBodyList(plainTextEmail):
@@ -216,18 +221,21 @@ def getCompiledEmailBodyList(plainTextEmail):
                 preCompiledEmailBodyList = [*preCompiledEmailBodyList[:-1], sentence, preCompiledEmailBodyList[-1]]
             elif 3 > len(sentence):
                 preCompiledEmailBodyList[-1] = f'{preCompiledEmailBodyList[-1]}{c.SPACE}{sentence}'
-            elif 256 > len(sentence) and sentence not in preCompiledEmailBodyList:
+            elif MAX_SENTENCE_SIZE > len(sentence) and sentence not in preCompiledEmailBodyList:
                 preCompiledEmailBodyList.append(sentence)
             else:
                 for s in sentence.split(c.DOT):
                     strippedSencence = s.strip()
-                    if 256 <= len(strippedSencence):
+                    if MAX_SENTENCE_SIZE <= len(strippedSencence):
                         log.warning(getCompiledEmailBodyList, f'Sentence is too large: {strippedSencence}')
-                        splitedStrippedSentence = strippedSencence.split(f'que{c.COMA}')
-                        for miniS in splitedStrippedSentence:
-                            strippedMiniSencence = miniS.strip()
-                            if ObjectHelper.isNeitherNoneNorBlank(strippedMiniSencence):
-                                preCompiledEmailBodyList.append(f'''{strippedMiniSencence}{(f"{c.SPACE}{'que'}{c.COLON}" if splitedStrippedSentence[-1] is not miniS else c.BLANK)}''')
+                        cutAndAppendCuttedSentences(strippedSencence, [
+                            c.QUESTION_MARK,
+                            c.EXCLAMATION_MARK,
+                            c.COLON,
+                            THREE_DOTS,
+                            LONG_DASH,
+                            c.DASH
+                        ], preCompiledEmailBodyList)
                     elif ObjectHelper.isNeitherNoneNorBlank(strippedSencence):
                         preCompiledEmailBodyList.append(f'{strippedSencence}{c.DOT}')
 
@@ -240,7 +248,6 @@ def getCompiledEmailBodyList(plainTextEmail):
         removeDoubleSpaces(sentence)
         for sentence in emailBodyWithSpecialCharacteresReplacedList
     ])
-
 
 
 def buildHtml(textHtmlEmailList):
@@ -341,6 +348,34 @@ def removeDoubleSpaces(sentence):
     return newSentence
 
 
+def cutAndAppendCuttedSentences(sentence, tokenList, emailBodyList):
+    # print(f'{sentence=}')
+    # print(0 < len(tokenList) and tokenList[0] in sentence)
+    if 0 < len(tokenList) and tokenList[0] in sentence:
+        if 1 < len(sentence.split(tokenList[0])):
+            splitedSentenceList = sentence.split(tokenList[0])
+            # print(f'{splitedSentenceList=}')
+            for segment in splitedSentenceList:
+                strippedSegment = segment.strip()
+                # print(f'{strippedSegment=}')
+                if MAX_SENTENCE_SIZE <= len(strippedSegment):
+                    cutAndAppendCuttedSentences(strippedSegment, tokenList[1:], emailBodyList)
+                elif ObjectHelper.isNeitherNoneNorBlank(strippedSegment):
+                    emailBodyList.append(
+                        f'''{strippedSegment}{getPunctuationSufix(splitedSentenceList[-1], tokenList[0], segment)}'''
+                    )
+        else:
+            cutAndAppendCuttedSentences(sentence, tokenList[1:], emailBodyList)
+    elif f'que{c.COMA}' in sentence and 1 < len(sentence.split(f'que{c.COMA}')):
+        splitedSentenceList = sentence.split(f'que{c.COMA}')
+        for segment in splitedSentenceList:
+            strippedSegment = segment.strip()
+            if ObjectHelper.isNeitherNoneNorBlank(strippedSegment):
+                emailBodyList.append(f'''{strippedSegment}{(f"{c.SPACE}{'que'}{c.COLON}" if splitedSentenceList[-1] is not segment else c.BLANK)}''')
+    else:
+        cutAndAppendCuttedSentences(sentence, tokenList[1:], emailBodyList)
+
+
 def shouldAddADotSpace(sentence, segment):
     splitedSentence = sentence.split('  ')
     strippedSegment = segment.strip()
@@ -370,4 +405,16 @@ def shouldAddADotSpace(sentence, segment):
         ) or (
             strippedSegment[-1] in c.NUMBERS
         )
+    )
+
+
+def getPunctuationSufix(sentence, token, segment):
+    return (
+        f"{token}"
+        if sentence is not segment and token not in [
+            LONG_DASH,
+            SPACE_LONG_DASH_SPACE,
+            c.DASH,
+            SPACE_DASH_SPACE
+        ] else c.BLANK
     )
