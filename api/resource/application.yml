@@ -44,7 +44,7 @@ today-news:
 email-manager-api:
     base-url: ${EMAIL_MANAGER_API_HOST}/email-manager-api
     api-key: ${EMAIL_MANAGER_API_API_KEY:default}
-    default-timeout-in-seconds: 20
+    default-timeout-in-seconds: 40
     contacts:
         the-news: ${THE_NEWS_EMAIL:email@email}
 
