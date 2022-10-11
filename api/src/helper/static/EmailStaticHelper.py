@@ -175,7 +175,7 @@ def getCompiledEmailBodyList(plainTextEmail):
     emailBodySentenceList = fixPunctuationIssues(filteredEmailBodySentenceList)
 
     emailBodySentenceList = [
-        removeDoubleSpaces(emailBodySentence)
+        removeDoubleOrMoreSpaces(emailBodySentence)
         for filteredEmailBodySentence in emailBodySentenceList
         for emailBodySentence in filteredEmailBodySentence.split(c.NEW_LINE)
         if (
@@ -200,14 +200,21 @@ def getCompiledEmailBodyList(plainTextEmail):
 
 
     emailBodySentenceList = [
-        removeDoubleSpaces(sentence)
+        removeDoubleOrMoreSpaces(sentence)
         for sentence in emailBodySentenceList
         if (
             not sentence.lower().startswith('(imagem') and
+            not sentence.lower().startswith('(ilustração') and
             not sentence.lower().startswith('(gif') and
             not sentence.lower().startswith('(foto') and
             not sentence.lower().startswith('(print') and
+            not sentence.lower().startswith('(Imagem') and
+            not sentence.lower().startswith('(Ilustração') and
+            not sentence.lower().startswith('(Gif') and
+            not sentence.lower().startswith('(Foto') and
+            not sentence.lower().startswith('(Print') and
             not sentence.lower().startswith('(magem') and
+            not sentence.lower().startswith('(lustração') and
             not sentence.lower().startswith('(if') and
             not sentence.lower().startswith('(oto') and
             not sentence.lower().startswith('(rint')
@@ -232,6 +239,7 @@ def getCompiledEmailBodyList(plainTextEmail):
                             c.QUESTION_MARK,
                             c.EXCLAMATION_MARK,
                             c.COLON,
+                            c.SEMI_COLON,
                             THREE_DOTS,
                             LONG_DASH,
                             c.DASH
@@ -245,7 +253,7 @@ def getCompiledEmailBodyList(plainTextEmail):
     ]
 
     return fixPunctuationIssues([
-        removeDoubleSpaces(sentence)
+        removeDoubleOrMoreSpaces(sentence)
         for sentence in emailBodyWithSpecialCharacteresReplacedList
     ])
 
@@ -333,11 +341,14 @@ def fixPunctuationIssues(sentenceList):
             for sentence in emailBodySentenceList
         ]
 
-    return emailBodySentenceList
+    return [
+        removeDoubleOrMoreSpaces(sentence)
+        for sentence in emailBodySentenceList
+    ]
 
 
-def removeDoubleSpaces(sentence):
-    newSentence = StringHelper.join(
+def removeDoubleOrMoreSpaces(sentence):
+    return StringHelper.join(
         [
             word.strip()
             for word in sentence.strip().split()
@@ -345,7 +356,6 @@ def removeDoubleSpaces(sentence):
         ],
         character=c.SPACE
     )
-    return newSentence
 
 
 def cutAndAppendCuttedSentences(sentence, tokenList, emailBodyList):

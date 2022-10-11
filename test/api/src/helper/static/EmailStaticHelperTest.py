@@ -807,8 +807,289 @@ Actualizar preferências https://thenews.updatemyprofile.com/t-ajkurdk-AF625213-
             "🇺🇸 Jerome Powell: O presidente do Federal Reserve participará, nesta semana, de um evento que será transmitido ao vivo e promete atrair muita atenção. Será a primeira fala de Powell depois de Jackson Hole. Stay tunned.",
             "📊 IPCA: Na sexta-feira, será divulgado o Índice de Preços ao Consumidor Amplo referente a agosto, um importante indicador da inflação. A média da projeção dos economistas é de uma deflação — a segunda seguida — de 0,39%."
         ]
+    },
+    {
+        ARRANGED: '''
+    é hora de escolher
+
+bom dia. a parte difícil do foco não é dizer "sim" para o seu objetivo, mas conseguir falar "não" às várias outras possibilidades que existem. escolha com carinho.
+
+Rússia fez maior ataque aéreo na Ucrânia desde o início da guerraMUNDO
+
+(Imagem: Reuters | Reprodução)
+
+Alerta em Kiev. Ontem, depois de três meses sem ataques, a capital da Ucrânia foi fortemente bombardeada pela Rússia. Até o momento,  14 civis [https://www.cnnbrasil.com.br/internacional/kiev-lviv-e-outras-cidades-ucranianas-sao-atingidas-por-explosoes/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] morreram e  97 ficaram feridos. [https://www.cnnbrasil.com.br/internacional/kiev-lviv-e-outras-cidades-ucranianas-sao-atingidas-por-explosoes/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]
+
+Os principais alvos foram instalações de energia, comando militar e comunicação. Outras cidades do país também foram atacadas, o que pode indicar uma nova fase da guerra.
+
+Qual o motivo do ataque? De acordo com as falas de Putin, os mísseis são uma resposta ao bombardeio na  ponte entre Rússia e Crimeia no sábado. [https://thenewscc.com.br/2022/10/10/explosao-derruba-ponte-que-liga-russia-a-crimeia/?dxp_referrer=https%3A%2F%2Fwww.google.com%2F&utm_source=thenewscc&utm_medium=email&utm_campaign=referral] Essa ação, inclusive, foi classificada pelo presidente russo como “ato de terrorismo internacional”.
+
+Contextualizando… Por conta da forte resistência ucraniana no primeiro semestre, a Rússia suspendeu os ataques na capital e focou seus esforços no leste e sul do país —  territórios que foram anexados  [https://exame.com/mundo/russia-oficializa-anexacao-de-territorio-da-ucrania/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] no último mês [https://exame.com/mundo/russia-oficializa-anexacao-de-territorio-da-ucrania/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral].
+
+🇺🇸 Depois dos ataques de ontem, Joe Biden garantiu apoio contínuo dos EUA à Ucrânia. Nas palavras   do presidente americano,  a cooperação militar entre os dois países será prioridade [https://www.cnnbrasil.com.br/internacional/biden-promete-sistemas-de-defesa-aerea-para-a-ucrania-apos-ataque-com-misseis/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral].
+
+What's next? O Ministro das Relações Exteriores da Ucrânia anunciou que o país vai continuar com  ações ofensivas contra novos ataques russos [https://www.cnnbrasil.com.br/live-update/internacional/as-ultimas-noticias-da-guerra-na-ucrania-2/1978503/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]. A guerra muda de fase, mas a tensão continua a mesma...
+
+O que mais foi notícia ao redor do globo?
+
+"Dia Mundial contra a Pena Capital".  Papa Francisco pede fim da pena de morte [https://g1.globo.com/mundo/noticia/2022/10/10/papa-francisco-pede-fim-da-pena-de-morte.ghtml?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]Tribunal francês:  Começou o julgamento da Air France e Airbus sobre o acidente com o voo que ia do Rio a Paris em 2009 [https://g1.globo.com/mundo/noticia/2022/10/10/comeca-julgamento-da-air-france-e-airbus-sobre-o-acidente-com-voo-af447-que-ia-de-rio-a-paris-em-2009.ghtml?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]Vítimas tropicais.  A tempestade Julia deixa 14 mortos na América Central e segue para o México [https://g1.globo.com/mundo/noticia/2022/10/10/tempestade-julia-deixa-14-mortos-na-america-central-e-segue-para-o-mexico.ghtml?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]                 Candidatos gastaram milhões em marketing na internet
+
+BRASIL
+
+(Ilustração | the news)
+
+O TSE divulgou que os candidatos às Eleições Gerais de 2022 já gastaram mais de  R$ 196 milhões [https://divulgacandcontas.tse.jus.br/divulga/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral#/consulta/campanha/2022/2040602022/ranks] promovendo seus conteúdos na internet.
+
+Se for feita uma comparação com 2018, a soma do investimento total gasto nas propagandas on-line chegou a R$ 99,7 milhões, ou seja, esse número quase dobrou agora.
+
+A eleição deste ano está mostrando que não tem mais como fazer uma campanha sem considerar tráfego pago nas redes. E parece que os candidatos entenderam isso.
+
+Falando só dos presidenciáveis… Entre aqueles que lideraram as intenções de voto, Simone Tebet (MDB) foi a que mais investiu em tráfego para impulsionar os seus conteúdos —  ao todo foram R$ 2,7 milhões. [https://www.jota.info/eleicoes/gastos-dos-candidatos-a-presidencia-revelam-estrategias-para-alcancar-eleitores-23092022?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]
+
+Logo atrás está o Lula (PT), que gastou  R$ 2,5 milhões [https://www.jota.info/eleicoes/gastos-dos-candidatos-a-presidencia-revelam-estrategias-para-alcancar-eleitores-23092022?utm_source=thenewscc&utm_medium=email&utm_campaign=referral], depois Ciro do PDT, com o valor de  R$ 1,6 milhão [https://www.jota.info/eleicoes/gastos-dos-candidatos-a-presidencia-revelam-estrategias-para-alcancar-eleitores-23092022?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] e, em último, Bolsonaro (PL), que gastou em torno de  R$ 530 mil. [https://www.jota.info/eleicoes/gastos-dos-candidatos-a-presidencia-revelam-estrategias-para-alcancar-eleitores-23092022?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]
+
+Gás final. Na última semana antes do primeiro turno, a plataforma de anúncios do Google recebeu vários acordos de prestação de serviço. Foram investidos mais  R$ 700 mil em quatro horas no Google [https://olhardigital.com.br/2022/09/28/internet-e-redes-sociais/eleicoes-de-2022-candidatos-gastaram-mais-de-r-147-milhoes-em-marketing-na-internet/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral].
+
+Bottom-line: As despesas com propagandas eleitorais na TV e no rádio estão diminuindo cada vez mais. No primeiro turno, foram registrados  quase R$ 400 milhões, [https://divulgacandcontas.tse.jus.br/divulga/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral#/consulta/campanha/2022/2040602022/ranks] 15% a menos do que em 2018.
+
+Outras notícias relevantes no Brasil:
+
+Ex-presidente:  STF marca julgamento de ação contra Collor na Lava Jato [https://www.poder360.com.br/justica/stf-marca-julgamento-de-acao-contra-collor-na-lava-jato/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]Atrasos na pista…  Aeroporto de Congonhas tem 300 voos cancelados depois que um avião teve o pneu furado durante o pouso [https://www.poder360.com.br/brasil/congonhas-tem-283-voos-cancelados-diz-infraero/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]Acordos.  Brasil passa a vender energia excedente para Argentina e Uruguai [https://www.cnnbrasil.com.br/business/brasil-passa-a-vender-energia-excedente-para-argentina-e-uruguai/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]                 As marcas estão investindo em músicas virais do TikTok
+
+TECNOLOGIA
+
+(GIF: Tenor | Reprodução)
+
+Marketing de ouvido. Recentemente, algumas empresas começaram a desenvolver sons originais do TikTok, na esperança de bombarem e se tornarem virais no aplicativo chinês.
+
+Para as marcas, um som "chiclete" oferece visibilidade e uma probabilidade maior de alcançar as páginas “For you” de mais usuários.
+
+Explicando… Quando um criador carrega um vídeo no TikTok com som original, outros usuários podem usar o mesmo som para criar vídeos próprios. À medida que mais pessoas usam o som original, ele vai se tornando viral.
+
+Como o algoritmo “empurra” o que está funcionando, esses sons acabam impulsionando conteúdos. Só pra ter ideia,  “As It Was” de Harry Styles [https://www.tiktok.com/@hshq/video/7084673462417100074?is_from_webapp=v1&item_id=7084673462417100074&utm_source=thenewscc&utm_medium=email&utm_campaign=referral] e  “Vibe” de Cookiee Kawaii [https://www.tiktok.com/@qpark/video/6798581473222905094?is_from_webapp=v1&item_id=6798581473222905094&utm_source=thenewscc&utm_medium=email&utm_campaign=referral], foram usados em quase 4 milhões de vídeos.
+
+O que está acontecendo agora?
+
+As marcas estão querendo entrar no jogo, mas, por problemas de licenciamento, nem sempre têm acesso aos hits. Assim, para navegar pelas legalidades, os varejistas começaram a fazer parcerias com artistas e lançar desafios no TikTok.
+
+A Pepsi anunciou uma parceria com a cantora e atriz Chlöe Bailey, na terça-feira, para lançar uma nova versão da música  “Footloose” [https://www.youtube.com/watch?v=z_DZLRtCxv0&utm_source=thenewscc&utm_medium=email&utm_campaign=referral];A American Eagle e a cantora do TikTok, Katherine Li, se uniram para criar uma versão personalizada de sua música  “Happening Again” [https://www.youtube.com/watch?v=_9Coduep9Es&utm_source=thenewscc&utm_medium=email&utm_campaign=referral];A Pizza Hut colaborou com Jon Moss, um TikToker com quase 7 milhões de seguidores, para criar um  hino que celebrasse o retorno da Detroit-Style Pizza [https://open.spotify.com/track/2kdATWV9eSlKtzI50oRLkK?si=b86960f8cc884545&nd=1&utm_source=thenewscc&utm_medium=email&utm_campaign=referral#login].
+
+Zoom Out: Os varejistas vêm criando jingles na televisão e no rádio há décadas, porém, agora, o desafio é diferente. Além de se ajustarem ao vídeo curto e na vertical, as marcas estão tentando usar o algoritmo — imprevisível — ao seu favor.
+
+A Heineken® 0.0 te levará às mais altas velocidades
+
+PATROCINADO POR HEINEKEN® 0.0
+
+Você é rápido o suficiente? A Heineken® 0.0, patrocinadora global da F1, convida os fãs de games e automobilismo para participarem do torneio em busca do Player 0.0: o competidor mais rápido do Brasil no jogo  Fórmula 1 2022. [https://player00.heineken.com.br/?utm_source=the_news&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc&utm_term=broad-default-the_news-banner&utm_content=novo_freemium-performance-instalacoes_de_app_aaa-broad-default-the_news-29_de_agosto_2022-gif-banner-null]
+
+O evento unirá gamers, pilotos e consumidores em uma experiência única —  daquelas que só a Heineken® proporciona. [https://player00.heineken.com.br/?utm_source=the_news&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc&utm_term=broad-default-the_news-banner&utm_content=novo_freemium-performance-instalacoes_de_app_aaa-broad-default-the_news-29_de_agosto_2022-gif-banner-null]
+
+The best: Você pode participar gratuitamente, ser o mais rápido e, caso vá para as finais, conhecer Interlagos diretamente do  Heineken Village [https://player00.heineken.com.br/?utm_source=the_news&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc&utm_term=broad-default-the_news-banner&utm_content=novo_freemium-performance-instalacoes_de_app_aaa-broad-default-the_news-29_de_agosto_2022-gif-banner-null], espaço inédito dentro do autódromo!
+
+Quem está envolvido? 💚🍺
+
+Nada mais nada menos que os maiores streamers da atualidade —  Gaules , Ale Apoka, Velho Vamp e Victor Ludgero [https://player00.heineken.com.br/?utm_source=the_news&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc&utm_term=broad-default-the_news-banner&utm_content=novo_freemium-performance-instalacoes_de_app_aaa-broad-default-the_news-29_de_agosto_2022-gif-banner-null], são alguns dos grandes nomes que irão narrar as últimas etapas do campeonato.
+
+Para participar é simples, 100% grátis e a primeira etapa é totalmente online. Basta ter mais de 25 anos, adrenalina no sangue e preencher esse formulário  aqui. [https://player00.heineken.com.br/?utm_source=the_news&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc&utm_term=broad-default-the_news-banner&utm_content=novo_freemium-performance-instalacoes_de_app_aaa-broad-default-the_news-29_de_agosto_2022-gif-banner-null]
+
+Se você já está convencido de que é um piloto veloz, a dica é simples, não seja lento na hora de garantir sua vaga.  As inscrições são grátis porém limitadas e estarão abertas de hoje até o dia 15 deste mês. [https://player00.heineken.com.br/?utm_source=the_news&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc&utm_term=broad-default-the_news-banner&utm_content=novo_freemium-performance-instalacoes_de_app_aaa-broad-default-the_news-29_de_agosto_2022-gif-banner-null] LIGHTS OUT AND AWAY WE GO!
+
+Amazon vai gastar 1 bilhão de euros com veículos elétricos
+
+NEGÓCIOS
+
+(Imagem: Reuters | Reprodução)
+
+Rumo ao carbono líquido zero. A Amazon anunciou, ontem, que gastará 1 bilhão de euros para eletrificar sua frota na Europa. O dinheiro será usado para  dobrar o número de veículos elétricos [https://www.businessinsider.com/amazon-plans-10000-electric-delivery-vans-europe-2025-2022-10?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] no continente.
+
+Segundo a empresa, o investimento acelerará a inovação no setor de transporte como um todo e contribuirá para o desenvolvimento da  infraestrutura de recarga de veículos [https://www.reuters.com/business/autos-transportation/amazoncom-invest-over-1-bln-euros-european-electric-van-truck-fleet-2022-10-09/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral].
+
+Contexto: O anúncio ocorre depois da divulgação do relatório de sustentabilidade da empresa. Apesar dos esforços para se vender como  líder em ação climática [https://www.theverge.com/2022/10/10/23396499/amazon-electric-delivery-vehicle-europe-investment?utm_source=thenewscc&utm_medium=email&utm_campaign=referral], suas emissões de dióxido de carbono cresceram 18% no último ano.
+
+Nas palavras do CEO da Amazon, “a rede de transporte é uma das áreas mais desafiadoras do negócio para descarbonizar, e para alcançar o carbono líquido zero será necessário um investimento substancial e sustentável”.
+
+O mercado está de olho… 👀
+
+Embora muitas empresas de logística,  incluindo gigantes como UPS e FedEx [https://avalanchenoticias.com.br/carros-motos-veiculos/amazon-investe-mais-de-1-bilhao-de-euros-para-expandir-sua-frota-de-vans-e-caminhoes-eletricos-na-europa/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral], tenham prometido comprar mais veículos elétricos de emissão zero, ainda não há muitas vans e caminhões à venda.
+
+Percebendo o movimento, várias startups estão correndo para suprir essa demanda do mercado. Da mesma forma, fabricantes maiores —  General Motors, Volkswagen, Ford e Tesla [https://www.reuters.com/business/autos-transportation/amazoncom-invest-over-1-bln-euros-european-electric-van-truck-fleet-2022-10-09/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] — também passaram a focar nos veículos elétricos para entregas.
+
+O que ir na academia tem em comum com a sua vida financeira?
+
+PATROCINADO POR TC
+
+Seja queimando calorias ou investindo, os resultados não costumam aparecer da noite para o dia. Mas com tempo e uma rotina focada, a magia acontece. ✨
+
+Para ter sucesso nos investimentos, o mais importante é começar. Não sabe como? O TC pode te ajudar.  Uma plataforma completa — e grátis — para investidores. [https://tradersclub.onelink.me/hjLz/0gfmk0j0?utm_source=the_news&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc&utm_term=broad-default-the_news-banner&utm_content=novo_freemium-performance-instalacoes_de_app_aaa-broad-default-the_news-29_de_agosto_2022-gif-banner-null]
+
+O aplicativo oferece  todas as ferramentas úteis [https://tradersclub.onelink.me/hjLz/0gfmk0j0?utm_source=the_news&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc&utm_term=broad-default-the_news-banner&utm_content=novo_freemium-performance-instalacoes_de_app_aaa-broad-default-the_news-29_de_agosto_2022-gif-banner-null] para você ir mais rápido e mais longe nos investimentos.
+
+Quer exemplos?
+
+No TC, você tem notícias e informações em tempo real, pode conferir cotações, sincronizar ativos e acompanhar sua carteira…  Inclusive, consegue até ver no que especialistas estão investindo. [https://tradersclub.onelink.me/hjLz/0gfmk0j0?utm_source=the_news&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc&utm_term=broad-default-the_news-banner&utm_content=novo_freemium-performance-instalacoes_de_app_aaa-broad-default-the_news-29_de_agosto_2022-gif-banner-null] 👀
+
+É quase como ter um personal trainer, só que nas finanças.  Clique aqui para abrir uma conta grátis no TC e comece ainda hoje! [https://tradersclub.onelink.me/hjLz/0gfmk0j0?utm_source=the_news&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc&utm_term=broad-default-the_news-banner&utm_content=novo_freemium-performance-instalacoes_de_app_aaa-broad-default-the_news-29_de_agosto_2022-gif-banner-null]
+
+Real foi a 8ª moeda que mais se valorizou em 2022
+
+ECONOMIA
+
+(Imagem: Pixabay | Reprodução)
+
+Segundo levantamento, o real foi a  8ª moeda que mais valorizou em relação ao dólar [https://www.poder360.com.br/economia/real-foi-a-8a-moeda-que-mais-se-valorizou-em-2022/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] americano em 2022. Desde o início do ano, a nossa moeda subiu 6,9%.
+
+Entre as principais economias mundiais, a moeda brasileira só valorizou menos do que a da Rússia, que já  subiu 18,7% no mesmo período [https://noticias.uol.com.br/internacional/ultimas-noticias/2022/10/08/imagens-ponte-crimeia-antes-e-depois-da-explosao.htm?utm_source=thenewscc&utm_medium=email&utm_campaign=referral].
+
+📈 Ainda nos destaques positivos, o kwanza da Angola foi a moeda que teve maior alta,  subindo 29,7% [https://br.noticias.yahoo.com/real-foi-a-8-moeda-que-mais-se-valorizou-em-2022-diz-levantamento-155430449.html?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]. Logo em seguida, ficaram o rublo russo e o dram da Armênia.
+
+📉 Na América do Sul, o pior desempenho foi da Venezuela, que viu sua moeda se desvalorizar 44%. Mas  o pior desempenho do ano [https://br.noticias.yahoo.com/real-foi-a-8-moeda-que-mais-se-valorizou-em-2022-diz-levantamento-155430449.html?utm_source=thenewscc&utm_medium=email&utm_campaign=referral] foi o da rúpia do Sri Lanka, fechando em 45%.
+
+O levantamento se baseou em 118 países e na zona do euro, que desvalorizou quase 14% neste ano.  Se quiser ver o relatório na íntegra, é só clicar aqui [https://static.poder360.com.br/2022/10/ranking-moedas-valorizacao-dolar-7out2022.pdf?utm_source=thenewscc&utm_medium=email&utm_campaign=referral].
+
+Destaques do dia:
+
+Fechamento:  Ibovespa cai 0,37%, acompanhando pares internacionais em sessão de cautela; dólar cai 0,42% [https://www.infomoney.com.br/mercados/ibovespa-cai-037-acompanhando-pares-internacionais-em-sessao-de-cautela-dolar-cai-042/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]As contas estão apertando...  Endividamento atinge 80% das famílias mais pobres em setembro [https://www.cnnbrasil.com.br/business/endividamento-atinge-80-das-familias-mais-pobres-em-setembro-um-recorde-diz-cnc/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]Recuperação da indústria.  Produção de veículos tem alta de 19,3% em setembro [https://agenciabrasil.ebc.com.br/economia/noticia/2022-10/producao-de-veiculos-tem-alta-de-193-em-setembro-informa-anfavea?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]                 Investir é barato? Era. Agora, é de graça
+
+PATROCINADO POR ÍON ITAÚ
+
+Você não precisa pagar para investir com o íon. A plataforma inovou mais uma vez e acabou de zerar a taxa de corretagem.  Baixe o app e descubra seu novo jeito de investir em Ações, BDRs, ETFS e FIIs — tudo isso com Taxa Zero de corretagem.  [https://ion.itau/?utm_source=newsletter&utm_medium=e-mail&utm_campaign=11_10&utm_id=thenewscc]
+
+Já imaginou ganhar um kit desses?PROGRAMA DE INDICAÇÃO
+
+Isso é simplesmente fantástico. Dez leitores do nosso jornal serão presenteados com um super kit composto por um Kindle 11ª geração e uma Alexa Echo Dot 3ª geração.
+
+Já parou pra pensar que esse leitor pode ser você? Fala sério, são 10 chances de ganhar.
+
+E pra concorrer a esse prêmio, você só precisa indicar o the news para um amigo até sexta-feira (14/10). Simples assim.
+
+Bônus: Dobre suas chances de ganhar a cada indicação realizada. 1 amigo = 1 chance. 4 amigos = 4 chances.
+
+Seu kit pode estar chegando aí… Clique no botão abaixo, pegue seu link exclusivo de indicação e mande para a galera. Boa sorte!
+
+CLIQUE PARA COMPARTILHAR [https://grow.surf/x5eg0s?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessao-copy-pi]
+
+PS:  Clique aqui [https://thenews.substack.com/p/6b36d5e2-4c17-414b-ab38-86094fa17dbe] para conferir as regras oficiais do sorteio, que será realizado dia 17/10.
+
+the news 📬
+
+Mais inteligente em 5 minutos. Somos um jornal gratuito e diário, que tem por objetivo te trazer tudo que você precisa saber para começar o seu dia bem e informado.
+
+Notícias, de fato, relevantes sobre as principais atualidades do mundo, do Brasil, tecnologia e do mercado financeiro, sempre nessa ordem.
+
+Direto na sua caixa de entrada do e-mail favorito, sempre às 06:06. É gratuito, mas pode viciar.
+
+🎟️  O próximo anunciante pode ser você.  É só clicar aqui [https://thenewscc.typeform.com/to/twCcjR bQ].
+
+👍👎 Gostou da edição de hoje?  Nos conte aqui [https://docs.google.com/forms/d/12jhUljBzSvd-RQKLmpXAo7tw94QchngJEi26PTrZkxg/edit].
+
+📱 Quer ser um influenciador do seu jornal favorito?  Clique aqui para saber mais [https://forms.gle/hHBPMFkpG2NDXWDK7].
+
+já conhece nossas outras newsletters?
+
+🦄  the bizness [https://thenewscc.com.br/bizness-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao]: sua dose de conteúdo sobre os assuntos mais relevantes do mundo dos negócios. análises, números e insights.  um MBA em forma de e-mail. [https://thenewscc.com.br/bizness-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao]
+
+🏆  the champs [https://thenewscc.com.br/champs-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao]: todo o não óbvio sobre os esportes, na palma da sua mão.  descontraído e direto ao ponto, como deve ser [https://thenewscc.com.br/champs-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao].
+
+🧸  the stories [https://thenewscc.com.br/stories/?utm_source=newsletter&utm_medium=orgânico&utm_cam paign=sessa-recomendacao]: histórias que emocionam. não tão longas quanto um romance, mas suficientes pra te fazer sentir.  contamos e escrevemos amor. [https://thenewscc.com.br/stories-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao]
+
+até amanhã
+
+Sempre chegamos a sua caixa de entrada por volta das 06:06. Alguns servidores de e-mail são teimosos e atrasam… Outros são piores ainda e nos jogam para o spam e/ ou promoções. Sempre que não nos encontrar na caixa de entrada, procure nessas duas.
+
+[https://twitter.com/thenews_br]                               mais inteligente em 5 minutos.
+
+the news.cc | newsletter
+
+São Paulo, SP 04506-000 | Miami, FL
+
+Política de Privacidade [https://drive.google.com/file/d/1Yi-bty-sLL5mCBwiDWKlE2JNLDclCmVe/view?usp=sharing] |  Anuncie conosco [https://thenewscc.typeform.com/to/twCcjRbQ]
+
+Actualizar preferências https://thenews.updatemyprofile.com/t-aditrky-851105C4-jyykiytlo-td  |   Remover subscrição https://thenews.cmail19.com/t/t-u-aditrky-jyykiytlo-th/
+''',
+        EXPECTED: [
+            "é hora de escolher.",
+            "bom dia. a parte difícil do foco não é dizer 'sim' para o seu objetivo, mas conseguir falar 'não' às várias outras possibilidades que existem. escolha com carinho.",
+            "MUNDO",
+            "Rússia fez maior ataque aéreo na Ucrânia desde o início da guerra.",
+            "Alerta em Kiev. Ontem, depois de três meses sem ataques, a capital da Ucrânia foi fortemente bombardeada pela Rússia. Até o momento, 14 civis morreram e 97 ficaram feridos.",
+            "Os principais alvos foram instalações de energia, comando militar e comunicação. Outras cidades do país também foram atacadas, o que pode indicar uma nova fase da guerra.",
+            "Qual o motivo do ataque? De acordo com as falas de Putin, os mísseis são uma resposta ao bombardeio na ponte entre Rússia e Crimeia no sábado. Essa ação, inclusive, foi classificada pelo presidente russo como “ato de terrorismo internacional”.",
+            "Contextualizando… Por conta da forte resistência ucraniana no primeiro semestre, a Rússia suspendeu os ataques na capital e focou seus esforços no leste e sul do país — territórios que foram anexados no último mês.",
+            "🇺🇸 Depois dos ataques de ontem, Joe Biden garantiu apoio contínuo dos EUA à Ucrânia. Nas palavras do presidente americano, a cooperação militar entre os dois países será prioridade.",
+            "What's next? O Ministro das Relações Exteriores da Ucrânia anunciou que o país vai continuar com ações ofensivas contra novos ataques russos. A guerra muda de fase, mas a tensão continua a mesma…",
+            "O que mais foi notícia ao redor do globo?",
+            "'Dia Mundial contra a Pena Capital'.",
+            "Papa Francisco pede fim da pena de morte.",
+            "Tribunal francês: Começou o julgamento da Air France e Airbus sobre o acidente com o voo que ia do Rio a Paris em 2009.",
+            "Vítimas tropicais.",
+            "BRASIL",
+            "A tempestade Julia deixa 14 mortos na América Central e segue para o México Candidatos gastaram milhões em marketing na internet.",
+            "O TSE divulgou que os candidatos às Eleições Gerais de 2022 já gastaram mais de. R$ 196 milhões promovendo seus conteúdos na internet.",
+            "Se for feita uma comparação com 2018, a soma do investimento total gasto nas propagandas on-line chegou a R$ 99,7 milhões, ou seja, esse número quase dobrou agora.",
+            "A eleição deste ano está mostrando que não tem mais como fazer uma campanha sem considerar tráfego pago nas redes. E parece que os candidatos entenderam isso.",
+            "Falando só dos presidenciáveis… Entre aqueles que lideraram as intenções de voto, Simone Tebet (MDB) foi a que mais investiu em tráfego para impulsionar os seus conteúdos — ao todo foram R$ 2,7 milhões.",
+            "Logo atrás está o Lula (PT), que gastou. R$ 2,5 milhões, depois Ciro do PDT, com o valor de. R$ 1,6 milhão e, em último, Bolsonaro (PL), que gastou em torno de. R$ 530 mil.",
+            "Gás final. Na última semana antes do primeiro turno, a plataforma de anúncios do Google recebeu vários acordos de prestação de serviço. Foram investidos mais. R$ 700 mil em quatro horas no Google.",
+            "Bottom-line: As despesas com propagandas eleitorais na TV e no rádio estão diminuindo cada vez mais. No primeiro turno, foram registrados quase R$ 400 milhões, 15% a menos do que em 2018.",
+            "Outras notícias relevantes no Brasil:",
+            "Ex-presidente: STF marca julgamento de ação contra Collor na Lava Jato.",
+            "Atrasos na pista… Aeroporto de Congonhas tem 300 voos cancelados depois que um avião teve o pneu furado durante o pouso.",
+            "Acordos.",
+            "TECNOLOGIA",
+            "Brasil passa a vender energia excedente para Argentina e Uruguai As marcas estão investindo em músicas virais do TikTok.",
+            "Marketing de ouvido. Recentemente, algumas empresas começaram a desenvolver sons originais do TikTok, na esperança de bombarem e se tornarem virais no aplicativo chinês.",
+            "Para as marcas, um som 'chiclete' oferece visibilidade e uma probabilidade maior de alcançar as páginas “For you” de mais usuários.",
+            "Explicando… Quando um criador carrega um vídeo no TikTok com som original, outros usuários podem usar o mesmo som para criar vídeos próprios. À medida que mais pessoas usam o som original, ele vai se tornando viral.",
+            "Como o algoritmo “empurra” o que está funcionando, esses sons acabam impulsionando conteúdos. Só pra ter ideia, “As It Was” de Harry Styles e “Vibe” de Cookiee Kawaii, foram usados em quase 4 milhões de vídeos.",
+            "O que está acontecendo agora?",
+            "As marcas estão querendo entrar no jogo, mas, por problemas de licenciamento, nem sempre têm acesso aos hits. Assim, para navegar pelas legalidades, os varejistas começaram a fazer parcerias com artistas e lançar desafios no TikTok.",
+            "A Pepsi anunciou uma parceria com a cantora e atriz Chlöe Bailey, na terça-feira, para lançar uma nova versão da música “Footloose”;",
+            "A American Eagle e a cantora do TikTok, Katherine Li, se uniram para criar uma versão personalizada de sua música “Happening Again”;",
+            "A Pizza Hut colaborou com Jon Moss, um TikToker com quase 7 milhões de seguidores, para criar um hino que celebrasse o retorno da Detroit-Style Pizza.",
+            "Zoom Out: Os varejistas vêm criando jingles na televisão e no rádio há décadas, porém, agora, o desafio é diferente. Além de se ajustarem ao vídeo curto e na vertical, as marcas estão tentando usar o algoritmo — imprevisível — ao seu favor.",
+            "NEGÓCIOS",
+            "Amazon vai gastar 1 bilhão de euros com veículos elétricos.",
+            "Rumo ao carbono líquido zero. A Amazon anunciou, ontem, que gastará 1 bilhão de euros para eletrificar sua frota na Europa. O dinheiro será usado para dobrar o número de veículos elétricos no continente.",
+            "Segundo a empresa, o investimento acelerará a inovação no setor de transporte como um todo e contribuirá para o desenvolvimento da infraestrutura de recarga de veículos.",
+            "Contexto: O anúncio ocorre depois da divulgação do relatório de sustentabilidade da empresa. Apesar dos esforços para se vender como líder em ação climática, suas emissões de dióxido de carbono cresceram 18% no último ano.",
+            "Nas palavras do CEO da Amazon, “a rede de transporte é uma das áreas mais desafiadoras do negócio para descarbonizar, e para alcançar o carbono líquido zero será necessário um investimento substancial e sustentável”.",
+            "O mercado está de olho… 👀",
+            "Embora muitas empresas de logística, incluindo gigantes como UPS e FedEx, tenham prometido comprar mais veículos elétricos de emissão zero, ainda não há muitas vans e caminhões à venda.",
+            "Percebendo o movimento, várias startups estão correndo para suprir essa demanda do mercado. Da mesma forma, fabricantes maiores — General Motors, Volkswagen, Ford e Tesla — também passaram a focar nos veículos elétricos para entregas.",
+            "ECONOMIA",
+            "Real foi a 8ª moeda que mais se valorizou em 2022.",
+            "Segundo levantamento, o real foi a 8ª moeda que mais valorizou em relação ao dólar americano em 2022. Desde o início do ano, a nossa moeda subiu 6,9%.",
+            "Entre as principais economias mundiais, a moeda brasileira só valorizou menos do que a da Rússia, que já subiu 18,7% no mesmo período.",
+            "📈 Ainda nos destaques positivos, o kwanza da Angola foi a moeda que teve maior alta, subindo 29,7%. Logo em seguida, ficaram o rublo russo e o dram da Armênia.",
+            "📉 Na América do Sul, o pior desempenho foi da Venezuela, que viu sua moeda se desvalorizar 44%. Mas o pior desempenho do ano foi o da rúpia do Sri Lanka, fechando em 45%.",
+            "O levantamento se baseou em 118 países e na zona do euro, que desvalorizou quase 14% neste ano. Se quiser ver o relatório na íntegra, é só clicar aqui.",
+            "Destaques do dia:",
+            "Fechamento: Ibovespa cai 0,37%, acompanhando pares internacionais em sessão de cautela; dólar cai 0,42% As contas estão apertando… Endividamento atinge 80% das famílias mais pobres em setembro.",
+            "Recuperação da indústria.",
+            "Produção de veículos tem alta de 19,3% em setembro."
+        ]
     }
 ]
+
+
+@Test()
+def getCompiledEmailBodyList_whenSentenceIsTooLargeBySemiColon():
+    #arrange
+    arranged = 'A Pepsi anunciou uma parceria com a cantora e atriz Chlöe Bailey, na terça-feira, para lançar uma nova versão da música “Footloose”; A American Eagle e a cantora do TikTok, Katherine Li, se uniram para criar uma versão personalizada de sua música “Happening Again”; A Pizza Hut colaborou com Jon Moss, um TikToker com quase 7 milhões de seguidores, para criar um hino que celebrasse o retorno da Detroit-Style Pizza'
+    expected = [
+        'A Pepsi anunciou uma parceria com a cantora e atriz Chlöe Bailey, na terça-feira, para lançar uma nova versão da música “Footloose”;',
+        'A American Eagle e a cantora do TikTok, Katherine Li, se uniram para criar uma versão personalizada de sua música “Happening Again”;',
+        'A Pizza Hut colaborou com Jon Moss, um TikToker com quase 7 milhões de seguidores, para criar um hino que celebrasse o retorno da Detroit-Style Pizza.'
+    ]
+
+    #act
+    toAssert = EmailStaticHelper.getCompiledEmailBodyList(arranged)
+
+    #assert
+    for e, t in zip(expected, toAssert):
+        assert e == t, f'{e} == {t}'
+    assert len(expected) == len(toAssert)
+    assert ObjectHelper.equals(expected, toAssert), f'{StringHelper.prettyJson(expected)}{c.NEW_LINE}{StringHelper.prettyJson(toAssert)}'
 
 
 @Test()
