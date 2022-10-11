@@ -771,7 +771,8 @@ Actualizar preferências https://thenews.updatemyprofile.com/t-ajkurdk-AF625213-
             "O lado B do Rock in Rio.",
             "Nos dois primeiros dias de shows, a Companhia de Limpeza Urbana já recolheu 110 toneladas de lixo.",
             "Ele é pop mesmo… Agronegócio emprega mais de 19 milhões de pessoas em 2022.",
-            "Sobrou pra ela… Polícia argentina prende namorada de brasileiro acusado de atacar Cristina Kirchner OnlyFans já gerou quase US$ 4 bilhões aos influenciadores.",
+            "Sobrou pra ela… Polícia argentina prende namorada de brasileiro acusado de atacar Cristina Kirchner.",
+            "OnlyFans já gerou quase US$ 4 bilhões aos influenciadores.",
             "TECNOLOGIA",
             "OnlyFans já gerou quase US$ 4 bilhões aos influenciadores.",
             "Muita gente gosta do clima quente. O OnlyFans, serviço de conteúdos sexuais por assinatura, anunciou seus resultados financeiros no ano passado — e eles foram pra lá de animadores.",
@@ -1022,8 +1023,9 @@ Actualizar preferências https://thenews.updatemyprofile.com/t-aditrky-851105C4-
             "Papa Francisco pede fim da pena de morte.",
             "Tribunal francês: Começou o julgamento da Air France e Airbus sobre o acidente com o voo que ia do Rio a Paris em 2009.",
             "Vítimas tropicais.",
+            "A tempestade Julia deixa 14 mortos na América Central e segue para o México.",
             "BRASIL",
-            "A tempestade Julia deixa 14 mortos na América Central e segue para o México Candidatos gastaram milhões em marketing na internet.",
+            "Candidatos gastaram milhões em marketing na internet.",
             "O TSE divulgou que os candidatos às Eleições Gerais de 2022 já gastaram mais de. R$ 196 milhões promovendo seus conteúdos na internet.",
             "Se for feita uma comparação com 2018, a soma do investimento total gasto nas propagandas on-line chegou a R$ 99,7 milhões, ou seja, esse número quase dobrou agora.",
             "A eleição deste ano está mostrando que não tem mais como fazer uma campanha sem considerar tráfego pago nas redes. E parece que os candidatos entenderam isso.",
@@ -1035,8 +1037,9 @@ Actualizar preferências https://thenews.updatemyprofile.com/t-aditrky-851105C4-
             "Ex-presidente: STF marca julgamento de ação contra Collor na Lava Jato.",
             "Atrasos na pista… Aeroporto de Congonhas tem 300 voos cancelados depois que um avião teve o pneu furado durante o pouso.",
             "Acordos.",
+            "Brasil passa a vender energia excedente para Argentina e Uruguai.",
             "TECNOLOGIA",
-            "Brasil passa a vender energia excedente para Argentina e Uruguai As marcas estão investindo em músicas virais do TikTok.",
+            "As marcas estão investindo em músicas virais do TikTok.",
             "Marketing de ouvido. Recentemente, algumas empresas começaram a desenvolver sons originais do TikTok, na esperança de bombarem e se tornarem virais no aplicativo chinês.",
             "Para as marcas, um som 'chiclete' oferece visibilidade e uma probabilidade maior de alcançar as páginas “For you” de mais usuários.",
             "Explicando… Quando um criador carrega um vídeo no TikTok com som original, outros usuários podem usar o mesmo som para criar vídeos próprios. À medida que mais pessoas usam o som original, ele vai se tornando viral.",
@@ -1070,6 +1073,46 @@ Actualizar preferências https://thenews.updatemyprofile.com/t-aditrky-851105C4-
         ]
     }
 ]
+
+
+@Test()
+def getCompleteEmailBodyList_whatMore():
+    #arrange
+    arranged = '''What's next? O Ministro das Relações Exteriores da Ucrânia anunciou que o país vai continuar com  ações ofensivas contra novos ataques russos [https://www.cnnbrasil.com.br/live-update/internacional/as-ultimas-noticias-da-guerra-na-ucrania-2/1978503/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]. A guerra muda de fase, mas a tensão continua a mesma...
+
+    O que mais foi notícia ao redor do globo?
+
+    "Dia Mundial contra a Pena Capital".  Papa Francisco pede fim da pena de morte [https://g1.globo.com/mundo/noticia/2022/10/10/papa-francisco-pede-fim-da-pena-de-morte.ghtml?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]Tribunal francês:  Começou o julgamento da Air France e Airbus sobre o acidente com o voo que ia do Rio a Paris em 2009 [https://g1.globo.com/mundo/noticia/2022/10/10/comeca-julgamento-da-air-france-e-airbus-sobre-o-acidente-com-voo-af447-que-ia-de-rio-a-paris-em-2009.ghtml?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]Vítimas tropicais.  A tempestade Julia deixa 14 mortos na América Central e segue para o México [https://g1.globo.com/mundo/noticia/2022/10/10/tempestade-julia-deixa-14-mortos-na-america-central-e-segue-para-o-mexico.ghtml?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]                 Candidatos gastaram milhões em marketing na internet
+
+    BRASIL
+
+    (Ilustração | the news)
+
+    O TSE divulgou que os candidatos às Eleições Gerais de 2022 já gastaram mais de  R$ 196 milhões [https://divulgacandcontas.tse.jus.br/divulga/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral#/consulta/campanha/2022/2040602022/ranks] promovendo seus conteúdos na internet.
+
+    Se for feita uma comparação com 2018, a soma do investimento total gasto nas propagandas on-line chegou a R$ 99,7 milhões, ou seja, esse número quase dobrou agora.'''
+    expected = [
+        "What's next? O Ministro das Relações Exteriores da Ucrânia anunciou que o país vai continuar com ações ofensivas contra novos ataques russos. A guerra muda de fase, mas a tensão continua a mesma…",
+        "O que mais foi notícia ao redor do globo?",
+        "'Dia Mundial contra a Pena Capital'.",
+        "Papa Francisco pede fim da pena de morte.",
+        "Tribunal francês: Começou o julgamento da Air France e Airbus sobre o acidente com o voo que ia do Rio a Paris em 2009.",
+        "Vítimas tropicais.",
+        "A tempestade Julia deixa 14 mortos na América Central e segue para o México.",
+        "BRASIL",
+        "Candidatos gastaram milhões em marketing na internet.",
+        "O TSE divulgou que os candidatos às Eleições Gerais de 2022 já gastaram mais de. R$ 196 milhões promovendo seus conteúdos na internet.",
+        "Se for feita uma comparação com 2018, a soma do investimento total gasto nas propagandas on-line chegou a R$ 99,7 milhões, ou seja, esse número quase dobrou agora.",
+    ]
+
+    #act
+    toAssert = EmailStaticHelper.getCompiledEmailBodyList(arranged)
+
+    #assert
+    for e, t in zip(expected, toAssert):
+        assert e == t, f'{e} == {t}'
+    assert len(expected) == len(toAssert)
+    assert ObjectHelper.equals(expected, toAssert), f'{StringHelper.prettyJson(expected)}{c.NEW_LINE}{StringHelper.prettyJson(toAssert)}'
 
 
 @Test()
@@ -1125,7 +1168,8 @@ def getCompiledEmailBodyList_badSequence():
         "O lado B do Rock in Rio.",
         "Nos dois primeiros dias de shows, a Companhia de Limpeza Urbana já recolheu 110 toneladas de lixo.",
         "Ele é pop mesmo… Agronegócio emprega mais de 19 milhões de pessoas em 2022.",
-        "Sobrou pra ela… Polícia argentina prende namorada de brasileiro acusado de atacar Cristina Kirchner OnlyFans já gerou quase US$ 4 bilhões aos influenciadores.",
+        "Sobrou pra ela… Polícia argentina prende namorada de brasileiro acusado de atacar Cristina Kirchner.",
+        "OnlyFans já gerou quase US$ 4 bilhões aos influenciadores.",
         "TECNOLOGIA",
         "OnlyFans já gerou quase US$ 4 bilhões aos influenciadores.",
         "Muita gente gosta do clima quente. O OnlyFans, serviço de conteúdos sexuais por assinatura, anunciou seus resultados financeiros no ano passado — e eles foram pra lá de animadores.",

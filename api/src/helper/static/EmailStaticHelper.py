@@ -2,6 +2,7 @@ from python_helper import Constant as c
 from python_helper import StringHelper, ObjectHelper, log
 
 
+SPACES_AFTER_EXTRA = '          '
 SYMBOLS = list({
     "@",
     '©',
@@ -40,6 +41,10 @@ PUNCTUATION_LIST = [
 MAX_SENTENCE_SIZE = 256
 
 
+def customDebug(*args, **kwargs):
+    log.prettyJson(customDebug, *args, logLevel=log.DEBUG, **kwargs)
+
+
 def getCompiledEmailBodyList(plainTextEmail):
     isMarketing = False
     lastSentence = c.BLANK
@@ -52,6 +57,7 @@ def getCompiledEmailBodyList(plainTextEmail):
         ]
         if StringHelper.isNotBlank(emailBodySentenceUnity)
     ]:
+        ###-customDebug('emailBodySentence', [emailBodySentence])
         sentenceEnd = emailBodySentence.split()[-1].strip()
         sentenceEndFilterd = StringHelper.join(
             [
@@ -160,6 +166,8 @@ def getCompiledEmailBodyList(plainTextEmail):
                     else:
                         notFilteredEmailBodySentenceList.append(emailBodySentence)
 
+    ###-customDebug('notFilteredEmailBodySentenceList', notFilteredEmailBodySentenceList)
+
     filteredEmailBodySentenceList = [
         emailBodySentence if not '[http' in emailBodySentence else ' '.join([
             c.SPACE.join([
@@ -170,9 +178,25 @@ def getCompiledEmailBodyList(plainTextEmail):
         ])
         for emailBodySentence in notFilteredEmailBodySentenceList
     ]
+    ###-customDebug('filteredEmailBodySentenceList', filteredEmailBodySentenceList)
 
-    # emailBodySentenceList = [*filteredEmailBodySentenceList]
-    emailBodySentenceList = fixPunctuationIssues(filteredEmailBodySentenceList)
+    resplitedEmailBodySentenceList = []
+    for sentence in filteredEmailBodySentenceList:
+        strippedSentence = sentence.strip()
+        if ObjectHelper.isNeitherNoneNorBlank(strippedSentence):
+            if SPACES_AFTER_EXTRA in strippedSentence:
+                for s in strippedSentence.split(SPACES_AFTER_EXTRA):
+                    strippedSegment = s.strip()
+                    if ObjectHelper.isNeitherNoneNorBlank(strippedSegment):
+                        resplitedEmailBodySentenceList.append(s.strip())
+            else:
+                resplitedEmailBodySentenceList.append(strippedSentence)
+    ###-customDebug('resplitedEmailBodySentenceList', resplitedEmailBodySentenceList)
+
+
+
+    emailBodySentenceList = fixPunctuationIssues(resplitedEmailBodySentenceList)
+    ###-customDebug('emailBodySentenceList', emailBodySentenceList)
 
     emailBodySentenceList = [
         removeDoubleOrMoreSpaces(emailBodySentence)
@@ -232,10 +256,10 @@ def getCompiledEmailBodyList(plainTextEmail):
                 preCompiledEmailBodyList.append(sentence)
             else:
                 for s in sentence.split(c.DOT):
-                    strippedSencence = s.strip()
-                    if MAX_SENTENCE_SIZE <= len(strippedSencence):
-                        log.warning(getCompiledEmailBodyList, f'Sentence is too large: {strippedSencence}')
-                        cutAndAppendCuttedSentences(strippedSencence, [
+                    strippedSentence = s.strip()
+                    if MAX_SENTENCE_SIZE <= len(strippedSentence):
+                        log.warning(getCompiledEmailBodyList, f'Sentence is too large: {strippedSentence}')
+                        cutAndAppendCuttedSentences(strippedSentence, [
                             c.QUESTION_MARK,
                             c.EXCLAMATION_MARK,
                             c.COLON,
@@ -244,18 +268,21 @@ def getCompiledEmailBodyList(plainTextEmail):
                             LONG_DASH,
                             c.DASH
                         ], preCompiledEmailBodyList)
-                    elif ObjectHelper.isNeitherNoneNorBlank(strippedSencence):
-                        preCompiledEmailBodyList.append(f'{strippedSencence}{c.DOT}')
+                    elif ObjectHelper.isNeitherNoneNorBlank(strippedSentence):
+                        preCompiledEmailBodyList.append(f'{strippedSentence}{c.DOT}')
+    ###-customDebug('preCompiledEmailBodyList', preCompiledEmailBodyList)
 
     emailBodyWithSpecialCharacteresReplacedList = [
         sentence.replace('<=', '&le;').replace('>=', '&ge;').replace('<', '&lt;').replace('>', '&gt;')
         for sentence in preCompiledEmailBodyList
     ]
 
-    return fixPunctuationIssues([
+    emailBodySentenceList = fixPunctuationIssues([
         removeDoubleOrMoreSpaces(sentence)
         for sentence in emailBodyWithSpecialCharacteresReplacedList
     ])
+    ###- customDebug('emailBodySentenceList', emailBodySentenceList)
+    return emailBodySentenceList
 
 
 def buildHtml(textHtmlEmailList):
