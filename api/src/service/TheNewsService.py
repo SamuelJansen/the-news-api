@@ -44,7 +44,7 @@ class TheNewsService:
             logMessage = f'Creatting today news voice overs'
             log.status(self.startTodaysNewsUpdate, logMessage)
             self.service.notification.notifyDebugTo(logMessage, [NotificationDestiny.TELEGRAM])
-            self.service.voice.createAudios(emailBodySentenceList, Voice.ANTONIO)
+            self.service.voice.createAudios(emailBodySentenceList, Voice.JULIO)
 
             self.updateNewsModel(newsModel, NewsStatus.PROCESSING_AUDIO)
 
