@@ -30,11 +30,11 @@ api:
     listener:
         enable: ${ENABLE_LISTENER_API:True}
         mute-logs: False
-        timeout: 30
+        timeout: (2,30)
     emitter:
         enable: ${ENABLE_EMITTER_API:True}
         mute-logs: False
-        timeout: 30
+        timeout: (2,30)
 
 today-news:
     update:
@@ -44,14 +44,14 @@ today-news:
 email-manager-api:
     base-url: ${EMAIL_MANAGER_API_HOST}/email-manager-api
     api-key: ${EMAIL_MANAGER_API_API_KEY:default}
-    default-timeout-in-seconds: 40
+    default-timeout-in-seconds: (2,20)
     contacts:
         the-news: ${THE_NEWS_EMAIL:email@email}
 
 voice-manager-api:
     base-url: ${VOICE_MANAGER_API_HOST}/voice-manager-api
     api-key: ${VOICE_MANAGER_API_API_KEY:default}
-    default-timeout-in-seconds: 10
+    default-timeout-in-seconds: (2,5)
 
 queue-manager-api:
     base-url: ${QUEUE_MANAGER_API_HOST}/queue-manager-api
@@ -59,14 +59,14 @@ queue-manager-api:
     create-today-news-voice:
         queue-key: ${CREATE_TODAY_NEWS_VOICE_QUEUE_KEY}
         emitter:
-            timeout: 2
+            timeout: (2,1)
     persist-today-news-voice:
         listener:
-            timeout: 2
+            timeout: (2,1)
     api-notifications:
         queue-key: ${API_NOTIFICATIONS_QUEUE_KEY}
         emitter:
-            timeout: 2
+            timeout: (2,1)
 
 notification-manager-api:
     api-notifications:
