@@ -1,5 +1,6 @@
 from python_helper import Constant as c
 from python_helper import ObjectHelper, StringHelper, Test
+from api.src.constant import NewsConstant
 from api.src.helper.static import EmailStaticHelper
 
 
@@ -1373,3 +1374,31 @@ def getCompiledEmailBodyList():
             assert e == t, f'{e} == {t}'
         assert ObjectHelper.equals(expected, toAssert), f'{StringHelper.prettyJson(expected)}{c.NEW_LINE}{StringHelper.prettyJson(toAssert)}'
         assert len(expected) == len(toAssert)
+
+
+@Test()
+def cutAndAppendCuttedSentences():
+    #arrange
+    strippedSentence = '🥼 Está causando polêmica…2 O Conselho Nacional de Saúde, um braço do Ministério da Saúde, aprovou um documento que defende o reconhecimento de terreiros e casas religiosas de Matriz Africana como promotores de saúde e cura complementares do SUS, além da legalização do aborto e da maconha'
+    preCompiledEmailBodyList = []
+    noneExceptionExpected = None
+    expected = [
+        '🥼 Está causando polêmica…',
+        '2 O Conselho Nacional de Saúde, um braço do Ministério da Saúde, aprovou um documento que defende o reconhecimento de terreiros e casas religiosas de Matriz Africana como promotores de saúde e cura complementares do SUS,',
+        'além da legalização do aborto e da maconha'
+    ]
+
+    #act
+    #assert
+    try:
+        EmailStaticHelper.cutAndAppendCuttedSentences(
+            strippedSentence, 
+            NewsConstant.CUT_SENTENCE_CUT_LIST, 
+            preCompiledEmailBodyList
+        )
+    except Exception as raisedException:
+        noneExceptionExpected = raisedException
+
+    
+    assert ObjectHelper.isNone(noneExceptionExpected), noneExceptionExpected
+    assert ObjectHelper.equals(expected, preCompiledEmailBodyList), f'''{StringHelper.prettyPython(expected)} == {StringHelper.prettyPython(preCompiledEmailBodyList)}'''

@@ -12,9 +12,9 @@ from enumeration.EmailBox import EmailBox
 from enumeration.Voice import Voice
 from enumeration.NewsStatus import NewsStatus
 from constant import NewsConstant
-import EmailStaticHelper
-import AudioDataDto
-import News
+from helper.static import EmailStaticHelper
+from dto import AudioDataDto
+from model import News
 
 
 EMAIL_SUBJECT_KEY = 'subject'

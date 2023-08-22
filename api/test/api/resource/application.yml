@@ -1,0 +1,100 @@
+print-status: False
+api:
+    name: TheNewsApi
+    extension: yml
+    dependency:
+        update: False
+        list:
+            web: [Popen,Path]
+            local: []
+    list: [globals]
+    language: EN-US
+    git:
+        url: https://github.com/SamuelJansen/
+        extension: git
+
+    session:
+        secret: ${SESSION_SECRET:default}
+    api-key:
+        secret: ${API_KEY_SECRET:default}
+    security:
+        secret: ${SECURITY_SECRET:default}
+    server:
+        scheme: http
+        host: 0.0.0.0
+        port: 6067
+        base-url: /the-news-api
+    scheduler:
+        time-zone: ${SCHEDULER_TIMEZONE:Brazil/East}
+        enable: ${ENABLE_SCHEDULER_API:True}
+    listener:
+        enable: ${ENABLE_LISTENER_API:True}
+        mute-logs: False
+        timeout: (2,30)
+    emitter:
+        enable: ${ENABLE_EMITTER_API:True}
+        mute-logs: False
+        timeout: (2,30)
+
+today-news:
+    update:
+        hour: ${TODAY_NEWS_UPDATE_HOUR:7}
+        minute: ${TODAY_NEWS_UPDATE_HOUR:30}
+
+email-manager-api:
+    base-url: ${EMAIL_MANAGER_API_HOST}/email-manager-api
+    api-key: ${EMAIL_MANAGER_API_API_KEY:default}
+    default-timeout-in-seconds: (2,90)
+    contacts:
+        the-news: ${THE_NEWS_EMAIL:email@email}
+
+voice-manager-api:
+    base-url: ${VOICE_MANAGER_API_HOST}/voice-manager-api
+    api-key: ${VOICE_MANAGER_API_API_KEY:default}
+    default-timeout-in-seconds: (2,5)
+
+queue-manager-api:
+    base-url: ${QUEUE_MANAGER_API_HOST}/queue-manager-api
+    api-key: ${QUEUE_MANAGER_API_API_KEY}
+    create-today-news-voice:
+        queue-key: ${CREATE_TODAY_NEWS_VOICE_QUEUE_KEY}
+        emitter:
+            timeout: (2,1)
+    persist-today-news-voice:
+        listener:
+            timeout: (2,1)
+    api-notifications:
+        queue-key: ${API_NOTIFICATIONS_QUEUE_KEY}
+        emitter:
+            timeout: (2,1)
+
+notification-manager-api:
+    api-notifications:
+        queue-key: ${queue-manager-api.api-notifications.queue-key}
+        emitter:
+            api-key: ${queue-manager-api.api-key}
+            notification-api-key: ${NOTIFICATION_MANAGER_API_API_KEY}
+            base-url: ${queue-manager-api.base-url}
+            timeout: ${queue-manager-api.api-notifications.emitter.timeout}
+
+the-news-api:
+    today-news:
+        public-url: ${TODAY_NEWS_PUBLIC_BASE_URL}/the-news
+
+swagger:
+    # schemes: [${api.server.scheme}] ###- bug
+    # host: ${SWAGGER_HOST:${api.server.host}}:${api.server.port} ###- bug
+    info:
+        # title: ${api.name} ###- commented to make use of auto title and auto description
+        # description: Shift Api
+        version: 0.0.1
+        terms-of-service: http://swagger.io/terms/
+        contact:
+            name: Samuel Jansen
+            email: samuel.jansenn@gmail.com
+        license:
+            name: Apache 2.0 / MIT License
+            url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+python:
+    version: 3.9

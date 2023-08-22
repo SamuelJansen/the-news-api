@@ -1,44 +1,7 @@
 from python_helper import Constant as c
 from python_helper import StringHelper, ObjectHelper, log
 
-
-SPACES_AFTER_EXTRA = '          '
-SYMBOLS = list({
-    "@",
-    '©',
-    '®',
-    '™',
-    '℠',
-    "#",
-    "$",
-    "%",
-    "&",
-    "=",
-    "|",
-    "_",
-    "/",
-    "*",
-    "-",
-    "+"
-})
-LONG_DASH = f'—'
-SPACE_LONG_DASH_SPACE = f'{c.SPACE}—{c.SPACE}'
-SPACE_DASH_SPACE = f'{c.SPACE}{c.DASH}{c.SPACE}'
-THREE_DOTS = '…'
-THREE_DOTS_TOKEN = '--THREE_DOTS--'
-PUNCTUATION_LIST = [
-    c.DOT,
-    c.COMA,
-    c.QUESTION_MARK,
-    c.EXCLAMATION_MARK,
-    c.SEMI_COLON,
-    c.COLON,
-    c.UNDERSCORE,
-    THREE_DOTS,
-    SPACE_DASH_SPACE,
-    SPACE_LONG_DASH_SPACE
-]
-MAX_SENTENCE_SIZE = 256
+from constant import NewsConstant
 
 
 def customDebug(*args, **kwargs):
@@ -116,7 +79,7 @@ def getCompiledEmailBodyList(plainTextEmail):
                 for charactere in reversed(emailBodySentence):
                     if charactere.isupper() or (charactere in [
                         c.SPACE,
-                        *SYMBOLS
+                        *NewsConstant.SYMBOLS
                     ] and not c.BLANK == upperCaseWords):
                         upperCaseWords = f'{charactere}{upperCaseWords}'
                     elif c.BLANK == upperCaseWords:
@@ -184,8 +147,8 @@ def getCompiledEmailBodyList(plainTextEmail):
     for sentence in filteredEmailBodySentenceList:
         strippedSentence = sentence.strip()
         if ObjectHelper.isNeitherNoneNorBlank(strippedSentence):
-            if SPACES_AFTER_EXTRA in strippedSentence:
-                for s in strippedSentence.split(SPACES_AFTER_EXTRA):
+            if NewsConstant.SPACES_AFTER_EXTRA in strippedSentence:
+                for s in strippedSentence.split(NewsConstant.SPACES_AFTER_EXTRA):
                     strippedSegment = s.strip()
                     if ObjectHelper.isNeitherNoneNorBlank(strippedSegment):
                         resplitedEmailBodySentenceList.append(s.strip())
@@ -252,22 +215,14 @@ def getCompiledEmailBodyList(plainTextEmail):
                 preCompiledEmailBodyList = [*preCompiledEmailBodyList[:-1], sentence, preCompiledEmailBodyList[-1]]
             elif 3 > len(sentence):
                 preCompiledEmailBodyList[-1] = f'{preCompiledEmailBodyList[-1]}{c.SPACE}{sentence}'
-            elif MAX_SENTENCE_SIZE > len(sentence) and sentence not in preCompiledEmailBodyList:
+            elif NewsConstant.MAX_SENTENCE_SIZE > len(sentence) and sentence not in preCompiledEmailBodyList:
                 preCompiledEmailBodyList.append(sentence)
             else:
                 for s in sentence.split(c.DOT):
                     strippedSentence = s.strip()
-                    if MAX_SENTENCE_SIZE <= len(strippedSentence):
+                    if NewsConstant.MAX_SENTENCE_SIZE <= len(strippedSentence):
                         log.warning(getCompiledEmailBodyList, f'Sentence is too large: {strippedSentence}')
-                        cutAndAppendCuttedSentences(strippedSentence, [
-                            c.QUESTION_MARK,
-                            c.EXCLAMATION_MARK,
-                            c.COLON,
-                            c.SEMI_COLON,
-                            THREE_DOTS,
-                            LONG_DASH,
-                            c.DASH
-                        ], preCompiledEmailBodyList)
+                        cutAndAppendCuttedSentences(strippedSentence, NewsConstant.CUT_SENTENCE_CUT_LIST, preCompiledEmailBodyList)
                     elif ObjectHelper.isNeitherNoneNorBlank(strippedSentence):
                         preCompiledEmailBodyList.append(f'{strippedSentence}{c.DOT}')
     ###-customDebug('preCompiledEmailBodyList', preCompiledEmailBodyList)
@@ -329,15 +284,15 @@ def fixPunctuationIssues(sentenceList):
 
     filteredSentenceList = []
     for sentence in sentenceListWithDotSpaceAdded:
-        filteredSentence = sentence.replace(f'{4*c.DOT}', f'{THREE_DOTS_TOKEN}{c.SPACE}')
-        filteredSentence = filteredSentence.replace(f'{3*c.DOT}', THREE_DOTS_TOKEN)
-        for punctuation in PUNCTUATION_LIST:
+        filteredSentence = sentence.replace(f'{4*c.DOT}', f'{NewsConstant.THREE_DOTS_TOKEN}{c.SPACE}')
+        filteredSentence = filteredSentence.replace(f'{3*c.DOT}', NewsConstant.THREE_DOTS_TOKEN)
+        for punctuation in NewsConstant.PUNCTUATION_LIST:
             filteredSentence = filteredSentence.replace(f'{punctuation}{c.DOT}', f'{punctuation}{c.SPACE}')
             filteredSentence = filteredSentence.replace(f'{c.DOT}{punctuation}', f'{punctuation}{c.SPACE}')
             filteredSentence = filteredSentence.replace(f'{c.SPACE}{punctuation}', f'{punctuation}{c.SPACE}')
-        filteredSentence = filteredSentence.replace(THREE_DOTS_TOKEN, f'{THREE_DOTS}')
-        filteredSentence = filteredSentence.replace(f'{3*THREE_DOTS}', f'{THREE_DOTS}{c.SPACE}')
-        filteredSentence = filteredSentence.replace(f'{2*THREE_DOTS}', f'{THREE_DOTS}{c.SPACE}')
+        filteredSentence = filteredSentence.replace(NewsConstant.THREE_DOTS_TOKEN, f'{NewsConstant.THREE_DOTS}')
+        filteredSentence = filteredSentence.replace(f'{3*NewsConstant.THREE_DOTS}', f'{NewsConstant.THREE_DOTS}{c.SPACE}')
+        filteredSentence = filteredSentence.replace(f'{2*NewsConstant.THREE_DOTS}', f'{NewsConstant.THREE_DOTS}{c.SPACE}')
         filteredSentenceList.append(filteredSentence.strip())
 
     recentensedList = []
@@ -362,7 +317,7 @@ def fixPunctuationIssues(sentenceList):
         else:
             emailBodySentenceList.append(sentence.strip())
 
-    for punctuation in PUNCTUATION_LIST:
+    for punctuation in NewsConstant.PUNCTUATION_LIST:
         emailBodySentenceList = [
             sentence.replace(f'{3*c.SPACE}{punctuation}', punctuation).replace(f'{2*c.SPACE}{punctuation}', punctuation).replace(f'{c.SPACE}{punctuation}', punctuation)
             for sentence in emailBodySentenceList
@@ -387,15 +342,31 @@ def removeDoubleOrMoreSpaces(sentence):
 
 def cutAndAppendCuttedSentences(sentence, tokenList, emailBodyList):
     # print(f'{sentence=}')
+    # print(f'{tokenList=}')
     # print(0 < len(tokenList) and tokenList[0] in sentence)
-    if 0 < len(tokenList) and tokenList[0] in sentence:
-        if 1 < len(sentence.split(tokenList[0])):
-            splitedSentenceList = sentence.split(tokenList[0])
+    if 0 >= len(tokenList):
+        stripedSentence = sentence.strip()
+        emailBodyList.append(
+            f'''{stripedSentence}{getPunctuationSufix(stripedSentence, tokenList, stripedSentence)}'''
+        )
+    elif 0 < len(tokenList) and tokenList[0] in sentence:
+        evaluatedSplitedSentenceList = sentence.split(tokenList[0])
+        if 1 < len(evaluatedSplitedSentenceList):
+            if ObjectHelper.equals(c.COMA, tokenList[0]):
+                splitedSentenceList = [
+                    StringHelper.join(
+                        evaluatedSplitedSentenceList[:-1],
+                        character = tokenList[0]
+                    ),
+                    evaluatedSplitedSentenceList[-1]
+                ]
+            else:
+                splitedSentenceList = [*evaluatedSplitedSentenceList]
             # print(f'{splitedSentenceList=}')
             for segment in splitedSentenceList:
                 strippedSegment = segment.strip()
                 # print(f'{strippedSegment=}')
-                if MAX_SENTENCE_SIZE <= len(strippedSegment):
+                if NewsConstant.MAX_SENTENCE_SIZE <= len(strippedSegment):
                     cutAndAppendCuttedSentences(strippedSegment, tokenList[1:], emailBodyList)
                 elif ObjectHelper.isNeitherNoneNorBlank(strippedSegment):
                     emailBodyList.append(
@@ -403,8 +374,8 @@ def cutAndAppendCuttedSentences(sentence, tokenList, emailBodyList):
                     )
         else:
             cutAndAppendCuttedSentences(sentence, tokenList[1:], emailBodyList)
-    elif f'que{c.COMA}' in sentence and 1 < len(sentence.split(f'que{c.COMA}')):
-        splitedSentenceList = sentence.split(f'que{c.COMA}')
+    elif f'que{c.COMA}' in sentence and 1 < len(sentence.split(NewsConstant.WHAT_COMA)):
+        splitedSentenceList = sentence.split(NewsConstant.WHAT_COMA)
         for segment in splitedSentenceList:
             strippedSegment = segment.strip()
             if ObjectHelper.isNeitherNoneNorBlank(strippedSegment):
@@ -435,7 +406,7 @@ def shouldAddADotSpace(sentence, segment):
             )
         )
     ) and (
-        strippedSegment[-1] not in PUNCTUATION_LIST
+        strippedSegment[-1] not in NewsConstant.PUNCTUATION_LIST
     ) and (
         (
             strippedSegment[-1] in c.CHARACTERES
@@ -448,10 +419,14 @@ def shouldAddADotSpace(sentence, segment):
 def getPunctuationSufix(sentence, token, segment):
     return (
         f"{token}"
-        if sentence is not segment and token not in [
-            LONG_DASH,
-            SPACE_LONG_DASH_SPACE,
-            c.DASH,
-            SPACE_DASH_SPACE
-        ] else c.BLANK
+        if sentence is not segment and (
+            (
+                token not in [
+                    NewsConstant.LONG_DASH,
+                    NewsConstant.SPACE_LONG_DASH_SPACE,
+                    c.DASH,
+                    NewsConstant.SPACE_DASH_SPACE
+                ]
+            )
+        ) else c.BLANK
     )
