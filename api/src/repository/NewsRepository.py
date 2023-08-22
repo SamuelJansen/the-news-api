@@ -1,7 +1,7 @@
 from python_helper import ObjectHelper
 from python_framework import SqlAlchemyProxy as sap
 from python_framework import Repository
-import News
+from model import News
 
 @Repository(model = News.News)
 class NewsRepository:
