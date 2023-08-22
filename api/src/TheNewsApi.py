@@ -5,7 +5,7 @@ from python_framework import ResourceManager, FlaskUtil, LogConstant, HttpStatus
 from queue_manager_api import QueueManager
 from notification_manager_api import NotificationManager
 
-import ModelAssociation
+from model import ModelAssociation
 
 
 app = ResourceManager.initialize(__name__, ModelAssociation.MODEL, managerList=[

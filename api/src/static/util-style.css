@@ -7,6 +7,7 @@
 }
 
 body {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -15,8 +16,10 @@ body > div.audio-circle {
     position: fixed;
     bottom:0;
     right:0;
-    height: 100px;
-    width: 100px;
+    /* height: 100px; */
+    /* width: 100px; */
+    max-height: 100px;
+    max-width: 100px;
     margin-bottom: 2em;
     margin-right: 3em;
     border-radius: 50%;
