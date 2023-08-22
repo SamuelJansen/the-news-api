@@ -15,7 +15,7 @@ def getCompiledEmailBodyList(plainTextEmail):
     for emailBodySentence in [
         emailBodySentenceUnity
         for emailBodySentenceUnity in [
-            possibleEmailBodySentence.replace(f'\r', c.BLANK).strip()
+            possibleEmailBodySentence.replace(f'\r', c.BLANK).replace(f'#', c.BLANK).replace(f'*', c.BLANK).strip()
             for possibleEmailBodySentence in plainTextEmail.split(f'{c.NEW_LINE}')
         ]
         if StringHelper.isNotBlank(emailBodySentenceUnity)
@@ -131,20 +131,40 @@ def getCompiledEmailBodyList(plainTextEmail):
 
     ###-customDebug('notFilteredEmailBodySentenceList', notFilteredEmailBodySentenceList)
 
+
     filteredEmailBodySentenceList = [
-        emailBodySentence if not '[http' in emailBodySentence else ' '.join([
+        emailBodySentence if not ('[http' in emailBodySentence or '(http' in emailBodySentence) else ' '.join([
             c.SPACE.join([
                 p if not (p.startswith('s://') or p.startswith('://')) else c.BLANK
                 for p in part.split(']')
             ])
             for part in emailBodySentence.split('[http')
-        ])
+        ]) if '[http' in emailBodySentence else ' '.join([
+            c.SPACE.join([
+                p if not (p.startswith('s://') or p.startswith('://')) else c.BLANK
+                for p in part.split(')')
+            ])
+            for part in emailBodySentence.split('(http')
+        ]) if '(http' in emailBodySentence else emailBodySentence
         for emailBodySentence in notFilteredEmailBodySentenceList
     ]
-    ###-customDebug('filteredEmailBodySentenceList', filteredEmailBodySentenceList)
+    ###- customDebug('filteredEmailBodySentenceList', filteredEmailBodySentenceList)
+
+
+
+    reFilteredEmailBodySentenceList = [
+        sentence.replace(c.UNDERSCORE, c.SPACE).replace(c.OPEN_LIST, c.BLANK).replace(c.CLOSE_LIST, c.BLANK).strip()
+        for sentence in [
+            sentence.strip()[1:-3].strip() 
+            if sentence.strip().startswith('“') and sentence.strip().endswith('“ —') else sentence.strip()
+            for sentence in filteredEmailBodySentenceList
+            if '[Clique para' not in sentence
+        ]
+    ]
+    ###- customDebug('reFilteredEmailBodySentenceList', reFilteredEmailBodySentenceList)
 
     resplitedEmailBodySentenceList = []
-    for sentence in filteredEmailBodySentenceList:
+    for sentence in reFilteredEmailBodySentenceList:
         strippedSentence = sentence.strip()
         if ObjectHelper.isNeitherNoneNorBlank(strippedSentence):
             if NewsConstant.SPACES_AFTER_EXTRA in strippedSentence:
@@ -185,26 +205,36 @@ def getCompiledEmailBodyList(plainTextEmail):
         for sentence in emailBodySentenceList
     ]
 
-
     emailBodySentenceList = [
         removeDoubleOrMoreSpaces(sentence)
         for sentence in emailBodySentenceList
         if (
-            not sentence.lower().startswith('(imagem') and
-            not sentence.lower().startswith('(ilustração') and
-            not sentence.lower().startswith('(gif') and
-            not sentence.lower().startswith('(foto') and
-            not sentence.lower().startswith('(print') and
-            not sentence.lower().startswith('(Imagem') and
-            not sentence.lower().startswith('(Ilustração') and
-            not sentence.lower().startswith('(Gif') and
-            not sentence.lower().startswith('(Foto') and
-            not sentence.lower().startswith('(Print') and
-            not sentence.lower().startswith('(magem') and
-            not sentence.lower().startswith('(lustração') and
-            not sentence.lower().startswith('(if') and
-            not sentence.lower().startswith('(oto') and
-            not sentence.lower().startswith('(rint')
+            not sentence.lower().strip().startswith('(imagem') and
+            not sentence.lower().strip().startswith('(ilustração') and
+            not sentence.lower().strip().startswith('(gif') and
+            not sentence.lower().strip().startswith('(foto') and
+            not sentence.lower().strip().startswith('(print') and
+            not sentence.lower().strip().startswith('(Imagem') and
+            not sentence.lower().strip().startswith('(Ilustração') and
+            not sentence.lower().strip().startswith('(Gif') and
+            not sentence.lower().strip().startswith('(Foto') and
+            not sentence.lower().strip().startswith('(Print') and
+            not sentence.lower().strip().startswith('(magem') and
+            not sentence.lower().strip().startswith('(lustração') and
+            not sentence.lower().strip().startswith('(if') and
+            not sentence.lower().strip().startswith('(oto') and
+            not sentence.lower().strip().startswith('(rint') and
+
+            not sentence.lower().strip().startswith('ver imagem:') and
+            not sentence.lower().strip().startswith('caption:') and
+            not sentence.lower().strip().startswith('seguir link da imagem:')
+            # not sentence.lower().startswith('')
+            # not sentence.lower().startswith('')
+            # not sentence.lower().startswith('')
+            # not sentence.lower().startswith('')
+            # not sentence.lower().startswith('')
+            # not sentence.lower().startswith('')
+            # not sentence.lower().startswith('')
         )
     ]
 

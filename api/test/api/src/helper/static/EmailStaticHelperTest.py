@@ -1402,3 +1402,385 @@ def cutAndAppendCuttedSentences():
     
     assert ObjectHelper.isNone(noneExceptionExpected), noneExceptionExpected
     assert ObjectHelper.equals(expected, preCompiledEmailBodyList), f'''{StringHelper.prettyPython(expected)} == {StringHelper.prettyPython(preCompiledEmailBodyList)}'''
+
+
+NEW_BODY = '''Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/2d969d51-2444-4da2-968a-b8b1a67c50b7/ALURA.png)
+Seguir link da imagem: (https://www.alura.com.br/imersao-dados-ia?utm_source=thenews&utm_medium=cpc&utm_campaign=imersao-dados_ia&utm_id=tn_1&utm_content=middle2108)
+Caption:
+
+## **bem e informado**
+
+##### bom dia. seja bem-vindo ao jornal que te deixa não só bem-informado, mas bem e informado. há uma singela diferença. que seja mais uma belíssima semana.
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/b8b1d4ec-53c6-4348-b78a-ec8df3b25302/MAIS_INTELIGENTE_EM_5_MINUTOS.png)
+Caption:
+
+## **Ozempic e Wegovy estão inclinando a balança econômica da Dinamarca**
+
+###### MUNDO
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/f66a85a9-ed77-4b52-bc71-cd1290512e96/image__27_.jpeg)
+Caption: (Imagem: Getty Images | Reprodução)
+
+A Dinamarca está vendo a sua economia ser afetada positivamente pela Novo Nordisk, responsável pelos “remédios do momento”, que são [usados para diabetes e perda de peso](https://www.wsj.com/economy/central-banking/americas-obsession-with-weight-loss-drugs-is-affecting-the-economy-of-denmark-22797e5c?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).
+
+O valor de mercado da fabricante do Ozempic e do Wegovy acaba de chegar em [US$ 419 bilhões](https://www.wsj.com/economy/central-banking/americas-obsession-with-weight-loss-drugs-is-affecting-the-economy-of-denmark-22797e5c?utm_source=thenewscc&utm_medium=email&utm_campaign=referral), **ultrapassando nada menos que o PIB da Dinamarca**, o país de origem da empresa.
+
+Graças às vendas massivas dos medicamentos ao redor do mundo, a moeda local passou por uma valorização em relação ao euro.
+
+Isso fez com que o banco central dinamarquês baixasse as taxas de juros, indo na [contramão](https://www.infomoney.com.br/economia/bce-eleva-novamente-os-juros-em-25-pontos-base/?utm_source=the%20news&utm_medium=newsletter&utm_campaign=21_08) do movimento mais recente do Banco Central Europeu.
+
+### “É bom, mas nem tanto…”
+
+Para um país com apenas 5 milhões de habitantes — metade da Grande São Paulo —, ter uma empresa nacional desempenhando um papel tão desproporcional na economia pode ser arriscado.
+
+“A **Finlândia**, que foi dominada pela Nokia e viu um [aumento de 55% no PIB entre 1995 e 2007](https://www.wsj.com/economy/central-banking/americas-obsession-with-weight-loss-drugs-is-affecting-the-economy-of-denmark-22797e5c?utm_source=thenewscc&utm_medium=email&utm_campaign=referral), teve uma década de estagnação e queda na renda per capita depois do declínio da companhia.“ —
+
+A Novo Nordisk, agora, é a [segunda empresa pública mais valiosa da Europa](https://www.wsj.com/economy/central-banking/americas-obsession-with-weight-loss-drugs-is-affecting-the-economy-of-denmark-22797e5c?utm_source=thenewscc&utm_medium=email&utm_campaign=referral), ficando atrás apenas do conglomerado de luxo LVMH, de propriedade do Bernard Arnault — um dos homens mais ricos do mundo.
+
+**O que mais é destaque pelo mundo?**
+
+* **Após eleições tensas e violentas:** [Com +90% apurado, candidata de esquerda e empresário disputarão 2° turno no Equador](https://www.cnnbrasil.com.br/internacional/quem-sao-luisa-gonzalez-e-daniel-noboa-presidenciaveis-que-disputarao-2o-turno-no-equador/?utm_source=the%20news&utm_medium=newsletter&utm_campaign=21_08)
+
+* **Xi Jinping não gostou disso:** [EUA, Japão e Coreia do Sul fazem sua primeira cúpula trilateral](https://thenewscc.com.br/mundo/eua-japao-e-coreia-do-sul-fazem-sua-primeira-cupula-trilateral/)
+
+* **Furacão Hillary: **[Depois de passar pelo México, autoridades da Califórnia alertam para inundações com risco de vida](https://www.nbcnews.com/news/weather/live-blog/hurricane-hilary-live-updates-storm-warning-flooding-california-rcna100823?utm_source=the%20news&utm_medium=newsletter&utm_campaign=21_08)
+
+## **STF forma maioria para que juízes possam julgar clientes de familiares**
+
+###### **BRASIL**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/e599261b-8b6a-45de-9782-a74c4c54372f/STF.jpg)
+Caption: (Imagem: O Globo | Reprodução)
+
+**Novidade no mundo jurídico.** O Supremo Tribunal Federal formou maioria para permitir que juízes atuem em processos que envolvam [clientes de escritórios de advocacia de seus familiares](https://www.poder360.com.br/justica/stf-forma-maioria-para-que-juizes-julguem-clientes-de-familiares/).
+
+A regra atual define que isso não pode acontecer, sob um entendimento de que pode haver algum possível conflito de interesses.** Agora, isso deve mudar.**
+
+**Dando um exemplo real… **O antigo escritório de advocacia do novo ministro do Supremo, Cristiano Zanin, que agora é administrado somente por sua esposa, [atua em 14 diferentes processos que estão tramitando no STF](https://www.terra.com.br/noticias/brasil/politica/zanin-vota-para-permitir-que-magistrados-julguem-clientes-de-familiares,014ea665fa133b32c5f632957e4d13712t7y9slz.html?utm_source=the%20news&utm_medium=newsletter&utm_campaign=21_08).
+
+Antes, Zanin **ficaria de fora da votação desses processos**, por envolver uma parente sua. Com o entendimento da lei mudando,** ele fica apto para julgar todos eles.**
+
+### **As justificativas 👨🏻‍⚖️**
+
+A ação foi apresentada pela **Associação dos Magistrados Brasileiros**, que argumentou que é “impossível” para um juiz conhecer todos os processos em que [uma empresa é representada por um escritório onde um parente trabalhe](https://saobentoemfoco.com.br/stf-forma-maioria-para-permitir-que-juizes-julguem-clientes-de-escritorios-de-advocacia-de-familiares/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).
+
+Na outra ponta, **todas as instituições consultadas** — incluindo [Câmara, Senado e Presidência da República](https://saobentoemfoco.com.br/stf-forma-maioria-para-permitir-que-juizes-julguem-clientes-de-escritorios-de-advocacia-de-familiares/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral) — se opuseram ao pedido, argumentando que o atual impedimento ajuda a manter a imparcialidade dos juízes.
+
+“Inclusive, os **ministros que têm filhos ou cônjuges na advocacia**, como [Zanin, Gilmar, Toffoli, Moraes, Fux, Barroso e Fachin](https://jovempan.com.br/noticias/politica/stf-forma-maioria-para-permitir-que-juizes-julguem-clientes-de-escritorios-de-advocacia-de-familiares.html?utm_source=thenewscc&utm_medium=email&utm_campaign=referral), devem ser impactados diretamente com a decisão.“ —
+
+**Falando em STF…** O Tribunal também formou maioria para manter a decisão do ministro Alexandre de Moraes que [proibiu a remoção forçada de pessoas em situação de rua](https://noticias.r7.com/brasilia/stf-forma-maioria-para-manter-proibicao-de-remocoes-forcadas-de-pessoas-em-situacao-de-rua-20082023?utm_source=thenewscc&utm_medium=email&utm_campaign=referral). **O pessoal de Brasília trabalhou muito no final de semana. risos.**
+
+**Além disso, o que mais é destaque por aqui?**
+
+* **"Não recebi nada”. **[Bolsaro dá entrevista exclusiva comentando o caso das joias e quebra de sigilo determinada por Moraes](https://www.youtube.com/watch?v=iVYFfUxgF0g&utm_source=the%20champs&utm_medium=newsletter&utm_campaign=21_08)
+
+* **Boletim médico:** [Faustão, internado há 15 dias, aguarda transplante do coração](https://www.uol.com.br/splash/colunas/lucas-pasin/2023/08/20/internado-ha-15-dias-faustao-aguarda-transplante-cardiaco-diz-boletim.htm?utm_source=the%20news&utm_medium=newsletter&utm_campaign=21_08)
+
+* **Gerou revolta: **[123Milhas cancela pacotes de passagens de sua linha promocional e diz que reembolso será em forma de voucher](https://www.cnnbrasil.com.br/economia/agencia-123-milhas-suspende-pacotes-e-emissao-de-passagens-da-linha-promocional/?utm_source=the%20news&utm_medium=newsletter&utm_campaign=21_08)
+
+## **Cientistas recriam música do Pink Floyd lendo sinais cerebrais de ouvintes**
+
+###### **TECNOLOGIA**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/2979ada5-0d5d-4bec-bc3b-f49711d9c545/image__16_.gif)
+Caption: (GIF: Tenor | Reprodução)
+
+**“We don’t need no education”.** Depois de treinar um computador para analisar a atividade cerebral em reação à música, foi reproduzida uma [versão abafada desse clássico do Pink Floyd](https://www.nytimes.com/2023/08/15/science/music-brain-pink-floyd.html?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).
+
+* Usando a inteligência artificial a partir das ondas cerebrais dos ouvintes, esse foi o [primeiro experimento](https://www1.folha.uol.com.br/ciencia/2023/08/pink-floyd-faz-sucesso-quando-cientistas-recriam-musica-a-partir-da-atividade-cerebral.shtml) a **reconstruir uma música através de sinais neurais.**
+
+**Como funcionou?** Como parte de um tratamento da epilepsia — distúrbio que pode causar convulsões —, alguns pacientes tiveram uma [rede de eletrodos](https://www.nytimes.com/2023/08/15/science/music-brain-pink-floyd.html) implantados em seus cérebros.
+
+Isso criou uma oportunidade para os neurocientistas registrarem a atividade cerebral deles enquanto ouviam música, confirmando [ideias antigas sobre os papéis de cada parte do nosso cérebro](https://www.ft.com/content/56a2aa75-390d-4d91-b607-5e132f958e8c?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).
+
+“Embora os dois lados trabalhem em conjunto, a linguagem é mais processada pelo lado esquerdo, enquanto a música é _[“mais distribuída, com viés pra direita”](https://www.ft.com/content/56a2aa75-390d-4d91-b607-5e132f958e8c?utm_source=thenewscc&amp;utm_medium=email&amp;utm_campaign=referral)_.“ —
+
+**A relevância:** Essas descobertas oferecem um primeiro passo significativo para a criação de dispositivos que ajudem as pessoas que não conseguem falar.
+
+Isso porque, ao entender melhor [como o cérebro processa a música](https://www.ft.com/content/56a2aa75-390d-4d91-b607-5e132f958e8c?utm_source=thenewscc&utm_medium=email&utm_campaign=referral), os cientistas não conseguem apenas reconstruir palavras isoladas, mas também o ritmo, a entonação e a emoção da fala.
+
+🤔** Por que Pink Floyd?** A equipe escolheu a música, em parte, porque os pacientes mais velhos gostaram dela. Além disso, seus [41 segundos de letra e 2 minutos e meio de instrumentos](https://www.nytimes.com/2023/08/15/science/music-brain-pink-floyd.html?utm_source=thenewscc&utm_medium=email&utm_campaign=referral) ajudaram na diferenciação de palavras versus melodia.
+
+## **Quanto você pagaria em uma newsletter quinzenal?**
+
+###### **THE JOBS**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/0fde651e-5871-4029-97c9-a743e0bac46e/imagens_the_news__5_.png)
+Caption:
+
+**Pergunta errada. **Na verdade, quanto você pagaria para poder desenvolver sua carreira, ser percebido pelo seu gestor, conseguir manter seu time alinhado, ter acesso a _frameworks _para situações difíceis do dia a dia do mundo corporativo...
+
+Quanto você pagaria para ter alguém que já tem experiência no mercado respondendo as suas perguntas de maneira personalizada sobre os dilemas do seu atual momento?
+
+“**Não... **Não precisa arrastar pra cima e assinar uma masterclass ou uma mentoria com um desses gurus da internet.“ —
+
+A ideia do the jobs é trazer cada um desses pontos em um** formato simples e objetivo, que seja agradável de consumir** — exatamente no estilo the news que você já conhece bem.
+
+**Não** prometemos que seu salário vai_ aumentar em tantas vezes em apenas um mês_, ou que_ você será promovido em tempo recorde! _**Não fazemos mágica, e o "trabalho sujo" continuará sendo seu.**
+
+Mas, fornecendo ferramentas, exercícios, conselhos práticos, dicas, insights e algumas boas histórias,** faremos de tudo para te impulsionar ao seu objetivo de se destacar na carreira.**
+
+📠 _[Clique para ler alguns conteúdos e assine para já receber nossa edição de hoje, às 17:17](https://www.thejobscc.com.br/?utm_source=newsletter&utm_campaign=thejobs&utm_id=thenews)_.
+
+## **Espanha é campeã da Copa Feminina e embolsa US$ 16 mi **
+
+###### **ESPORTE**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/4e3d9784-af45-4c73-8feb-e783b7583afb/ESPANHA.jpg)
+Caption: (Imagem: FIFA | Reprodução)
+
+**Festa com sangria e paella.** No Estádio Olímpico de Sidney, na Austrália, a Espanha derrotou a Inglaterra e levou pra casa seu [primeiro título da Copa do Mundo Feminina](https://www.cnnbrasil.com.br/esportes/espanha-derrota-inglaterra-e-conquista-primeiro-titulo-da-copa-do-mundo-feminina/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).
+
+* Aos [28 minutos do primeiro tempo](https://www.cnnbrasil.com.br/esportes/espanha-derrota-inglaterra-e-conquista-primeiro-titulo-da-copa-do-mundo-feminina/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral), a lateral-esquerda Olga Carmona marcou o gol histórico, que garantiu a taça do torneio.
+
+Após a vitória, a Espanha se tornou o segundo país a **ganhar títulos de Copa tanto no masculino quanto no feminino.** Antes disso, [só a Alemanha tinha conquistado esse feito](https://www.cnnbrasil.com.br/esportes/espanha-derrota-inglaterra-e-conquista-primeiro-titulo-da-copa-do-mundo-feminina/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).
+
+“**Nem tudo foi festa…** O presidente da federação espanhola causou uma cena repugnante na entrega de medalhas, simplesmente dando um [beijo forçado na boca da camisa 10 do time](https://ge.globo.com/futebol/copa-do-mundo-feminina/noticia/2023/08/20/jenni-hermoso-da-espanha-leva-beijo-na-boca-durante-entrega-da-taca-da-copa-veja-video.ghtml?utm_source=the%20news&utm_medium=newsletter&utm_campaign=21_08), Jenni Hermoso.“ —
+
+### **O lado financeiro do jogo **💸
+
+Além de levar o troféu pra casa, a seleção espanhola vai receber o prêmio total do torneio, de US$ 15,7 milhões. O valor é 4x maior do que o da edição anterior, em 2019 — e [3x menor ao da Copa masculina de 2022](https://www.poder360.com.br/esportes/selecao-da-espanha-e-campea-da-copa-feminina/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).
+
+Essa é a 1ª edição da Copa do Mundo Feminina em que todas as jogadoras vão receber **pagamentos individuais** por participar da competição. Cada atleta da equipe vencedora leva pra casa [US$ 270 mil](https://www.poder360.com.br/esportes/selecao-da-espanha-e-campea-da-copa-feminina/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).
+
+**Não é à toa:** A seleção espanhola é o 2º time mais valioso do torneio, com valor de mercado estimado em € 4 milhões. A equipe da Inglaterra aparece logo em seguida, com € 3,7 milhões.
+
+## **Que tal colocar a IA do seu lado na hora de analisar dados?**
+
+###### **PATROCINADO POR ALURA**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/90cfc624-17aa-4088-b861-36e386187f75/unnamed.gif)
+Seguir link da imagem: (https://www.alura.com.br/imersao-dados-ia?utm_source=thenews&utm_medium=cpc&utm_campaign=imersao-dados_ia&utm_id=tn_1&utm_content=middle2108)
+Caption:
+
+Quando o assunto é **análise de dados**, não basta ler e interpretar, é preciso transformá-los em insights.
+
+* Pensando nisso, a [Alura](https://www.alura.com.br/imersao-dados-ia?utm_source=thenews&utm_medium=cpc&utm_campaign=imersao-dados_ia&utm_id=tn_1&utm_content=middle2108) vai te ajudar a **otimizar seu trabalho** e a potencializar suas análises utilizando ChatGPT e outras ferramentas de Inteligência Artificial.
+
+São **5 aulas gratuitas** que vão melhorar sua performance e habilidade para que você possa aplicá-las em qualquer área — seja em BI, marketing, gestão, finanças ou atendimento. Não à toa, a Alura é a [maior escola brasileira de cursos online de tecnologia.](https://www.alura.com.br/imersao-dados-ia?utm_source=thenews&utm_medium=cpc&utm_campaign=imersao-dados_ia&utm_id=tn_1&utm_content=middle2108)
+
+Durante as aulas, você vai descobrir como aplicar tudo que está aprendendo e, ainda, contar com uma comunidade de milhares de profissionais pra aumentar seu networking.
+
+“[É só se inscrever aqui](https://www.alura.com.br/imersao-dados-ia?utm_source=thenews&utm_medium=cpc&utm_campaign=imersao-dados_ia&utm_id=tn_1&utm_content=middle2108) e pronto. 🤓“ —
+
+## **Brasil bate recorde de varejistas faturando mais de R$ 1 bilhão**
+
+###### **ECONOMIA**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/21e840cb-26bf-4953-9cdf-2991d8278864/VAREJO_MERCADO.jpg)
+Caption: (Foto: Tânia Rêgo | Agência Brasil)
+
+**Clube das bilionárias crescendo.** Mesmo com o mercado ainda se recuperando depois da pandemia, em 2022, o varejo brasileiro aumentou o número de empresas com [faturamento superior a R$ 1 bilhão](https://www.poder360.com.br/economia/173-varejistas-brasileiras-faturaram-mais-de-r-1-bilhao-em-2022/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).
+
+“Considerando as 300 maiores varejistas do pais, 173 ultrapassam essa marca, [17 a mais do que em 2021](https://www.poder360.com.br/economia/173-varejistas-brasileiras-faturaram-mais-de-r-1-bilhao-em-2022/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).“ —
+
+Somando o faturamento de todas essas empresas da lista, o valor chega a R$ 1 trilhão, representando uma alta de quase R$ 154 bilhões em relação ao ano anterior. **O** **TOP 10 ficou assim:**
+
+1. **Grupo Carrefour Brasil:** R$ 108 bilhões;
+
+2. **Assaí:** R$ 59,7 bilhões;
+
+3. **Magazine Luiza:** R$ 44,7 bilhões;
+
+4. **Via:** R$ 39 bilhões;
+
+5. **Americanas:** R$ 34,4 bilhões;
+
+6. **Raia Drogasil:** R$ 30,9 bilhões;
+
+7. **Grupo Boticário:** R$ 23,6 bilhões;
+
+8. **Natura&Co:** R$ 20,7 bilhões;
+
+9. **Grupo Mateus:** R$ 20,4 bilhões;
+
+10. **Grupo Pão de Açúcar:** R$ 18,4 bilhões;
+
+Como deu pra perceber pela lista, o principal destaque é o **setor de supermercados**, com [152 representantes](https://www.metropoles.com/negocios/varejo-clube-das-bilionarias-aumenta-mas-regionais-puxam-alta?utm_source=thenewscc&utm_medium=email&utm_campaign=referral) no ranking de maiores varejistas. Em seguida, aparece o setor de moda e calçados, com [38 empresas](https://www.metropoles.com/negocios/varejo-clube-das-bilionarias-aumenta-mas-regionais-puxam-alta?utm_source=thenewscc&utm_medium=email&utm_campaign=referral).
+
+Apesar de não entrar no TOP 5, [o Grupo Boticário é a empresa com mais lojas no Brasil](https://www.metropoles.com/negocios/varejo-clube-das-bilionarias-aumenta-mas-regionais-puxam-alta?utm_source=thenewscc&utm_medium=email&utm_campaign=referral), contando com 3.828 pontos de venda. [Veja o relatório completo aqui](https://static.poder360.com.br/2023/08/ranking-sbvc-2023.pdf).
+
+**Outros destaques em economia:**
+
+* **Campos Neto: **[Reajuste nos preços da gasolina e diesel terá impacto de 0,40 p.p. no IPCA](https://exame.com/economia/campos-neto-afirma-que-reajuste-nos-precos-da-gasolina-e-diesel-tera-impacto-de-040-pp-no-ipca/?utm_source=the%20news&utm_medium=newsletter&utm_campaign=21_08)
+
+* **Lembra disso? **[Seca no Canal do Panamá persiste e já conta com +200 navios esperando para transitar](http://archive.today/2023.08.21-044413/https://valor.globo.com/mundo/noticia/2023/08/20/seca-provoca-congestionamento-de-navio-no-canal-do-panam.ghtml)
+
+* **Aos investidores de plantão: **[Clique aqui se quiser ver o que está no calendário do mercado para esta semana](https://www.infomoney.com.br/mercados/ipca-15-de-agosto-powell-no-jackson-hole-china-e-noticiario-politico-o-que-acompanhar-na-semana/?utm_source=the%20news&utm_medium=newsletter&utm_campaign=21_08)
+
+## **Depois que você experimenta, não dá mais pra abrir mão**
+
+###### **PATROCINADO POR VERDE CAMPO**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/f9db3466-da2f-41c4-a2b4-bf0a7126a850/23_08_VC_TheNew__2__1_.gif)
+Seguir link da imagem: (https://verdecampo.com.br/)
+Caption:
+
+Seja no café da manhã ou lanche da tarde, [os produtos da Verde Campo](https://verdecampo.com.br/) são a sua escolha perfeita para quando você quiser algo **saudável e cheio de sabor.** 🥄
+
+* A marca conta com iogurtes e shakes proteicos e vários outros laticínios — todos produzidos com ingredientes de origem natural.
+
+[Confira aqui as variedades](https://loja.verdecampo.com.br/?utm_source=thenews&utm_medium=email&utm_campaign=THENEWSVC10) e garanta **10% OFF** na compra de qualquer produto usando o cupom _THENEWSVC10_ — limitado por CPF.
+
+*_Entregas disponíveis para SP, região e Campinas._
+
+## Você quer ganhar a canequinha do the news em casa?
+
+###### **PROGRAMA DE INDICAÇÃO**
+
+Assim como +10.000 dos nossos leitores, você pode indicar o nosso jornal e ganhar presentes exclusivos do nosso time. A nossa clássica canequinha, nossos adesivos e nossa mochila estão à sua espera. É só clicar no botão abaixo.
+
+COMPARTILHAR (https://thenews.createsend1.com/t/t-i-aohiik-l-tr/)
+
+**PS: **_E-mails da mesma titularidade (mesmo IP) não serão considerados válidos._
+
+# the news 📬
+
+Mais inteligente em 5 minutos. Somos um jornal gratuito e diário, que tem por objetivo te trazer tudo que você precisa saber para começar o seu dia bem e informado.
+
+Notícias, de fato, relevantes sobre as principais atualidades do mundo, do Brasil, tecnologia e do mercado financeiro, sempre nessa ordem.
+
+Direto na sua caixa de entrada do e-mail favorito, sempre às 06:06. É gratuito, mas pode viciar.
+
+🎟️ O próximo anunciante pode ser você. [É só clicar aqui](https://thenewscc.typeform.com/to/twCcjRb Q).
+
+😀😐☹️ **Quão satisfeito você ficou com essa edição?** [Nos conte aqui](https://forms.gle/9FZQQJ3ff5ymAMxD7).
+
+📱** Quer ser um influenciador do seu jornal favorito? **[Clique aqui para saber mais](https://docs.google.com/forms/d/e/1FAIpQLSd-T2gcMxiJpkPfUnQiuLops8WaAYxvxgyN1JRsBvs66PzOUw/viewform).
+
+## já conhece nossas outras marcas?
+
+🎧 **[the jams](https://www.youtube.com/watch?v=rElLCIiNgec&list=PLeefjnjGUtY5on5iCG4I023XrGqt2xvIH&index=6)****: **músicas legais para dar play e deixar tocando a qualquer momento. sozinho ou bem acompanhado o objetivo é um só: **[elevar a sua frequência](https://www.youtube.com/watch?v=rElLCIiNgec&list=PLeefjnjGUtY5on5iCG4I023XrGqt2xvIH&index=6)****.**
+
+📠** ****[the jobs](https://pingback.com/thejobs/?utm_source=organico&utm_medium=sessao&utm_campaign=recomendacao)****: **tudo que você precisa para se desenvolver profissionalmente e tomar as melhores decisões em sua carreira. **[seu one-on-one favorito.](https://pingback.com/thejobs/?utm_source=organico&utm_medium=sessao&utm_campaign=recomendacao)**
+
+🦄** ****[the bizness](https://thenewscc.com.br/bizness-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao)****: **sua dose de conteúdo sobre os assuntos mais relevantes do mundo dos negócios. análises, números e insights. **[um MBA em forma de e-mail.](https://thenewscc.com.br/bizness-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao)**
+
+**🏆 ****[the champs](https://thenewscc.com.br/champs-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao)****: **todo o não óbvio sobre os esportes, na palma da sua mão. **[descontraído e direto ao ponto, como deve ser](https://thenewscc.com.br/champs-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao)**.
+
+🧸** ****[the stories](https://thenewscc.com.br/stories-cadastro/?utm_source=newsletter&utm_medium=o rgânico&utm_campaign=sessa-recomendacao)****: **histórias que emocionam. não tão longas quanto um romance, mas suficientes pra te fazer sentir. **[contamos e escrevemos amor.](https://thenewscc.com.br/stories-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao)**
+
+# até amanhã
+
+Sempre chegamos a sua caixa de entrada por volta das 06:06. Alguns servidores de e-mail são teimosos e atrasam… Outros são piores ainda e nos jogam para o spam e/ ou promoções. Sempre que não nos encontrar na caixa de entrada, procure nessas duas.
+
+
+———
+
+Você está lendo uma versão de texto simples deste post. Para uma melhor experiência, copie e cole este link em seu navegador para ver o post online:
+https://thenewscc.beehiiv.com/p/21082023
+'''
+
+
+@Test()
+def getCompiledEmailBodyList_newBody():
+    #arrange
+    expected = [
+        'bem e informado.',
+        'bom dia. seja bem-vindo ao jornal que te deixa não só bem-informado, mas bem e informado. há uma singela diferença. que seja mais uma belíssima semana.',
+        'MUNDO',
+        'Ozempic e Wegovy estão inclinando a balança econômica da Dinamarca.',
+        'A Dinamarca está vendo a sua economia ser afetada positivamente pela Novo Nordisk, responsável pelos “remédios do momento”, que são usados para diabetes e perda de peso.',
+        'O valor de mercado da fabricante do Ozempic e do Wegovy acaba de chegar em US$ 419 bilhões, ultrapassando nada menos que o PIB da Dinamarca, o país de origem da empresa.',
+        'Graças às vendas massivas dos medicamentos ao redor do mundo, a moeda local passou por uma valorização em relação ao euro.',
+        'Isso fez com que o banco central dinamarquês baixasse as taxas de juros, indo na contramão do movimento mais recente do Banco Central Europeu.',
+        '“É bom, mas nem tanto…”',
+        'Para um país com apenas 5 milhões de habitantes — metade da Grande São Paulo —, ter uma empresa nacional desempenhando um papel tão desproporcional na economia pode ser arriscado.',
+        'A Finlândia, que foi dominada pela Nokia e viu um aumento de 55% no PIB entre 1995 e 2007, teve uma década de estagnação e queda na renda per capita depois do declínio da companhia.',
+        'A Novo Nordisk, agora, é a segunda empresa pública mais valiosa da Europa, ficando atrás apenas do conglomerado de luxo LVMH, de propriedade do Bernard Arnault — um dos homens mais ricos do mundo.',
+        'O que mais é destaque pelo mundo?',
+        f'Após eleições tensas e violentas: Com +90{c.PERCENT} apurado, candidata de esquerda e empresário disputarão 2° turno no Equador.',
+        'Xi Jinping não gostou disso: EUA, Japão e Coreia do Sul fazem sua primeira cúpula trilateral.',
+        'Furacão Hillary: Depois de passar pelo México, autoridades da Califórnia alertam para inundações com risco de vida.',
+        'BRASIL',
+        'STF forma maioria para que juízes possam julgar clientes de familiares.',
+        'Novidade no mundo jurídico. O Supremo Tribunal Federal formou maioria para permitir que juízes atuem em processos que envolvam clientes de escritórios de advocacia de seus familiares.',
+        'A regra atual define que isso não pode acontecer, sob um entendimento de que pode haver algum possível conflito de interesses. Agora, isso deve mudar.',
+        'Dando um exemplo real… O antigo escritório de advocacia do novo ministro do Supremo, Cristiano Zanin, que agora é administrado somente por sua esposa, atua em 14 diferentes processos que estão tramitando no STF.',
+        'Antes, Zanin ficaria de fora da votação desses processos, por envolver uma parente sua. Com o entendimento da lei mudando, ele fica apto para julgar todos eles.',
+        'As justificativas 👨🏻‍⚖️',
+        'A ação foi apresentada pela Associação dos Magistrados Brasileiros, que argumentou que é “impossível” para um juiz conhecer todos os processos em que uma empresa é representada por um escritório onde um parente trabalhe.',
+        'Na outra ponta, todas as instituições consultadas — incluindo Câmara, Senado e Presidência da República — se opuseram ao pedido, argumentando que o atual impedimento ajuda a manter a imparcialidade dos juízes.',
+        'Inclusive, os ministros que têm filhos ou cônjuges na advocacia, como Zanin, Gilmar, Toffoli, Moraes, Fux, Barroso e Fachin, devem ser impactados diretamente com a decisão.',
+        'Falando em STF… O Tribunal também formou maioria para manter a decisão do ministro Alexandre de Moraes que proibiu a remoção forçada de pessoas em situação de rua. O pessoal de Brasília trabalhou muito no final de semana. risos.',
+        'Além disso, o que mais é destaque por aqui?',
+        "'Não recebi nada”. Bolsaro dá entrevista exclusiva comentando o caso das joias e quebra de sigilo determinada por Moraes.",
+        'Boletim médico: Faustão, internado há 15 dias, aguarda transplante do coração.',
+        'Gerou revolta: 123Milhas cancela pacotes de passagens de sua linha promocional e diz que reembolso será em forma de voucher.',
+        'TECNOLOGIA',
+        'Cientistas recriam música do Pink Floyd lendo sinais cerebrais de ouvintes.',
+        '“We don’t need no education”. Depois de treinar um computador para analisar a atividade cerebral em reação à música, foi reproduzida uma versão abafada desse clássico do Pink Floyd.',
+        'Usando a inteligência artificial a partir das ondas cerebrais dos ouvintes, esse foi o primeiro experimento a reconstruir uma música através de sinais neurais.',
+        'Como funcionou? Como parte de um tratamento da epilepsia — distúrbio que pode causar convulsões —, alguns pacientes tiveram uma rede de eletrodos implantados em seus cérebros.',
+        'Isso criou uma oportunidade para os neurocientistas registrarem a atividade cerebral deles enquanto ouviam música, confirmando ideias antigas sobre os papéis de cada parte do nosso cérebro.',
+        'Embora os dois lados trabalhem em conjunto, a linguagem é mais processada pelo lado esquerdo, enquanto a música é “mais distribuída, com viés pra direita”.',
+        'A relevância: Essas descobertas oferecem um primeiro passo significativo para a criação de dispositivos que ajudem as pessoas que não conseguem falar.',
+        'Isso porque, ao entender melhor como o cérebro processa a música, os cientistas não conseguem apenas reconstruir palavras isoladas, mas também o ritmo, a entonação e a emoção da fala.',
+        '🤔 Por que Pink Floyd? A equipe escolheu a música, em parte, porque os pacientes mais velhos gostaram dela. Além disso, seus 41 segundos de letra e 2 minutos e meio de instrumentos ajudaram na diferenciação de palavras versus melodia.',
+        'THE JOBS',
+        'Quanto você pagaria em uma newsletter quinzenal?',
+        'Pergunta errada. Na verdade, quanto você pagaria para poder desenvolver sua carreira, ser percebido pelo seu gestor, conseguir manter seu time alinhado, ter acesso a frameworks para situações difíceis do dia a dia do mundo corporativo…',
+        'Quanto você pagaria para ter alguém que já tem experiência no mercado respondendo as suas perguntas de maneira personalizada sobre os dilemas do seu atual momento?',
+        'Não… Não precisa arrastar pra cima e assinar uma masterclass ou uma mentoria com um desses gurus da internet.',
+        'A ideia do the jobs é trazer cada um desses pontos em um formato simples e objetivo, que seja agradável de consumir — exatamente no estilo the news que você já conhece bem.',
+        "Não prometemos que seu salário vai aumentar em tantas vezes em apenas um mês, ou que você será promovido em tempo recorde! Não fazemos mágica, e o 'trabalho sujo' continuará sendo seu.",
+        'Mas, fornecendo ferramentas, exercícios, conselhos práticos, dicas, insights e algumas boas histórias, faremos de tudo para te impulsionar ao seu objetivo de se destacar na carreira.',
+        'ESPORTE',
+        'Espanha é campeã da Copa Feminina e embolsa US$ 16 mi.',
+        'Festa com sangria e paella. No Estádio Olímpico de Sidney, na Austrália, a Espanha derrotou a Inglaterra e levou pra casa seu primeiro título da Copa do Mundo Feminina.',
+        'Aos 28 minutos do primeiro tempo, a lateral-esquerda Olga Carmona marcou o gol histórico, que garantiu a taça do torneio.',
+        'Após a vitória, a Espanha se tornou o segundo país a ganhar títulos de Copa tanto no masculino quanto no feminino. Antes disso, só a Alemanha tinha conquistado esse feito.',
+        'Nem tudo foi festa… O presidente da federação espanhola causou uma cena repugnante na entrega de medalhas, simplesmente dando um beijo forçado na boca da camisa 10 do time, Jenni Hermoso.',
+        'O lado financeiro do jogo 💸',
+        'Além de levar o troféu pra casa, a seleção espanhola vai receber o prêmio total do torneio, de US$ 15,7 milhões. O valor é 4x maior do que o da edição anterior, em 2019 — e 3x menor ao da Copa masculina de 2022.',
+        'Essa é a 1ª edição da Copa do Mundo Feminina em que todas as jogadoras vão receber pagamentos individuais por participar da competição. Cada atleta da equipe vencedora leva pra casa US$ 270 mil.',
+        'Não é à toa: A seleção espanhola é o 2º time mais valioso do torneio, com valor de mercado estimado em € 4 milhões. A equipe da Inglaterra aparece logo em seguida, com € 3,7 milhões.',
+        'ECONOMIA',
+        'Brasil bate recorde de varejistas faturando mais de R$ 1 bilhão.',
+        'Clube das bilionárias crescendo. Mesmo com o mercado ainda se recuperando depois da pandemia, em 2022, o varejo brasileiro aumentou o número de empresas com faturamento superior a R$ 1 bilhão.',
+        'Considerando as 300 maiores varejistas do pais, 173 ultrapassam essa marca, 17 a mais do que em 2021.',
+        'Somando o faturamento de todas essas empresas da lista, o valor chega a R$ 1 trilhão, representando uma alta de quase R$ 154 bilhões em relação ao ano anterior. O TOP 10 ficou assim:',
+        '1. Grupo Carrefour Brasil: R$ 108 bilhões;',
+        '2. Assaí: R$ 59,7 bilhões;',
+        '3. Magazine Luiza: R$ 44,7 bilhões;',
+        '4. Via: R$ 39 bilhões;',
+        '5. Americanas: R$ 34,4 bilhões;',
+        '6. Raia Drogasil: R$ 30,9 bilhões;',
+        '7. Grupo Boticário: R$ 23,6 bilhões;',
+        '8. Natura and Co: R$ 20,7 bilhões;',
+        '9. Grupo Mateus: R$ 20,4 bilhões;',
+        '10. Grupo Pão de Açúcar: R$ 18,4 bilhões;',
+        'Como deu pra perceber pela lista, o principal destaque é o setor de supermercados, com 152 representantes no ranking de maiores varejistas. Em seguida, aparece o setor de moda e calçados, com 38 empresas.',
+        'Apesar de não entrar no TOP 5, o Grupo Boticário é a empresa com mais lojas no Brasil, contando com 3.828 pontos de venda. Veja o relatório completo aqui.',
+        'Outros destaques em economia:',
+        'Campos Neto: Reajuste nos preços da gasolina e diesel terá impacto de 0,40 p.p. no IPCA.',
+        'Lembra disso? Seca no Canal do Panamá persiste e já conta com +200 navios esperando para transitar.'
+    ]
+
+    #act
+    toAssert = EmailStaticHelper.getCompiledEmailBodyList(NEW_BODY)
+
+    #assert
+    for e, t in zip(expected, toAssert):
+        assert ObjectHelper.equals(e, t), f'{e} == {t}'
+
+
+WEIRD_OPEN_CLOSE_COLON_THING = '''“Considerando as 300 maiores varejistas do pais, 173 ultrapassam essa marca, [17 a mais do que em 2021]. “ —
+“Embora os dois lados trabalhem em conjunto, a linguagem é mais processada pelo lado esquerdo, enquanto a música é_ [“mais distribuída, com viés pra direita”]_ “ —'''
+
+
+@Test()
+def getCompiledEmailBodyList_weirdOpenColonCloseColonThing():
+    #arrange
+    expected = [
+        'Considerando as 300 maiores varejistas do pais, 173 ultrapassam essa marca, 17 a mais do que em 2021.', 
+        'Embora os dois lados trabalhem em conjunto, a linguagem é mais processada pelo lado esquerdo, enquanto a música é “mais distribuída, com viés pra direita”'
+    ]
+
+    #act
+    toAssert = EmailStaticHelper.getCompiledEmailBodyList(WEIRD_OPEN_CLOSE_COLON_THING)
+
+    #assert
+    assert ObjectHelper.isNotEmpty(toAssert)
+    assert ObjectHelper.equals(expected, toAssert), f'{expected} == {toAssert}'
