@@ -13,9 +13,11 @@ def getCompiledEmailBodyList(plainTextEmail):
     lastSentence = c.BLANK
     notFilteredEmailBodySentenceList = []
     for emailBodySentence in [
-        emailBodySentenceUnity
+        emailBodySentenceUnity.replace(c.HASH_TAG, c.BLANK)
+        if emailBodySentenceUnity.strip().startswith(c.HASH_TAG) else emailBodySentenceUnity.replace(f'{c.ASTERISK}{c.SPACE}', c.BLANK)
+        if emailBodySentenceUnity.strip().startswith(f'{c.ASTERISK}{c.SPACE}') else emailBodySentenceUnity
         for emailBodySentenceUnity in [
-            possibleEmailBodySentence.replace(f'\r', c.BLANK).replace(f'#', c.BLANK).replace(f'*', c.BLANK).strip()
+            possibleEmailBodySentence.replace(f'\r', c.BLANK).replace(f'{2*c.ASTERISK}', c.BLANK).replace(f'{3*c.ASTERISK}', c.BLANK).replace(f'{4*c.ASTERISK}', c.BLANK).strip()
             for possibleEmailBodySentence in plainTextEmail.split(f'{c.NEW_LINE}')
         ]
         if StringHelper.isNotBlank(emailBodySentenceUnity)
