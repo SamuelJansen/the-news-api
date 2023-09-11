@@ -1784,3 +1784,367 @@ def getCompiledEmailBodyList_weirdOpenColonCloseColonThing():
     #assert
     assert ObjectHelper.isNotEmpty(toAssert)
     assert ObjectHelper.equals(expected, toAssert), f'{expected} == {toAssert}'
+
+
+INDEX_ERROR_NEW_BODY = '''Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/064b9cc2-fde8-45c0-b0c1-d226907b693c/US_CRANBERRIES.png)
+Seguir link da imagem: (https://www.coderhouse.com.br/?utm_source=thenews&utm_medium=cpc&utm_campaign=)
+Caption:
+
+##### **back on track**
+
+##### bom dia. depois do feriado, é hora de voltar à rotina e fazer o que tem que ser feito. que seja mais uma bela semana. let’s go!
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/b8b1d4ec-53c6-4348-b78a-ec8df3b25302/MAIS_INTELIGENTE_EM_5_MINUTOS.png)
+Caption:
+
+#####
+**Terremoto em Marrocos, brasileiro fugitivo e G20**
+
+##### **MUNDO**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/0d58d846-f19d-4798-b087-9902e6defd27/image__61_.jpeg)
+Caption: (Imagem: O Globo | Reprodução)
+
+🏥** Tragédia.** Com magnitude de 6,8, o terremoto que atingiu Marrocos na sexta-feira causou mais de 2 mil mortes e é o mais forte já registrado para a região em pelo menos 120 anos. [Seu impacto equivale a 32 bombas atômicas lançadas em Hiroshima durante a 2ª Guerra Mundial](https://www.poder360.com.br/internacional/terremoto-no-marrocos-equivale-a-32-bombas-atomicas/).
+
+**🌎 18ª Cúpula do G20.** A reunião terminou com um texto vago sobre a guerra da Ucrânia, sem responsabilizar a Rússia, e algumas discussões sobre o enfrentamento das questões climáticas. Nas discussões geopolíticas, o discurso do Lula — [que assumiu a presidência](https://www.cnnbrasil.com.br/internacional/brasil-assume-presidencia-do-g20-e-lula-diz-que-geopolitica-nao-pode-sequestrar-agenda-do-bloco/) — se aproximou mais da linha adotada pela China e pela Rússia, e menos da Europa e dos EUA.
+
+👀** No flagra.** Danelo Cavalcante, brasileiro foragido nos EUA, foi visto no sábado de “aparência renovada”. Sua fuga escalando o muro da prisão aconteceu depois dele ter sido condenado pelo assassinato de seu ex-namorada em 2021. [As buscas 24/7 em uma operação de quase 400 policiais continuam.](https://www.cnnbrasil.com.br/internacional/assassino-brasileiro-foragido-nos-eua-e-visto-a-noite-de-aparencia-renovada/?utm_source=thenewscc&utm_medium=email&utm_campaign=referral)
+
+———————————————————————————
+
+##### **Prejuízos com ciclone no Sul somam R$ 1,3 bilhão**
+
+##### **BRASIL**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/3533bca5-862c-4146-879c-723dd729ee6e/image__62_.jpeg)
+Caption: (Imagem: g1 | Reprodução)
+
+**Tragédia.** No Rio Grande do Sul, [88 municípios](https://www.cnnbrasil.com.br/nacional/numero-de-mortos-por-chuvas-no-rio-grande-do-sul-sobe-para-42/) foram devastados pelas chuvas que deixaram mais de 11 mil pessoas desabrigadas ou desalojadas — em abrigos públicos ou se acomodando na casa de amigos e parentes.
+
+* Até então, foram registradas [43 mortes](https://www.cnnbrasil.com.br/nacional/numero-de-mortos-por-chuvas-no-rio-grande-do-sul-sobe-para-42/) no estado, sendo que 46 pessoas estão desaparecias.
+
+Ao todo, estima-se que [150 mil habitantes](https://www.poder360.com.br/brasil/prejuizos-com-ciclone-no-sul-somam-r-13-bilhao/) foram afetados pelos temporais, o que levou o governo a impor uma força-tarefa de 900 servidores atuando nas buscas, resgates e reparação de estrutura.
+
+**Impactos econômicos:** O ciclone extratropical já causou prejuízos de R$ 1,3 bilhão, com a maior parte das perdas registradas nos **comércios locais.** [A agriculta e a pecuária apareceram em segundo e terceiro lugar](https://www.poder360.com.br/brasil/prejuizos-com-ciclone-no-sul-somam-r-13-bilhao/).
+
+“Em relação ao **setor público**, já foram R$ 26 milhões em prejuízos, com mais de R$ 20 milhões no setor de transportes. Na sequência, aparecem a limpeza urbana e assistência médica.“ —
+
+Como o Lula está na Índia para a cúpula do G20, quem visitou o estado foi o vice-presidente, Geraldo Alckmin, anunciando o repasse de [R$ 741 milhões](https://g1.globo.com/rs/rio-grande-do-sul/noticia/2023/09/10/governo-federal-anuncia-recursos-para-cidades-atingidas-por-ciclone-no-rs.ghtml) para as cidades atingidas.
+
+O ministro do Desenvolvimento Social, Wellington Dias, também afirmou que o governo vai disponibilizar [R$ 56 milhões](https://www.poder360.com.br/brasil/governo-disponibilizara-r-56-mi-para-vitimas-de-ciclone-no-sul/) de vários programas sociais da pasta às famílias afetadas pelo desastre.
+
+**O que mais é destaque pelo nosso país? **
+
+* **Superou o Rei:** _[Neymar se consagra como o maior artilheiro da história da Seleção](https://ge.globo.com/google/amp/futebol/selecao-brasileira/noticia/2023/09/08/neymar-supera-pele-e-se-torna-o-maior-artilheiro-da-selecao-brasileira-nas-contas-da-fifa.ghtml?utm_source=the%20news&amp;utm_medium=newsletter&amp;utm_campaign=11_09)_
+
+* **He is back:** _[Faustão recebe alta hospitalar após transplante de coração](https://agenciabrasil.ebc.com.br/geral/noticia/2023-09/faustao-recebe-alta-hospitalar-apos-transplante-de-coracao?utm_source=the%20news&amp;utm_medium=newsletter&amp;utm_campaign=11_09)_
+
+* **Já que falamos do G20:** _[Lula fala que não prenderia Putin caso ele viesse ao Brasil, o que violaria o Estatuto de Roma](https://noticias.uol.com.br/colunas/jamil-chade/2023/09/10/lula-violaria-haia-se-nao-prender-putin-e-caso-iria-a-conselho-de-seguranca.htm?utm_source=the%20news&amp;utm_medium=newsletter&amp;utm_campaign=11_09)_
+
+* **Depois de 4 meses:** _[Mauro Cid deixa a prisão após Moraes homologar delação premiada](https://www.terra.com.br/amp/noticias/brasil/politica/mauro-cid-deixa-a-prisao-apos-moraes-homologar-delacao-premiada,ea767618958d7a2582abe5255756164djd18vyw1.html?utm_source=the%20news&amp;utm_medium=newsletter&amp;utm_campaign=11_09)_
+
+———————————————————————————
+
+## **O novo celular da Huawei pode virar problema geopolítico  **
+
+###### **TECNOLOGIA**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/5d6c850e-ee6b-44af-bcbf-ac97ba80e9d1/mate60pro-huawei.jpg)
+Caption: (Imagem: James Park | Bloomberg)
+
+A empresa chinesa Huawei [lançou seu mais novo celular](https://www.reuters.com/technology/chinas-huawei-launches-mate-60-pro-smartphone-presale-2023-09-08/?utm_source=the%20news&utm_medium=newsletter&utm_campaign=11_09) na semana passada. Desde então, um **burburinho tem tomado conta do mundo da tecnologia**, e também no ambiente **geopolítico.**
+
+**Explicando…** O Mate 60 Pro da Huawei tem velocidade superior aos aos dispositivos 5G de primeira linha e parece [rodar em um microchip de ponta fabricado na China](https://epocanegocios.globo.com/tecnologia/noticia/2023/09/huawei-lanca-smartphone-mate-60-pro-em-novo-avanco-contra-sancoes-dos-eua.ghtml?utm_source=the%20news&utm_medium=newsletter&utm_campaign=11_09).
+
+Isso surpreendeu toda a indústria, que não acreditava que o país asiático tinha capacidade de **produzir um semicondutor tão avançado.**
+
+* **Abre parêntese:** Esses chips são peças-chave para todo o sistema e corrente elétricos de dispositivos, desde AIs até geladeiras.
+
+**Por que essa conversa importa?** Nos últimos quatro anos os EUA têm imposto [restrições de exportação para o dificultar o acesso da China](https://www.wsj.com/articles/u-s-goes-full-court-press-on-chinas-chip-sector-11665403410) à tecnologia — citando temores sobre o uso dos militares do país.
+
+Mesmo assim, o gigante asiático conseguiu chegar a uma produção própria. Agora, o governo americano suspeita que a companhia tenha violado as sanções impostas por ele. **Chances de farpas diplomáticas.**
+
+Enquanto alguns americanos defendem aumento das restrições à China, outros dizem que aumentar as sanções é um estímulo para o país virar autossuficiente, sem mais depender de importações de chips.
+
+**Tirando o zoom:** O novo celular da Huawei está [vendendo como água na China](https://www.digitimes.com/news/a20230905PD211/china-huawei-mobile-devices.html?utm_source=the%20news&utm_medium=newsletter&utm_campaign=11_09), ameaçando a forte presença da Apple, que tem [20%](https://www.seudinheiro.com/2023/internacional/apple-china-acoes-restricoes-iphone-vinp/?utm_source=the%20news&utm_medium=newsletter&utm_campaign=11_09) das suas vendas alocadas no país.
+
+🍎🇨🇳 **Falando nisso…** A maçã perdeu [US$ 200 bilhões](https://forbes.com.br/forbes-tech/2023/09/  por-que-us-74-bilhoes-de-receita-da-apple-estao-em-risco/?utm_source=the%20news&utm_medium=newsletter&utm_campaign=11_09) de seu valor de mercado na semana passada, depoisue o governo chinês proibiu parte de seus funcionários e autoridades de usar iPhones.
+
+———————————————————————————
+
+## **Seu plano para dominar o mundo começa aqui **🎯
+
+###### **PATROCINADO POR CODERHOUSE **
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/623a38a9-0697-495a-b4ee-6fe46e31fa24/40F504FF-F5E7-44F5-989A-BA019C5C04EF.gif)
+Seguir link da imagem: (https://www.coderhouse.com.br/?utm_source=thenews&utm_medium=cpc&utm_campaign=)
+Caption:
+
+O primeiro passo para que seu plano funcione é ter acesso à _[maior comunidade de aprendizagem online e ao vivo da América Latina](https://www.coderhouse.com.br/?utm_source=thenews&utm_medium=cpc&utm_campaign=)_. Mas calma que, para isso, você não precisa de um esquema mirabolante.
+
+É só aproveitar o **Dia do Cliente** na _[Coderhouse](https://www.coderhouse.com.br/?utm_source=thenews&utm_medium=cpc&utm_campaign=)_. Eles liberaram descontos de **até 70% em todos os cursos** e carreiras nas áreas de Design, Programação, Dados, Produto e Marketing Digital. Só hoje você pode:
+
+🖥️ Aproveitar aulas online e ao vivo com especialistas das maiores empresas do mercado, como: OLX,  Nubank e MadeiraMadeira.
+
+📌 Viver o mercado na prática com desafios e cases.
+
+
+📂 Construir um portfólio de destaque.
+
+👥 Ter acesso a networking com pessoas do mercado digital e muito mais.
+
+Com a Coderhouse, agora você pode garantir tudo isso por um preço acessível e sem precisar abrir mão da qualidade, com parcelas **a partir de 12x de R$ 24,00.**
+
+Para os nossos leitores tudo só fica melhor… Usando cupom _THENEWS,_ você ganha **mais 15% OFF** pra garantir sua vaga hoje, é só _[clicar aqui.](https://www.coderhouse.com.br/?utm_source=thenews&utm_medium=cpc&utm_campaign=)_
+
+———————————————————————————
+
+## **Você já se perguntou isso também**
+
+###### **AD DOS ADS**
+
+Muita gente nos pergunta por que escolhemos o e-mail como nosso canal oficial, comentando que ele está em baixa atualmente. Que nada…
+
+**+4,3 bilhões** de usuários no mundo (mais que WhatsApp e Instagram somados)
+**+100 milhões** de usuários novos por ano;
+**+3 milhões** de e-mails enviados por segundo;
+**+95%** dos usuários checam suas caixas de entrada todos os dias;
+
+**A sua empresa aproveita esse potencial? **_[Clique aqui para entender do que estamos falando](https://thenews-anunciantes.my.canva.site/)_. 📬
+
+———————————————————————————
+
+## **Google vai enfrentar julgamento decisivo sobre monopólio digital**
+
+###### **NEGÓCIOS**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/6f7ff42b-e431-4177-883d-503097e9c5ec/image__63_.jpeg)
+Caption: (Imagem: Annelise Capossela | Axios)
+
+Na terça-feira, o Google e a sua controladora, Alphabet, estarão diante do julgamento mais importante sobre práticas de **monopólio digital** desde o [caso antitruste aberto contra a Microsoft em 1998](https://www.migalhas.com.br/depeso/225953/o-caso-u-s--v--microsoft--bases-da-relacao-entre-direito-e-tecnologia-da-informacao).
+
+* Na ocasião, o Tribunal acusou a empresa do Bill Gates de exigir que todos os seus computadores fossem equipados com o navegador Internet Explorer.
+
+Como resultado, um juiz determinou que a empresa acabasse com essa restrição, abrindo espaço para o sucesso de vários outros navegadores concorrentes — inclusive o Google.
+
+**O que está acontecendo agora?** A ação contra a empresa da Alphabet, apresentada pela primeira vez em 2020, afirma que o Google [abusou ilegalmente](https://www.nytimes.com/2023/09/06/technology/modern-internet-first-monopoly-trial-us-google-dominance.html?utm_source=thenewscc&utm_medium=email&utm_campaign=referral) do seu poder de mercado como mecanismo de busca.
+
+“Segundo o Departamento de Justiça, isso teria **limitado a concorrência**, “sufocado” a inovação e violado a privacidade dos usuários.“ —
+
+### **Por que isso é importante?**
+
+A disputa judicial atinge o **império de US$ 1,7 trilhão da Alphabet** e pode tirar o poder de influência de uma das empresas mais bem-sucedidas do mundo.
+
+Além disso, por acusar o Google de ter feito acordos com fabricantes de celulares — [como Apple e Samsung](https://www.nytimes.com/2023/09/06/technology/modern-internet-first-monopoly-trial-us-google-dominance.html?utm_source=thenewscc&utm_medium=email&utm_campaign=referral]) — para ser o **mecanismo de busca padrão**, o resultado da ação deve ter um efeito cascata sobre outras gigantes.
+
+👀 O Google acumula atualmente cerca de 90% do mercado de buscas no mundo.
+
+———————————————————————————
+
+## **Hoje não é uma segunda-feira qualquer**
+
+###### **PATROCINADO POR ****KINVO**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/364ea9c8-68b3-4954-9f59-582062aab5e0/Design_sem_nome__1___1_-min.gif)
+Seguir link da imagem: (https://assine.kinvo.com.br/checkout?cupom=45-OFF-EXCLUSIVOTHENEWS&utm_source=thenews&utm_medium=email&utm_campaign=aniversario-kinvo&utm_content=450ff-exclusivo-thenews)
+Caption:
+
+Talvez você tenha acordado, como todo bom dia de trabalho, pensando em como tirar do papel aquela viagem para o exterior, a compra do próprio apê ou, simplesmente, como fazer o seu $ render mais.
+
+🍾 Massss, entramos, hoje, na **Semana do Cliente** e, por isso, o Kinvo preparou uma oportunidade única para você conquistar novos sonhos, [economizando ainda mais.](https://assine.kinvo.com.br/checkout?cupom=45-OFF-EXCLUSIVOTHENEWS&utm_source=thenews&utm_medium=email&utm_campaign=aniversario-kinvo&utm_content=450ff-exclusivo-thenews)
+
+
+O Kinvo é uma plataforma onde você pode **acompanhar os seus investimentos.** Com recursos avançados, análises detalhadas e uma interface intuitiva, você tem o que precisa para tomar as melhores decisões financeiras.
+
+“[Aproveite os 45% de desconto](https://assine.kinvo.com.br/checkout?cupom=45-OFF-EXCLUSIVOTHENEWS&utm_source=thenews&utm_medium=email&utm_campaign=aniversario-kinvo&utm_content=450ff-exclusivo-thenews) na assinatura do plano, exclusivo para os leitores do the news — **mas somente hoje.**“ —
+
+———————————————————————————
+
+## **Os royalties dos Beatles e Bruno Mars valem US$ 500 mi**
+
+###### **ECONOMIA**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/0c42abc6-1d74-4fc4-a30f-e32cbee80763/bruno-mars-1.jpg)
+Caption: (Imagem: Manuela Scarpa | Brazil News)
+
+Sabe aquela escolha ousada que todo mundo considera uma ideia maluca? Então, quando John Gruss saiu do banco de investimentos [The Bear Stearns](https://www.bloomberg.com/news/articles/2023-09-08/bear-stearns-analyst-turned-music-mogul-eyes-15-million-payday?srnd=premium-europe#xj4y7vzkg) para investir em **portfólios musicais** seus pais devem ter pensado isso.
+
+* Porém, nesse caso, depois da saída, o banco entrou em falência e foi comprado pelo JP Morgan por cerca de [10% de seu valor de mercado](https://en.wikipedia.org/wiki/Bear_Stearns).
+
+Do outro lado, o seu fundo musical **Round Hill Music Royalty** — que contém mais de 120 mil músicas — foi adquirido pela **Alchemy Copyrights LLC** pelo valor “singelo” de US$ 469 milhões.
+
+* Esse valor se explica quando olhamos para o portfólio do fundo: desde “_She Loves You_”, dos Beatles a outros mais recentes, como “_Marry M_e” e “_Just the Way You Are_”, de Bruno Mars, e “_Fuck You_”, do Cee-Lo Green.
+
+**Como funciona isso?** Investir em Royalties Musicais é lucrar a cada vez que uma música toca no Spotify, Youtube, Apple Music, shows, academias, supermercados, entre outros inúmeros locais.
+
+No caso, são ativos reais vinculados ao desempenho da música — quanto mais ela toca, maior é a rentabilidade. Por exemplo, os compositores de Evidências devem [fazer R$ 2 mil](https://www.instagram.com/p/CxBsS-bITGo/?igshid=MzRlODBiNWFlZA==) (x2) pela banda do Bruno Mars ter tocado o hit no The Town.
+
+“Só pra ter ideia do tamanho do mercado, no Brasil, em 2021, foi faturado mais de [R$ 1 bilhão](https://www.cnnbrasil.com.br/economia/royalties-musicais-podem-ser-opcao-para-diversificar-carteira-veja-como-funciona/) em royalties musicais — **número 20% superior ao de 2020.**“ —
+
+Voltando ao caso, a participação de pouco mais de 3% de John Gruss no **Round Hill Music Royalty**, que ele fundou em 2010, vai lhe garantir pelo menos US$ 15 milhões depois da aquisição do fundo.
+
+**Outros destaques em economia:**
+
+* **O próximo IPO? **_[Instacart visa avaliação de cerca de US$ 9 bi em IPO, bem abaixo do que anteriormente](https://www.cnbc.com/2023/09/10/instacart-aiming-for-valuation-of-8point6-billion-to-9point3-billion-in-ipo-reports.html)_
+
+* **Aos investidores de plantão:** _[IPCA, inflação nos EUA e juros na Europa devem movimentar a semana](https://www.infomoney.com.br/mercados/ipca-inflacao-nos-estados-unidos-e-decisao-de-juros-na-europa-o-que-acompanhar-na-semana/?utm_source=the%20news&amp;utm_medium=newsletter&amp;utm_campaign=11_09)_
+
+———————————————————————————
+
+## **A festa tá bombando, melhor não chegar tarde 🏃🏽♀️ **
+
+###### **PATROCINADO POR MAGALU**
+
+Ver imagem: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/eb4822fe-9cf5-4a7e-8b74-9b4d68222c4f/1600x600_niver__1_.gif)
+Seguir link da imagem: (https://www.magazineluiza.com.br/selecao/0309aniversariomagalu/?&banner_id=promoh1md1esporte80off?partner_id=73835&utm_campaign=aniversario_magalu_thenews&utm_source=the_news&utm_medium=display&utm_content=the_news_footer&utm_term=73835)
+Caption:
+
+Para comemorar o aniversário do [Magalu](https://www.magazineluiza.com.br/selecao/0309aniversariomagalu/?&banner_id=promoh1md1esporte80off?partner_id=73835&utm_campaign=aniversario_magalu_thenews&utm_source=the_news&utm_medium=display&utm_content=the_news_footer&utm_term=73835), eles liberaram ofertas de **até 80% de desconto** no seu aplicativo e nas lojas físicas. 🛒
+
+**Tem no Magalu.** Produtos de beleza, smartphones, eletrodomésticos, tudo pra sua casa e muitos mais. [Baixe o app, monte o seu carrinho](https://www.magazineluiza.com.br/selecao/0309aniversariomagalu/?&banner_id=promoh1md1esporte80off?partner_id=73835&utm_campaign=aniversario_magalu_thenews&utm_source=the_news&utm_medium=display&utm_content=the_news_footer&utm_term=73835) e aproveite que a entrega é rápida — piscou chegou.
+
+———————————————————————————
+
+## **Isso vai ser útil aos que emendaram o feriadão **
+
+###### **IN CASE YOU MISSED IT**
+
+🚫 **Anulou geral:** [Toffoli anula caso da Odebrecht e diz que prisão do Lula foi armação](https://thenewscc.com.br/brasil/toffoli-anula-caso-da-odebrecht-e-diz-que-prisao-do-lula-foi-armacao/)
+
+🎙️ **Pouco lucrativo?** [O investimento de US$ 1 bi do Spotify em podcasts está dando prejuízo](htt ps://thenewscc.com.br/negocios/os-podcasts-estao-dando-menos-resultados-que-o-spotify-esperava/)
+
+🚗 **Por essa você não esperava…** [Carro é o produto que mais te rastreia — sim, mais que seu Apple Watch](https://thenewscc.com.br/tecnologia/seu-carro-te-rastreia-mais-que-seu-apple-watch/)
+
+
+🇲🇽 **Oficial, muchacho:** [A Suprema Corte do México legalizou o aborto em todo o país](https://thosenewscc.com.br/mundo/suprema-corte-do-mexico-legaliza-o-aborto-em-todo-o-pais/)
+
+🍫 **Deal chocólatra:** [Nestlé compra Kopenhagen por singelos R$ 3 bilhões](https://thenewscc.com.br/bizness/o-doce-sabor-de-um-deal-bilionario-%f0%9f%8d%ab/)
+
+———————————————————————————
+
+## **Você pode ganhar prêmios caso torne seus amigos leitores**
+
+###### **PROGRAMA DE INDICAÇÃO**
+
+**Indicou, ganhou.** Nosso programa de indicação funciona assim. Quanto mais amigos você trouxer ao clube dos que acordam bem e informados, mais presentes você recebe da nossa equipe.** Clique no botão abaixo:**
+
+COMPARTILHAR (https://thenews.createsend1.com/t/t-i-aohiik-l-tr/)
+
+**PS: **_E-mails da mesma titularidade (mesmo IP) não serão considerados válidos._
+
+———————————————————————————
+
+# the news 📬
+
+Mais inteligente em 5 minutos. Somos um jornal gratuito e diário, que tem por objetivo te trazer tudo que você precisa saber para começar o seu dia bem e informado.
+
+Notícias, de fato, relevantes sobre as principais atualidades do mundo, do Brasil, tecnologia e do mercado financeiro, sempre nessa ordem.
+
+Direto na sua caixa de entrada do e-mail favorito, sempre às 06:06. É gratuito, mas pode viciar.
+
+🎟️ O próximo anunciante pode ser você. [É só clicar aqui](https://thenewscc.typeform.com/to/twCcjRb Q).
+
+😀😐☹️ **Quão satisfeito você ficou com essa edição?** [Nos conte aqui](https://forms.gle/9FZQQJ3ff5ymAMxD7).
+
+📱** Quer ser um influenciador do seu jornal favorito? **[Clique aqui para saber mais](https://docs.google.com/forms/d/e/1FAIpQLSd-T2gcMxiJpkPfUnQiuLops8WaAYxvxgyN1JRsBvs66PzOUw/viewform).
+
+## já conhece nossas outras marcas?
+
+📠** ****[the jobs](https://pingback.com/thejobs/?utm_source=organico&utm_medium=sessao&utm_campaign=recomendacao)****: **tudo que você precisa para se desenvolver profissionalmente e tomar as melhores decisões em sua carreira. **[seu one-on-one favorito.](https://pingback.com/thejobs/?utm_source=organico&utm_medium=sessao&utm_campaign=recomendacao)**
+
+🦄** ****[the bizness](https://thenewscc.com.br/bizness-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao)****: **sua dose de conteúdo sobre os assuntos mais relevantes do mundo dos negócios. análises, números e insights. **[um MBA em forma de e-mail.](https://thenewscc.com.br/bizness-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao)**
+
+**🏆 ****[the champs](https://thenewscc.com.br/champs-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao)****: **todo o não óbvio sobre os esportes, na palma da sua mão. **[descontraído e direto ao ponto, como deve ser](https://thenewscc.com.br/champs-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao)**.
+
+🧸** ****[the stories](https://thenewscc.com.br/stories-cadastro/?utm_source=newsletter&utm_medium=o rgânico&utm_campaign=sessa-recomendacao)****: **histórias que emocionam. não tão longas quanto um romance, mas suficientes pra te fazer sentir. **[contamos e escrevemos amor.](https://thenewscc.com.br/stories-cadastro/?utm_source=newsletter&utm_medium=orgânico&utm_campaign=sessa-recomendacao)**
+
+🎧 **[the jams](https://www.youtube.com/watch?v=rElLCIiNgec&list=PLeefjnjGUtY5on5iCG4I023XrGqt2xvIH&index=6)****: **músicas legais para dar play e deixar tocando a qualquer momento. sozinho ou bem acompanhado o objetivo é um só: **[elevar a sua frequência](https://www.youtube.com/watch?v=rElLCIiNgec&list=PLeefjnjGUtY5on5iCG4I023XrGqt2xvIH&index=6)****.**
+
+# até amanhã
+
+Sempre chegamos a sua caixa de entrada por volta das 06:06. Alguns servidores de e-mail são teimosos e atrasam… Outros são piores ainda e nos jogam para o spam e/ ou promoções. Sempre que não nos encontrar na caixa de entrada, procure nessas duas.
+
+
+———
+
+Você está lendo uma versão de texto simples deste post. Para uma melhor experiência, copie e cole este link em seu navegador para ver o post online:
+https://thenewscc.beehiiv.com/p/11092023'''
+
+
+@Test()
+def getCompiledEmailBodyList_indexError_newBody():
+    #arrange
+    expected = [
+        'back on track.',
+         'bom dia. depois do feriado, é hora de voltar à rotina e fazer o que tem que ser feito. que seja mais uma bela semana. let’s go!',
+         'MUNDO',
+         'Terremoto em Marrocos, brasileiro fugitivo e G20.',
+         '🏥 Tragédia.',
+         'Com magnitude de 6,8, o terremoto que atingiu Marrocos na sexta-feira causou mais de 2 mil mortes e é o mais forte já registrado para a região em pelo menos 120 anos.',
+         'Seu impacto equivale a 32 bombas atômicas lançadas em Hiroshima durante a 2ª Guerra Mundial.',
+         '🌎 18ª Cúpula do G20.',
+         'A reunião terminou com um texto vago sobre a guerra da Ucrânia, sem responsabilizar a Rússia, e algumas discussões sobre o enfrentamento das questões climáticas.',
+         'Nas discussões geopolíticas, o discurso do Lula — que assumiu a presidência — se aproximou mais da linha adotada pela China e pela Rússia, e menos da Europa e dos EUA.',
+         '👀 No flagra.',
+         'Danelo Cavalcante, brasileiro foragido nos EUA, foi visto no sábado de “aparência renovada”.',
+         'Sua fuga escalando o muro da prisão aconteceu depois dele ter sido condenado pelo assassinato de seu ex-namorada em 2021.',
+         'As buscas 24/7 em uma operação de quase 400 policiais continuam.',
+         'BRASIL',
+         'Prejuízos com ciclone no Sul somam R$ 1,3 bilhão.',
+         'Tragédia. No Rio Grande do Sul, 88 municípios foram devastados pelas chuvas que deixaram mais de 11 mil pessoas desabrigadas ou desalojadas — em abrigos públicos ou se acomodando na casa de amigos e parentes.',
+         'Até então, foram registradas 43 mortes no estado, sendo que 46 pessoas estão desaparecias.',
+         'Ao todo, estima-se que 150 mil habitantes foram afetados pelos temporais, o que levou o governo a impor uma força-tarefa de 900 servidores atuando nas buscas, resgates e reparação de estrutura.',
+         'Impactos econômicos: O ciclone extratropical já causou prejuízos de R$ 1,3 bilhão, com a maior parte das perdas registradas nos comércios locais. A agriculta e a pecuária apareceram em segundo e terceiro lugar.',
+         'Em relação ao setor público, já foram R$ 26 milhões em prejuízos, com mais de R$ 20 milhões no setor de transportes. Na sequência, aparecem a limpeza urbana e assistência médica.',
+         'Como o Lula está na Índia para a cúpula do G20, quem visitou o estado foi o vice-presidente, Geraldo Alckmin, anunciando o repasse de R$ 741 milhões para as cidades atingidas.',
+         'O ministro do Desenvolvimento Social, Wellington Dias, também afirmou que o governo vai disponibilizar R$ 56 milhões de vários programas sociais da pasta às famílias afetadas pelo desastre.',
+         'O que mais é destaque pelo nosso país?',
+         'Superou o Rei: Neymar se consagra como o maior artilheiro da história da Seleção.',
+         'He is back: Faustão recebe alta hospitalar após transplante de coração.',
+         'Já que falamos do G20: Lula fala que não prenderia Putin caso ele viesse ao Brasil, o que violaria o Estatuto de Roma.',
+         'Depois de 4 meses: Mauro Cid deixa a prisão após Moraes homologar delação premiada.',
+         'TECNOLOGIA',
+         'O novo celular da Huawei pode virar problema geopolítico.',
+         'A empresa chinesa Huawei lançou seu mais novo celular na semana passada. Desde então, um burburinho tem tomado conta do mundo da tecnologia, e também no ambiente geopolítico.',
+         'Explicando… O Mate 60 Pro da Huawei tem velocidade superior aos aos dispositivos 5G de primeira linha e parece rodar em um microchip de ponta fabricado na China.',
+         'Isso surpreendeu toda a indústria, que não acreditava que o país asiático tinha capacidade de produzir um semicondutor tão avançado.',
+         'Abre parêntese: Esses chips são peças-chave para todo o sistema e corrente elétricos de dispositivos, desde AIs até geladeiras.',
+         'Por que essa conversa importa? Nos últimos quatro anos os EUA têm imposto restrições de exportação para o dificultar o acesso da China à tecnologia — citando temores sobre o uso dos militares do país.',
+         'Mesmo assim, o gigante asiático conseguiu chegar a uma produção própria. Agora, o governo americano suspeita que a companhia tenha violado as sanções impostas por ele. Chances de farpas diplomáticas.',
+         'Enquanto alguns americanos defendem aumento das restrições à China, outros dizem que aumentar as sanções é um estímulo para o país virar autossuficiente, sem mais depender de importações de chips.',
+         'Tirando o zoom: O novo celular da Huawei está vendendo como água na China, ameaçando a forte presença da Apple, que tem 20% das suas vendas alocadas no país.',
+         '🍎🇨🇳 Falando nisso… A maçã perdeu US$ 200 bilhões de seu valor de mercado na semana passada, depoisue o governo chinês proibiu parte de seus funcionários e autoridades de usar iPhones.',
+         'NEGÓCIOS',
+         'Google vai enfrentar julgamento decisivo sobre monopólio digital.',
+         'Na terça-feira, o Google e a sua controladora, Alphabet, estarão diante do julgamento mais importante sobre práticas de monopólio digital desde o caso antitruste aberto contra a Microsoft em 1998.',
+         'Na ocasião, o Tribunal acusou a empresa do Bill Gates de exigir que todos os seus computadores fossem equipados com o navegador Internet Explorer.',
+         'Como resultado, um juiz determinou que a empresa acabasse com essa restrição, abrindo espaço para o sucesso de vários outros navegadores concorrentes — inclusive o Google.',
+         'O que está acontecendo agora? A ação contra a empresa da Alphabet, apresentada pela primeira vez em 2020, afirma que o Google abusou ilegalmente do seu poder de mercado como mecanismo de busca.',
+         'Segundo o Departamento de Justiça, isso teria limitado a concorrência, “sufocado” a inovação e violado a privacidade dos usuários.',
+         'Por que isso é importante?',
+         'A disputa judicial atinge o império de US$ 1,7 trilhão da Alphabet e pode tirar o poder de influência de uma das empresas mais bem-sucedidas do mundo.',
+         'Além disso, por acusar o Google de ter feito acordos com fabricantes de celulares — como Apple e Samsung — para ser o mecanismo de busca padrão, o resultado da ação deve ter um efeito cascata sobre outras gigantes.',
+         '👀 O Google acumula atualmente cerca de 90% do mercado de buscas no mundo.',
+         'ECONOMIA',
+         'Os royalties dos Beatles e Bruno Mars valem US$ 500 mi.',
+         'Sabe aquela escolha ousada que todo mundo considera uma ideia maluca? Então, quando John Gruss saiu do banco de investimentos The Bear Stearns para investir em portfólios musicais seus pais devem ter pensado isso.',
+         'Porém, nesse caso, depois da saída, o banco entrou em falência e foi comprado pelo JP Morgan por cerca de 10% de seu valor de mercado.',
+         'Do outro lado, o seu fundo musical Round Hill Music Royalty — que contém mais de 120 mil músicas — foi adquirido pela Alchemy Copyrights LLC pelo valor “singelo” de US$ 469 milhões.',
+         'Esse valor se explica quando olhamos para o portfólio do fundo: desde “ She Loves You ”, dos Beatles a outros mais recentes, como “ Marry M e” e “ Just the Way You Are ”, de Bruno Mars, e “ Fuck You ”, do Cee-Lo Green.',
+         'Como funciona isso? Investir em Royalties Musicais é lucrar a cada vez que uma música toca no Spotify, Youtube, Apple Music, shows, academias, supermercados, entre outros inúmeros locais.',
+         'No caso, são ativos reais vinculados ao desempenho da música — quanto mais ela toca, maior é a rentabilidade. Por exemplo, os compositores de Evidências devem fazer R$ 2 mil (x2 pela banda do Bruno Mars ter tocado o hit no The Town.',
+         'Só pra ter ideia do tamanho do mercado, no Brasil, em 2021, foi faturado mais de R$ 1 bilhão em royalties musicais — número 20% superior ao de 2020.',
+         'Voltando ao caso, a participação de pouco mais de 3% de John Gruss no Round Hill Music Royalty, que ele fundou em 2010, vai lhe garantir pelo menos US$ 15 milhões depois da aquisição do fundo.',
+         'Outros destaques em economia:',
+         'O próximo IPO? Instacart visa avaliação de cerca de US$ 9 bi em IPO, bem abaixo do que anteriormente.',
+         'Aos investidores de plantão: IPCA, inflação nos EUA e juros na Europa devem movimentar a semana.',
+         ]
+
+    #act
+    toAssert = EmailStaticHelper.getCompiledEmailBodyList(INDEX_ERROR_NEW_BODY)
+
+    #assert
+    assert ObjectHelper.isNotEmpty(toAssert)
+    for e, t in zip(expected, toAssert):
+        assert ObjectHelper.equals(e, t), f'{e} == {t}'

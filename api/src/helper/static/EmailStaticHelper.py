@@ -4,25 +4,25 @@ from python_helper import StringHelper, ObjectHelper, log
 from constant import NewsConstant
 
 
-def customDebug(*args, **kwargs):
-    log.prettyJson(customDebug, *args, logLevel=log.DEBUG, **kwargs)
-
-
 def getCompiledEmailBodyList(plainTextEmail):
     isMarketing = False
     lastSentence = c.BLANK
     notFilteredEmailBodySentenceList = []
     for emailBodySentence in [
-        emailBodySentenceUnity.replace(c.HASH_TAG, c.BLANK)
-        if emailBodySentenceUnity.strip().startswith(c.HASH_TAG) else emailBodySentenceUnity.replace(f'{c.ASTERISK}{c.SPACE}', c.BLANK)
-        if emailBodySentenceUnity.strip().startswith(f'{c.ASTERISK}{c.SPACE}') else emailBodySentenceUnity
-        for emailBodySentenceUnity in [
-            possibleEmailBodySentence.replace(f'\r', c.BLANK).replace(f'{2*c.ASTERISK}', c.BLANK).replace(f'{3*c.ASTERISK}', c.BLANK).replace(f'{4*c.ASTERISK}', c.BLANK).strip()
-            for possibleEmailBodySentence in plainTextEmail.split(f'{c.NEW_LINE}')
+        sentence 
+        for sentence in [
+            emailBodySentenceUnity.replace(c.HASH_TAG, c.BLANK)
+            if emailBodySentenceUnity.strip().startswith(c.HASH_TAG) else emailBodySentenceUnity.replace(f'{c.ASTERISK}{c.SPACE}', c.BLANK)
+            if emailBodySentenceUnity.strip().startswith(f'{c.ASTERISK}{c.SPACE}') else emailBodySentenceUnity
+            for emailBodySentenceUnity in [
+                possibleEmailBodySentence.replace(f'\r', c.BLANK).replace(f'{2*c.ASTERISK}', c.BLANK).replace(f'{3*c.ASTERISK}', c.BLANK).replace(f'{4*c.ASTERISK}', c.BLANK).strip()
+                for possibleEmailBodySentence in plainTextEmail.split(f'{c.NEW_LINE}')
+            ]
+            if StringHelper.isNotBlank(emailBodySentenceUnity)
         ]
-        if StringHelper.isNotBlank(emailBodySentenceUnity)
+        if StringHelper.isNotBlank(sentence) and isNotDiscartableSentence(sentence)
     ]:
-        ###-customDebug('emailBodySentence', [emailBodySentence])
+        # log.debugIt(emailBodySentence)
         sentenceEnd = emailBodySentence.split()[-1].strip()
         sentenceEndFilterd = StringHelper.join(
             [
@@ -131,7 +131,7 @@ def getCompiledEmailBodyList(plainTextEmail):
                     else:
                         notFilteredEmailBodySentenceList.append(emailBodySentence)
 
-    ###-customDebug('notFilteredEmailBodySentenceList', notFilteredEmailBodySentenceList)
+    ###- log.debugIt('notFilteredEmailBodySentenceList', notFilteredEmailBodySentenceList)
 
 
     filteredEmailBodySentenceList = [
@@ -150,7 +150,7 @@ def getCompiledEmailBodyList(plainTextEmail):
         ]) if '(http' in emailBodySentence else emailBodySentence
         for emailBodySentence in notFilteredEmailBodySentenceList
     ]
-    ###- customDebug('filteredEmailBodySentenceList', filteredEmailBodySentenceList)
+    ###- log.debugIt('filteredEmailBodySentenceList', filteredEmailBodySentenceList)
 
 
 
@@ -163,7 +163,7 @@ def getCompiledEmailBodyList(plainTextEmail):
             if '[Clique para' not in sentence
         ]
     ]
-    ###- customDebug('reFilteredEmailBodySentenceList', reFilteredEmailBodySentenceList)
+    ###- log.debugIt('reFilteredEmailBodySentenceList', reFilteredEmailBodySentenceList)
 
     resplitedEmailBodySentenceList = []
     for sentence in reFilteredEmailBodySentenceList:
@@ -176,12 +176,12 @@ def getCompiledEmailBodyList(plainTextEmail):
                         resplitedEmailBodySentenceList.append(s.strip())
             else:
                 resplitedEmailBodySentenceList.append(strippedSentence)
-    ###-customDebug('resplitedEmailBodySentenceList', resplitedEmailBodySentenceList)
+    ###-log.debugIt('resplitedEmailBodySentenceList', resplitedEmailBodySentenceList)
 
 
 
     emailBodySentenceList = fixPunctuationIssues(resplitedEmailBodySentenceList)
-    ###-customDebug('emailBodySentenceList', emailBodySentenceList)
+    ###-log.debugIt('emailBodySentenceList', emailBodySentenceList)
 
     emailBodySentenceList = [
         removeDoubleOrMoreSpaces(emailBodySentence)
@@ -257,7 +257,7 @@ def getCompiledEmailBodyList(plainTextEmail):
                         cutAndAppendCuttedSentences(strippedSentence, NewsConstant.CUT_SENTENCE_CUT_LIST, preCompiledEmailBodyList)
                     elif ObjectHelper.isNeitherNoneNorBlank(strippedSentence):
                         preCompiledEmailBodyList.append(f'{strippedSentence}{c.DOT}')
-    ###-customDebug('preCompiledEmailBodyList', preCompiledEmailBodyList)
+    ###-log.debugIt('preCompiledEmailBodyList', preCompiledEmailBodyList)
 
     emailBodyWithSpecialCharacteresReplacedList = [
         sentence.replace('<=', '&le;').replace('>=', '&ge;').replace('<', '&lt;').replace('>', '&gt;')
@@ -268,7 +268,7 @@ def getCompiledEmailBodyList(plainTextEmail):
         removeDoubleOrMoreSpaces(sentence)
         for sentence in emailBodyWithSpecialCharacteresReplacedList
     ])
-    ###- customDebug('emailBodySentenceList', emailBodySentenceList)
+    ###- log.debugIt('emailBodySentenceList', emailBodySentenceList)
     return emailBodySentenceList
 
 
@@ -461,4 +461,13 @@ def getPunctuationSufix(sentence, token, segment):
                 ]
             )
         ) else c.BLANK
+    )
+
+
+def isNotDiscartableSentence(sentence):
+    return (
+        ObjectHelper.isNeitherNoneNorBlank(sentence) and 
+        StringHelper.isNotBlank(
+            sentence.replace(c.DASH, c.BLANK).replace('—', c.BLANK).replace(c.DOT, c.BLANK)
+        )
     )

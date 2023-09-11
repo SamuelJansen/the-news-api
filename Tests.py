@@ -15,5 +15,6 @@ TestHelper.run(__file__, inspectGlobals=False)
 #         # 'EmailStaticHelperTest.cutAndAppendCuttedSentences',
 #         # 'EmailStaticHelperTest.getCompiledEmailBodyList_newBody'
 #         # 'EmailStaticHelperTest.getCompiledEmailBodyList_weirdOpenColonCloseColonThing'
+#         'EmailStaticHelperTest.getCompiledEmailBodyList_indexError_newBody'
 #     ]
 # )
